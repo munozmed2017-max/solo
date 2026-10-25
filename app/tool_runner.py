@@ -1,20 +1,28 @@
-"""Runs a built agent-builder tool's logic for the "Run tool" button.
+"""Runs a built agent-builder tool's "Run tool" button.
 
-The tool's actual code only exists inside the Antigravity sandbox that
-wrote it (never downloaded - see AGENTS.md), so "running" it here means
-replicating its logic directly against the same synthetic panel, fast
-and without another paid agent call. last_visit_date/last_a1c_date are
-not in the panel CSV, so they're generated deterministically (seeded by
-patient id) rather than randomly, so repeated runs are stable.
+This actually imports and calls the real diabetes_tracker.py that Argon
+wrote (tools/diabetes_tracker/diabetes_tracker.py, extracted verbatim
+from the build log - see AGENTS.md) - it does not reimplement the
+diabetes-detection/counting logic. The data loading needed zero changes:
+Argon's track_diabetes_patients(csv_path) already reads exactly our
+panel.csv schema (id, name, age, sex, conditions, last_a1c,
+visits_last_2yr) and ran unmodified against the real 2,500-row panel.
+
+last_visit_date/last_a1c_date/"overdue" are NOT part of Argon's output -
+the panel has no date columns at all, and its code never computes them.
+They're a clearly-separate UI layer added on top of Argon's real patient
+list, generated deterministically (seeded by patient id) so repeated
+runs are stable. Don't confuse this layer with Argon's own analysis.
 """
 
-import csv
 import hashlib
+import importlib.util
 from datetime import datetime, timedelta
 from pathlib import Path
 
 from app.storage import create_visit, log_activity, save_visit
 
+TOOL_FILE = Path(__file__).resolve().parent.parent / "tools" / "diabetes_tracker" / "diabetes_tracker.py"
 PANEL_CSV = Path(__file__).resolve().parent.parent / "data" / "demo" / "synthetic_panel_2500.csv"
 OVERDUE_DAYS = 180
 
@@ -34,32 +42,39 @@ def _deterministic_days_ago(seed: str, max_days: int) -> int:
     return h % max_days
 
 
+def _load_argon_tracker():
+    spec = importlib.util.spec_from_file_location("argon_diabetes_tracker", TOOL_FILE)
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+    return module
+
+
 def run_diabetes_tracker() -> dict:
+    tracker = _load_argon_tracker()
+    result = tracker.track_diabetes_patients(csv_path=str(PANEL_CSV))
+
     now = datetime.now()
     patients = []
-    with PANEL_CSV.open() as f:
-        for row in csv.DictReader(f):
-            if "diabetes" not in row.get("conditions", "").lower():
-                continue
-            visit_days_ago = _deterministic_days_ago(row["id"] + "visit", 365)
-            a1c_days_ago = _deterministic_days_ago(row["id"] + "a1c", 420)
-            overdue = a1c_days_ago > OVERDUE_DAYS
-            patients.append(
-                {
-                    "id": row["id"],
-                    "name": row["name"],
-                    "age": int(row["age"]),
-                    "last_visit_date": (now - timedelta(days=visit_days_ago)).strftime("%Y-%m-%d"),
-                    "last_a1c": row.get("last_a1c") or None,
-                    "last_a1c_date": (now - timedelta(days=a1c_days_ago)).strftime("%Y-%m-%d"),
-                    "overdue": overdue,
-                }
-            )
+    for p in result["patients"]:
+        visit_days_ago = _deterministic_days_ago(p["id"] + "visit", 365)
+        a1c_days_ago = _deterministic_days_ago(p["id"] + "a1c", 420)
+        patients.append(
+            {
+                "id": p["id"],
+                "name": p["name"],
+                "age": p["age"],
+                "last_visit_date": (now - timedelta(days=visit_days_ago)).strftime("%Y-%m-%d"),
+                "last_a1c": p["last_a1c"],
+                "last_a1c_date": (now - timedelta(days=a1c_days_ago)).strftime("%Y-%m-%d"),
+                "overdue": a1c_days_ago > OVERDUE_DAYS,
+            }
+        )
     patients.sort(key=lambda p: p["name"])
     return {
-        "total": len(patients),
+        "total": result["count"],
         "overdue_count": sum(1 for p in patients if p["overdue"]),
         "patients": patients,
+        "tool_path": "tools/diabetes_tracker/diabetes_tracker.py",
     }
 
 

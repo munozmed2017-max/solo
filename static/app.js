@@ -483,14 +483,16 @@ function diabetesResultsHtml(toolId, data) {
     )
     .join("");
   return `
+    <p class="muted">Running Argon-generated code: <code>${escapeHtml(data.tool_path)}</code></p>
     <p><strong>${data.total} patients with diabetes, ${data.overdue_count} overdue for A1c.</strong></p>
     <button style="width:auto;" onclick="draftA1cReminder('${toolId}')">Draft reminder to patients overdue for A1c</button>
     <div id="reminder-status-${toolId}" class="muted"></div>
     <div style="overflow-x:auto; margin-top:0.6rem;">
       <table class="results-table">
-        <thead><tr><th>Patient</th><th>Age</th><th>Last visit</th><th>Last A1c</th><th>A1c date</th><th>Status</th></tr></thead>
+        <thead><tr><th>Patient</th><th>Age</th><th>Last visit&dagger;</th><th>Last A1c</th><th>A1c date&dagger;</th><th>Status&dagger;</th></tr></thead>
         <tbody>${rows}</tbody>
       </table>
+      <p class="muted">&dagger; Name, age, and A1c values come from Argon's tool. The panel has no date columns, so visit/A1c dates and overdue status are a demo layer added on top - not part of Argon's analysis.</p>
     </div>`;
 }
 
