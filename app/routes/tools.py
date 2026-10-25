@@ -2,7 +2,8 @@ from fastapi import APIRouter, HTTPException
 from pydantic import BaseModel
 
 from app.agents.agent_builder import poll_build, start_build
-from app.storage import list_tools, log_activity
+from app.storage import get_tool, list_tools, log_activity
+from app.tool_runner import draft_a1c_reminder, run_diabetes_tracker
 
 router = APIRouter(prefix="/api")
 
@@ -28,3 +29,23 @@ def api_poll_build(tool_id: str):
         return poll_build(tool_id)
     except ValueError as e:
         raise HTTPException(status_code=404, detail=str(e))
+
+
+@router.post("/tools/{tool_id}/run")
+def api_run_tool(tool_id: str):
+    tool = get_tool(tool_id)
+    if not tool:
+        raise HTTPException(status_code=404, detail="tool not found")
+    if "diabetes" in tool["description"].lower():
+        log_activity("agent builder", "ran diabetes tracker tool", visit_id=None)
+        return {"type": "diabetes_tracker", **run_diabetes_tracker()}
+    return {"type": "unsupported", "message": "Running this tool type isn't wired up yet."}
+
+
+@router.post("/tools/{tool_id}/draft-reminder")
+def api_draft_reminder(tool_id: str):
+    tool = get_tool(tool_id)
+    if not tool:
+        raise HTTPException(status_code=404, detail="tool not found")
+    data = run_diabetes_tracker()
+    return draft_a1c_reminder(data["overdue_count"])

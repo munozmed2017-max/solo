@@ -359,6 +359,20 @@ ul.case-list li.active { background: var(--accent-soft); }
   margin: 0.6rem 0;
 }
 
+.code-block {
+  background: #1a1d29;
+  color: #e4e7f0;
+  border-radius: var(--radius-sm);
+  padding: 0.8rem 1rem;
+  overflow-x: auto;
+  font-family: "SF Mono", Menlo, Consolas, monospace;
+  font-size: 0.8rem;
+  line-height: 1.5;
+  margin: 0.5rem 0;
+}
+
+.code-block code { background: none; padding: 0; }
+
 .verifier-catch {
   background: var(--bad-soft);
   border: 1px solid #fecaca;

@@ -56,8 +56,28 @@ function renderMarkdown(text) {
     }
   }
 
+  let inCode = false;
+  let codeLines = [];
+
   for (const rawLine of lines) {
     const line = rawLine.trimEnd();
+
+    if (/^\s*```/.test(line)) {
+      if (!inCode) {
+        closeList();
+        inCode = true;
+        codeLines = [];
+      } else {
+        inCode = false;
+        html += `<pre class="code-block"><code>${escapeHtml(codeLines.join("\n"))}</code></pre>`;
+      }
+      continue;
+    }
+    if (inCode) {
+      codeLines.push(rawLine);
+      continue;
+    }
+
     if (/^\s*(---+|\*\*\*+)\s*$/.test(line)) {
       closeList();
       html += "<hr>";
@@ -96,6 +116,7 @@ function renderMarkdown(text) {
       html += `<p>${inlineMd(line)}</p>`;
     }
   }
+  if (inCode) html += `<pre class="code-block"><code>${escapeHtml(codeLines.join("\n"))}</code></pre>`;
   closeList();
   return html;
 }
@@ -434,14 +455,68 @@ function toolCard(tool) {
     }
   }
   return `
-    <div class="step">
+    <div class="step" data-tool-id="${tool.id}">
       <h3>${escapeHtml(tool.description)} <span class="status-badge">${tool.status}</span></h3>
       <p>${passedBadge} ${countLine}</p>
+      <button class="secondary" style="width:auto;" onclick="runTool('${tool.id}')">Run tool</button>
+      <div class="tool-run-output"></div>
       <details>
         <summary>Full build log</summary>
         <div class="doc-text">${renderMarkdown(tool.output)}</div>
       </details>
     </div>`;
+}
+
+function diabetesResultsHtml(toolId, data) {
+  const rows = data.patients
+    .map(
+      (p) => `
+    <tr>
+      <td>${escapeHtml(p.name)}</td>
+      <td>${p.age}</td>
+      <td>${escapeHtml(p.last_visit_date)}</td>
+      <td>${p.last_a1c != null ? escapeHtml(p.last_a1c) : "&mdash;"}</td>
+      <td>${escapeHtml(p.last_a1c_date)}</td>
+      <td>${p.overdue ? '<span class="approved-no">A1c overdue</span>' : '<span class="muted">on track</span>'}</td>
+    </tr>`
+    )
+    .join("");
+  return `
+    <p><strong>${data.total} patients with diabetes, ${data.overdue_count} overdue for A1c.</strong></p>
+    <button style="width:auto;" onclick="draftA1cReminder('${toolId}')">Draft reminder to patients overdue for A1c</button>
+    <div id="reminder-status-${toolId}" class="muted"></div>
+    <div style="overflow-x:auto; margin-top:0.6rem;">
+      <table class="results-table">
+        <thead><tr><th>Patient</th><th>Age</th><th>Last visit</th><th>Last A1c</th><th>A1c date</th><th>Status</th></tr></thead>
+        <tbody>${rows}</tbody>
+      </table>
+    </div>`;
+}
+
+async function runTool(toolId) {
+  const container = document.querySelector(`[data-tool-id="${toolId}"] .tool-run-output`);
+  container.innerHTML = '<p class="muted">Running...</p>';
+  try {
+    const res = await api(`/api/tools/${toolId}/run`, { method: "POST" });
+    if (res.type === "diabetes_tracker") {
+      container.innerHTML = diabetesResultsHtml(toolId, res);
+    } else {
+      container.innerHTML = `<p class="muted">${escapeHtml(res.message || "No results.")}</p>`;
+    }
+  } catch (e) {
+    container.innerHTML = `<p class="approved-no">Failed: ${escapeHtml(e.message)}</p>`;
+  }
+}
+
+async function draftA1cReminder(toolId) {
+  const status = document.getElementById(`reminder-status-${toolId}`);
+  status.textContent = "Drafting...";
+  try {
+    const res = await api(`/api/tools/${toolId}/draft-reminder`, { method: "POST" });
+    status.innerHTML = `<span class="approved-yes">Draft ready for ${res.recipient_count} recipients &mdash; see Approval queue.</span>`;
+  } catch (e) {
+    status.textContent = "Failed: " + e.message;
+  }
 }
 
 async function renderAgentBuilder() {
