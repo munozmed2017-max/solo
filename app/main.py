@@ -3,14 +3,20 @@ from fastapi.staticfiles import StaticFiles
 from pathlib import Path
 
 from app.models import call_model
-from app.routes.cases import router as cases_router
+from app.routes.activity import router as activity_router
+from app.routes.approvals import router as approvals_router
+from app.routes.demo import router as demo_router
+from app.routes.visits import router as visits_router
 from app.storage import ensure_panel_seeded
 
 ROOT = Path(__file__).resolve().parent.parent
 
-app = FastAPI(title="own-practice")
+app = FastAPI(title="Solo")
 
-app.include_router(cases_router)
+app.include_router(visits_router)
+app.include_router(approvals_router)
+app.include_router(activity_router)
+app.include_router(demo_router)
 
 
 @app.on_event("startup")

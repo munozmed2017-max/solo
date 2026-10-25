@@ -39,15 +39,24 @@ def _revise(module, base_input: str, previous_draft: str, failures: list) -> str
     return _draft(module, revision_input)
 
 
-def run_with_verification(module, case: dict, patient_chart: str) -> dict:
+def run_with_verification(
+    module, case: dict, patient_chart: str, inject_error_text: str | None = None
+) -> dict:
     """Draft `module`'s document for `case`, then verify/revise up to MAX_ROUNDS times.
 
     Returns {"output": final draft text, "resolved": bool, "rounds": [...]}.
     `resolved` is False if the verifier still failed the document after the
     last round - the physician must review it manually in that case.
+
+    `inject_error_text`, when set, is appended to the round-1 draft before
+    it's ever verified - the DEMO_PLANTED_ERROR switch used to prove the
+    verifier actually catches a planted error instead of rubber-stamping.
+    It's injected once, not reapplied on revisions.
     """
     base_input = module.build_input(case)
     draft_text = _draft(module, base_input)
+    if inject_error_text:
+        draft_text = f"{draft_text.rstrip()}\n\n{inject_error_text}"
     context = f"{patient_chart}\n\n{base_input}"
 
     rounds = []

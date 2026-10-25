@@ -3,8 +3,15 @@ __pycache__/
 .venv/
 venv/
 .env
-data/cases/*
-!data/cases/.gitkeep
+data/panel/panel.json
+data/visits/*
+!data/visits/.gitkeep
+data/practice/*
+!data/practice/.gitkeep
+data/tools/*
+!data/tools/.gitkeep
+data/activity.jsonl
+data/demo/flags.json
 runs/*
 !runs/.gitkeep
 .DS_Store

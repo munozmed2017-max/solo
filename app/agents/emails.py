@@ -1,11 +1,11 @@
-from app.agents.base import step_output
-
 ROLE = "emails"
 THINKING_LEVEL = "low"
 
 
-def build_input(case: dict) -> str:
+def build_input(visit: dict) -> str:
+    scribe_note = visit["documents"].get("scribe", {}).get("output", "")
+    prescription = visit["documents"].get("prescription", {}).get("output", "")
     return (
-        f"Clinical note:\n{step_output(case, 'scribe')}\n\n"
-        f"Prescription draft:\n{step_output(case, 'prescription')}\n"
+        f"Clinical note:\n{scribe_note}\n\n"
+        f"Prescription draft:\n{prescription}\n"
     )

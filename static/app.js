@@ -1,4 +1,4 @@
-const state = { panel: [], cases: [], activeCaseId: null };
+const state = { currentTab: "visits", activeVisitId: null };
 
 async function api(path, opts) {
   const res = await fetch(path, {
@@ -12,32 +12,146 @@ async function api(path, opts) {
   return res.json();
 }
 
-async function loadPanel() {
-  state.panel = await api("/api/panel");
-  const select = document.getElementById("patient-select");
-  select.innerHTML = state.panel
-    .map((p) => `<option value="${p.id}">${p.name} (DOB ${p.dob})</option>`)
-    .join("");
+function escapeHtml(text) {
+  const div = document.createElement("div");
+  div.textContent = text || "";
+  return div.innerHTML;
 }
 
-async function loadCases() {
-  state.cases = await api("/api/cases");
-  const list = document.getElementById("case-list");
-  if (state.cases.length === 0) {
-    list.innerHTML = '<li class="muted">No cases yet.</li>';
-    return;
-  }
-  list.innerHTML = state.cases
-    .map(
-      (c) => `
-      <li data-id="${c.id}" class="${c.id === state.activeCaseId ? "active" : ""}">
-        ${c.patient_name} &mdash; ${c.reason}
-        <span class="status-badge">${c.status}</span>
-      </li>`
-    )
+const DOC_LABELS = {
+  scribe: "Scribe note",
+  prescription: "Prescription (SIMULATED FAX)",
+  emails: "Patient summary email",
+};
+
+// ---------- Tab switching ----------
+
+document.querySelectorAll(".tab-btn").forEach((btn) => {
+  btn.addEventListener("click", () => switchTab(btn.dataset.tab));
+});
+
+function switchTab(tab) {
+  state.currentTab = tab;
+  document.querySelectorAll(".tab-btn").forEach((b) => b.classList.toggle("active", b.dataset.tab === tab));
+  render();
+}
+
+function render() {
+  const map = {
+    visits: renderVisits,
+    approvals: renderApprovals,
+    activity: renderActivity,
+    "agent-builder": renderAgentBuilderPlaceholder,
+    results: renderResultsPlaceholder,
+    practice: renderPracticePlaceholder,
+    booking: renderBookingPlaceholder,
+  };
+  (map[state.currentTab] || renderVisits)();
+}
+
+// ---------- Visits ----------
+
+async function renderVisits() {
+  const container = document.getElementById("tab-content");
+  const visits = await api("/api/visits");
+  container.innerHTML = `
+    <div class="two-col">
+      <section class="panel">
+        <h2>Visits</h2>
+        <ul class="case-list" id="visit-list">
+          ${
+            visits.length
+              ? visits
+                  .map(
+                    (v) => `
+              <li data-id="${v.id}" class="${v.id === state.activeVisitId ? "active" : ""}">
+                ${escapeHtml(v.patient_name)} &mdash; ${escapeHtml(v.reason)}
+                <span class="status-badge">${v.status}</span>
+                ${v.needs_manual_review ? '<span class="approved-no">needs review</span>' : ""}
+              </li>`
+                  )
+                  .join("")
+              : '<li class="muted">No visits booked yet. Use the Booking page tab (coming soon) or POST /api/booking.</li>'
+          }
+        </ul>
+      </section>
+      <section class="panel" id="visit-detail"><p class="muted">Select a visit.</p></section>
+    </div>
+  `;
+  container.querySelectorAll("#visit-list li[data-id]").forEach((li) => {
+    li.addEventListener("click", () => openVisit(li.dataset.id));
+  });
+  if (state.activeVisitId) await openVisit(state.activeVisitId);
+}
+
+async function openVisit(visitId) {
+  state.activeVisitId = visitId;
+  const v = await api(`/api/visits/${visitId}`);
+  const detail = document.getElementById("visit-detail");
+  if (!detail) return;
+  const patient = v.patient;
+  const recordsHtml = `
+    <h3>Records</h3>
+    <p><strong>${escapeHtml(patient.name)}</strong> (DOB ${escapeHtml(patient.dob || "unknown")})</p>
+    <p>Conditions: ${escapeHtml((patient.conditions || []).join(", ") || "none on file")}</p>
+    <p>Meds: ${escapeHtml((patient.meds || []).join(", ") || "none on file")}</p>
+    <p>Labs: ${escapeHtml((patient.labs || []).map((l) => `${l.date} ${l.test}: ${l.result}`).join("; ") || "none on file")}</p>
+    <p>Vitals: ${escapeHtml(JSON.stringify(patient.vitals || {}))}</p>
+  `;
+  const canApprove = !["awaiting_approval", "completed"].includes(v.status);
+  const docsHtml = Object.entries(v.documents || {})
+    .map(([docType, doc]) => documentBlock(v.id, docType, doc))
     .join("");
-  list.querySelectorAll("li[data-id]").forEach((li) => {
-    li.addEventListener("click", () => openCase(li.dataset.id));
+  const reviewBanner = v.needs_manual_review
+    ? '<p class="approved-no">One or more documents never passed verification after 3 rounds &mdash; review before approving.</p>'
+    : "";
+  detail.innerHTML = `
+    <h2>Visit detail</h2>
+    <p><span class="status-badge">${v.status}</span></p>
+    ${reviewBanner}
+    <div class="two-col">
+      <div>
+        <h3>Intake summary</h3>
+        <pre>${escapeHtml(v.intake_summary || "(not generated yet)")}</pre>
+        ${recordsHtml}
+      </div>
+      <div>
+        <label>Transcript</label>
+        <textarea id="transcript-box" rows="8">${escapeHtml(v.transcript)}</textarea>
+        <label>Physician plan</label>
+        <textarea id="plan-box" rows="4">${escapeHtml(v.physician_plan)}</textarea>
+        <button id="save-transcript-btn">Save</button>
+        <button id="approve-visit-btn" ${canApprove ? "" : "disabled"}>Approve &amp; run pipeline</button>
+      </div>
+    </div>
+    <div id="visit-documents">${docsHtml}</div>
+  `;
+  document.getElementById("save-transcript-btn").addEventListener("click", async () => {
+    await api(`/api/visits/${visitId}`, {
+      method: "PATCH",
+      body: JSON.stringify({
+        transcript: document.getElementById("transcript-box").value,
+        physician_plan: document.getElementById("plan-box").value,
+      }),
+    });
+  });
+  document.getElementById("approve-visit-btn").addEventListener("click", async () => {
+    const btn = document.getElementById("approve-visit-btn");
+    btn.disabled = true;
+    btn.textContent = "Running scribe -> prescription -> email pipeline... can take a few minutes";
+    await api(`/api/visits/${visitId}`, {
+      method: "PATCH",
+      body: JSON.stringify({
+        transcript: document.getElementById("transcript-box").value,
+        physician_plan: document.getElementById("plan-box").value,
+      }),
+    });
+    try {
+      await api(`/api/visits/${visitId}/approve`, { method: "POST" });
+      await openVisit(visitId);
+    } catch (e) {
+      alert("Pipeline failed: " + e.message);
+    }
   });
 }
 
@@ -61,116 +175,175 @@ function roundsBlock(rounds) {
     .join("");
 }
 
-function stepBlock(caseId, step, index) {
-  const approved =
-    step.approved === true
-      ? '<span class="approved-yes">approved</span>'
-      : step.approved === false
-      ? '<span class="approved-no">rejected</span>'
-      : '<span class="muted">not reviewed</span>';
-  const rounds = step.verification_rounds || [];
-  const resolvedBadge = step.resolved
+function documentBlock(visitId, docType, doc) {
+  const rounds = doc.verification_rounds || [];
+  const resolvedBadge = doc.resolved
     ? `<span class="approved-yes">verifier passed (round ${rounds.length})</span>`
     : '<span class="approved-no">verifier did NOT pass after 3 rounds &mdash; needs manual review</span>';
+  const approval = doc.approval || { status: "pending" };
+  const canSend = approval.status === "approved" && !doc.sent;
   return `
     <div class="step">
-      <h3>${step.agent} <small>${step.model} / thinking: ${step.thinking_level}</small></h3>
+      <h3>${DOC_LABELS[docType] || docType} <span class="status-badge">${approval.status}</span></h3>
       <p>${resolvedBadge}</p>
-      <pre>${escapeHtml(step.output)}</pre>
+      <pre>${escapeHtml(doc.output)}</pre>
       <details>
-        <summary>Verification log (${rounds.length} round${rounds.length === 1 ? "" : "s"})</summary>
+        <summary>Verifier rounds (${rounds.length})</summary>
         ${roundsBlock(rounds)}
       </details>
       <div class="review-row">
-        ${approved}
-        <button class="ok" style="width:auto" onclick="reviewStep('${caseId}', ${index}, true)">Approve</button>
-        <button class="bad" style="width:auto" onclick="reviewStep('${caseId}', ${index}, false)">Reject</button>
+        <button class="ok" onclick="decideDocument('${visitId}','${docType}','approved')">Approve</button>
+        <button onclick="editDocument('${visitId}','${docType}')">Edit</button>
+        <button class="bad" onclick="decideDocument('${visitId}','${docType}','rejected')">Reject</button>
+        ${
+          doc.sent
+            ? '<span class="approved-yes">sent</span>'
+            : `<button ${canSend ? "" : "disabled"} onclick="sendDocument('${visitId}','${docType}')">Send (simulated)</button>`
+        }
       </div>
     </div>`;
 }
 
-function escapeHtml(text) {
-  const div = document.createElement("div");
-  div.textContent = text || "";
-  return div.innerHTML;
+async function decideDocument(visitId, docType, status) {
+  await api(`/api/visits/${visitId}/documents/${docType}/decision`, {
+    method: "POST",
+    body: JSON.stringify({ status }),
+  });
+  render();
 }
 
-async function openCase(caseId) {
-  state.activeCaseId = caseId;
-  await loadCases();
-  const c = await api(`/api/cases/${caseId}`);
-  const detail = document.getElementById("case-detail");
-  const reviewBanner = c.needs_manual_review
-    ? '<p class="approved-no">One or more steps never passed verification after 3 rounds &mdash; review those steps before acting on this case.</p>'
-    : "";
-  detail.innerHTML = `
-    <h2>Case detail</h2>
-    <p><strong>${c.patient.name}</strong> &mdash; ${c.reason} <span class="status-badge">${c.status}</span></p>
-    <p class="muted">Raw notes: ${escapeHtml(c.notes)}</p>
-    ${reviewBanner}
-    <button id="run-pipeline-btn">Run back-office pipeline</button>
-    <div id="steps">${c.steps.map((s, i) => stepBlock(c.id, s, i)).join("") || '<p class="muted">No steps run yet.</p>'}</div>
+async function editDocument(visitId, docType) {
+  const visit = await api(`/api/visits/${visitId}`);
+  const current = visit.documents[docType].output;
+  const edited = prompt("Edit document text:", current);
+  if (edited === null) return;
+  await api(`/api/visits/${visitId}/documents/${docType}/decision`, {
+    method: "POST",
+    body: JSON.stringify({ status: "approved", edited_text: edited, comment: "edited by physician" }),
+  });
+  render();
+}
+
+async function sendDocument(visitId, docType) {
+  try {
+    await api(`/api/visits/${visitId}/documents/${docType}/send`, { method: "POST" });
+  } catch (e) {
+    alert("Send blocked: " + e.message);
+  }
+  render();
+}
+
+// ---------- Approval queue ----------
+
+async function renderApprovals() {
+  const container = document.getElementById("tab-content");
+  const items = await api("/api/approvals");
+  container.innerHTML = `
+    <section class="panel">
+      <h2>Approval queue</h2>
+      ${
+        items.length
+          ? items
+              .map(
+                (it) => `
+        <div class="step">
+          <h3>${escapeHtml(it.patient_name)} &mdash; ${DOC_LABELS[it.doc_type] || it.doc_type} <span class="status-badge">${it.status}</span></h3>
+          <pre>${escapeHtml(it.output)}</pre>
+          <div class="review-row">
+            <button class="ok" onclick="decideDocument('${it.visit_id}','${it.doc_type}','approved')">Approve</button>
+            <button onclick="editDocument('${it.visit_id}','${it.doc_type}')">Edit</button>
+            <button class="bad" onclick="decideDocument('${it.visit_id}','${it.doc_type}','rejected')">Reject</button>
+            ${
+              it.sent
+                ? '<span class="approved-yes">sent</span>'
+                : `<button ${it.status === "approved" ? "" : "disabled"} onclick="sendDocument('${it.visit_id}','${it.doc_type}')">Send (simulated)</button>`
+            }
+          </div>
+        </div>`
+              )
+              .join("")
+          : '<p class="muted">Nothing waiting.</p>'
+      }
+    </section>
   `;
-  document.getElementById("run-pipeline-btn").addEventListener("click", () => runPipeline(caseId));
 }
 
-async function runPipeline(caseId) {
-  const btn = document.getElementById("run-pipeline-btn");
-  btn.disabled = true;
-  btn.textContent = "Running agents... (can take a few minutes)";
-  try {
-    await api(`/api/cases/${caseId}/run`, { method: "POST" });
-    await openCase(caseId);
-  } catch (e) {
-    alert("Pipeline failed: " + e.message);
-    btn.disabled = false;
-    btn.textContent = "Run back-office pipeline";
-  }
+// ---------- Activity log ----------
+
+async function renderActivity() {
+  const container = document.getElementById("tab-content");
+  const entries = await api("/api/activity");
+  container.innerHTML = `
+    <section class="panel">
+      <h2>Activity log</h2>
+      <ul class="activity-list">
+        ${
+          entries.length
+            ? entries
+                .map(
+                  (e) => `
+          <li>
+            <span class="muted">${e.time}</span>
+            <strong>${escapeHtml(e.actor)}</strong>: ${escapeHtml(e.action)}
+            ${e.detail ? "&mdash; " + escapeHtml(e.detail) : ""}
+            ${e.visit_id ? `<span class="status-badge">${e.visit_id}</span>` : ""}
+          </li>`
+                )
+                .join("")
+            : '<li class="muted">No activity yet.</li>'
+        }
+      </ul>
+    </section>
+  `;
 }
 
-async function reviewStep(caseId, index, approved) {
-  await api(`/api/cases/${caseId}/steps/${index}/review`, {
-    method: "POST",
-    body: JSON.stringify({ approved }),
-  });
-  await openCase(caseId);
+// ---------- Placeholders for later build phases ----------
+
+function renderAgentBuilderPlaceholder() {
+  document.getElementById("tab-content").innerHTML = `
+    <section class="panel">
+      <h2>Agent builder</h2>
+      <p class="muted">Coming next: describe a tool, gemini-4-argon (Antigravity) writes and tests it against a synthetic 2,500-patient panel, and it appears under My tools.</p>
+    </section>`;
 }
 
-document.getElementById("create-case-btn").addEventListener("click", async () => {
-  const patient_id = document.getElementById("patient-select").value;
-  const reason = document.getElementById("reason-input").value.trim();
-  const notes = document.getElementById("notes-input").value.trim();
-  if (!patient_id || !reason) {
-    alert("Pick a patient and enter a reason for visit.");
-    return;
-  }
-  const c = await api("/api/cases", {
-    method: "POST",
-    body: JSON.stringify({ patient_id, reason, notes }),
-  });
-  document.getElementById("reason-input").value = "";
-  document.getElementById("notes-input").value = "";
-  await loadCases();
-  await openCase(c.id);
-});
+function renderResultsPlaceholder() {
+  document.getElementById("tab-content").innerHTML = `
+    <section class="panel">
+      <h2>Results</h2>
+      <p class="muted">Coming next: 20 synthetic cases run three ways (Flash baseline, Argon agents, Argon agents + verifier) with coverage, errors, and errors caught.</p>
+    </section>`;
+}
 
-document.getElementById("agent-builder-btn").addEventListener("click", async () => {
-  const description = document.getElementById("agent-builder-input").value.trim();
-  if (!description) return;
-  const out = document.getElementById("agent-builder-output");
-  out.style.display = "block";
-  out.textContent =
-    "Spinning up a real Antigravity sandbox with gemini-4-argon to write and test this... can take a minute or two, uses real API usage.";
-  try {
-    const res = await api("/api/agent-builder", {
+function renderPracticePlaceholder() {
+  document.getElementById("tab-content").innerHTML = `
+    <section class="panel">
+      <h2>Practice setup</h2>
+      <p class="muted">Coming next: practice name, hours, visit fee, booking link, and QR code.</p>
+    </section>`;
+}
+
+function renderBookingPlaceholder() {
+  document.getElementById("tab-content").innerHTML = `
+    <section class="panel">
+      <h2>Booking page (public)</h2>
+      <p class="muted">Coming next: public booking form - name, DOB, reason, symptom questions, file upload. Banner: "Use made-up information only."</p>
+    </section>`;
+}
+
+// ---------- Header controls ----------
+
+async function initHeader() {
+  const flags = await api("/api/demo/flags");
+  const toggle = document.getElementById("demo-error-toggle");
+  toggle.checked = !!flags.DEMO_PLANTED_ERROR;
+  toggle.addEventListener("change", async () => {
+    await api("/api/demo/flags/DEMO_PLANTED_ERROR", {
       method: "POST",
-      body: JSON.stringify({ description }),
+      body: JSON.stringify({ value: toggle.checked }),
     });
-    out.textContent = `[status: ${res.status}] environment: ${res.environment_id}\n\n${res.output}`;
-  } catch (e) {
-    out.textContent = "Failed: " + e.message;
-  }
-});
+  });
+}
 
 document.getElementById("test-argon-btn").addEventListener("click", async () => {
   const span = document.getElementById("test-argon-result");
@@ -183,5 +356,5 @@ document.getElementById("test-argon-btn").addEventListener("click", async () => 
   }
 });
 
-loadPanel();
-loadCases();
+initHeader();
+render();

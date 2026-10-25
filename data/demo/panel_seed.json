@@ -1,26 +1,35 @@
 [
   {
-    "id": "pt_demo_1",
-    "name": "Jordan Ellis",
-    "dob": "1986-04-12",
-    "insurer": "BlueHarbor Health Plan",
-    "conditions": ["Type 2 diabetes", "Hypertension"],
-    "meds": ["Metformin 500mg BID", "Lisinopril 10mg daily"]
+    "name": "Margaret Smith",
+    "dob": "1939-02-11",
+    "age": 87,
+    "conditions": ["Heart failure with reduced ejection fraction (HFrEF)"],
+    "meds": [
+      "Carvedilol 6.25 mg twice daily",
+      "Furosemide 40 mg daily",
+      "Spironolactone 25 mg daily",
+      "Sacubitril/valsartan 24/26 mg twice daily"
+    ],
+    "labs": [
+      {"date": "2026-09-12", "test": "Potassium", "result": "4.3 mEq/L (normal)"},
+      {"date": "2025-08-20", "test": "Potassium", "result": "5.4 mEq/L (elevated, historical)"}
+    ],
+    "vitals": {
+      "weight_kg": "70-72",
+      "spo2": "98%",
+      "activity": "walks about 3 miles a day"
+    },
+    "insurer": "Demo Health Plan"
   },
   {
-    "id": "pt_demo_2",
-    "name": "Priya Nair",
-    "dob": "1994-11-02",
-    "insurer": "Lakeview Mutual",
-    "conditions": ["Seasonal allergic rhinitis"],
-    "meds": ["Cetirizine 10mg PRN"]
-  },
-  {
-    "id": "pt_demo_3",
-    "name": "Marcus Webb",
-    "dob": "1958-07-21",
-    "insurer": "BlueHarbor Health Plan",
-    "conditions": ["COPD", "Osteoarthritis"],
-    "meds": ["Tiotropium inhaler daily", "Acetaminophen 500mg PRN"]
+    "name": "Jhonatan",
+    "dob": "1990-01-01",
+    "conditions": [],
+    "meds": [],
+    "labs": [
+      {"date": "2026-10-24", "test": "Allergy panel", "result": "Strongly positive for cat dander"}
+    ],
+    "vitals": {},
+    "insurer": "Demo Health Plan"
   }
 ]
