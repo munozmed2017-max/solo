@@ -21,6 +21,7 @@ PANEL_FILE = PANEL_DIR / "panel.json"
 DEMO_DIR = ROOT / "data" / "demo"
 PANEL_SEED_FILE = DEMO_DIR / "panel_seed.json"
 FLAGS_FILE = DEMO_DIR / "flags.json"
+MARGARET_SEED_FILE = DEMO_DIR / "margaret_visit_seed.json"
 
 VISITS_DIR = ROOT / "data" / "visits"
 RUNS_DIR = ROOT / "runs"
@@ -124,9 +125,34 @@ def create_visit(booking: dict) -> dict:
         "physician_plan": booking.get("plan_prefill", ""),
         "documents": {},
         "needs_manual_review": False,
+        "appointment_time": booking.get("appointment_time") or None,
+        "payment_status": "unpaid",
+        "paid_amount": None,
     }
     save_visit(visit)
     return visit
+
+
+def mark_visit_paid(visit_id: str, amount: str) -> dict:
+    visit = get_visit(visit_id)
+    if not visit:
+        raise ValueError("visit not found")
+    visit["payment_status"] = "paid (simulated)"
+    visit["paid_amount"] = amount
+    visit["paid_at"] = now_iso()
+    save_visit(visit)
+    return visit
+
+
+def get_earnings() -> dict:
+    paid = [v for v in list_visits() if v.get("payment_status") == "paid (simulated)"]
+    total = 0.0
+    for v in paid:
+        try:
+            total += float(str(v.get("paid_amount", "0")).replace("$", "").strip())
+        except ValueError:
+            pass
+    return {"paid_visit_count": len(paid), "total_amount": round(total, 2)}
 
 
 def save_visit(visit: dict) -> None:
@@ -145,8 +171,13 @@ def list_visits() -> list[dict]:
     if not VISITS_DIR.exists():
         return []
     visits = [json.loads(p.read_text()) for p in VISITS_DIR.glob("*.json")]
-    visits.sort(key=lambda v: v.get("created_at", ""), reverse=True)
-    return visits
+    # Scheduled visits sort by appointment time (soonest first); visits with
+    # no appointment_time (e.g. Margaret's demo case) sort after, newest first.
+    scheduled = sorted((v for v in visits if v.get("appointment_time")), key=lambda v: v["appointment_time"])
+    unscheduled = sorted(
+        (v for v in visits if not v.get("appointment_time")), key=lambda v: v.get("created_at", ""), reverse=True
+    )
+    return scheduled + unscheduled
 
 
 def save_run_log(visit_id: str, run: dict) -> str:
@@ -155,6 +186,26 @@ def save_run_log(visit_id: str, run: dict) -> str:
     path = RUNS_DIR / f"{visit_id}_{run_id}.json"
     path.write_text(json.dumps(run, indent=2))
     return run_id
+
+
+def reset_demo() -> dict:
+    """Clears all visits (and with them, their approvals) except Margaret's
+    demo case, restored from the fixed seed captured earlier. Deliberately
+    does NOT touch the tools registry, results run, or practice settings -
+    those are expensive/slow to regenerate and aren't part of what "reset"
+    means here."""
+    if VISITS_DIR.exists():
+        for f in VISITS_DIR.glob("*.json"):
+            f.unlink()
+    VISITS_DIR.mkdir(parents=True, exist_ok=True)
+    (VISITS_DIR / ".gitkeep").write_text("")
+    restored = False
+    if MARGARET_SEED_FILE.exists():
+        seed = json.loads(MARGARET_SEED_FILE.read_text())
+        _visit_path(seed["id"]).write_text(json.dumps(seed, indent=2))
+        restored = True
+    log_activity("physician", "reset demo data (visits/approvals cleared, Margaret's case restored)")
+    return {"margaret_restored": restored}
 
 
 # ---------- Approval queue (derived from visits' documents) ----------

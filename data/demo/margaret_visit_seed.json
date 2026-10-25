@@ -1,0 +1,121 @@
+{
+  "id": "visit_bd380a8935",
+  "created_at": "2026-10-25T22:09:54+00:00",
+  "patient": {
+    "name": "Margaret Smith",
+    "dob": "1939-02-11",
+    "age": 87,
+    "conditions": [
+      "Heart failure with reduced ejection fraction (HFrEF)"
+    ],
+    "meds": [
+      "Carvedilol 6.25 mg twice daily",
+      "Furosemide 40 mg daily",
+      "Spironolactone 25 mg daily",
+      "Sacubitril/valsartan 24/26 mg twice daily"
+    ],
+    "labs": [
+      {
+        "date": "2026-09-12",
+        "test": "Potassium",
+        "result": "4.3 mEq/L (normal)"
+      },
+      {
+        "date": "2025-08-20",
+        "test": "Potassium",
+        "result": "5.4 mEq/L (elevated, historical)"
+      }
+    ],
+    "vitals": {
+      "weight_kg": "70-72",
+      "spo2": "98%",
+      "activity": "walks about 3 miles a day"
+    },
+    "insurer": "Demo Health Plan",
+    "pharmacy": "CVS Pharmacy, 123 Main St"
+  },
+  "booking": {
+    "name": "Margaret Smith",
+    "dob": "1939-02-11",
+    "reason": "Ran out of heart failure medications; primary doctor is away and nearest urgent care is 2 hours away.",
+    "symptoms": {
+      "shortness_of_breath": "No",
+      "cough": "No",
+      "weight_gain": "No",
+      "orthopnea": "No"
+    },
+    "uploaded_files": []
+  },
+  "status": "awaiting_approval",
+  "intake_summary": "**Telemedicine Intake Summary**\n\n* **Patient:** Margaret Smith (DOB: 1939-02-11)\n* **Signing Physician:** Dr. Jhonatan Munoz\n* **Pharmacy on File:** CVS Pharmacy, 123 Main St\n\n---\n\n* **Chief Complaint:** Needs refill of heart failure medications (ran out; primary doctor is away; nearest urgent care is 2 hours away).\n* **Relevant History:**\n  * **Condition:** Heart failure with reduced ejection fraction (HFrEF)\n  * **Medications:** Carvedilol 6.25 mg BID, Furosemide 40 mg daily, Spironolactone 25 mg daily, Sacubitril/valsartan 24/26 mg BID\n  * **Labs:** Potassium 4.3 mEq/L (normal, 2026-09-12); historical elevated Potassium 5.4 mEq/L (2025-08-20)\n  * **Baseline Vitals/Activity:** Weight 70\u201372 kg, SpO2 98%, walks ~3 miles/day\n* **Key Details Flagged:**\n  * High-risk medication gap for guideline-directed medical therapy in an HFrEF patient.\n  * Negative heart failure symptom screen: reports no shortness of breath, cough, weight gain, or orthopnea.\n* **Missing Information to Clarify:**\n  * Exactly when she took her last doses and how many days she has been without medications.\n  * Current objective vitals (blood pressure, heart rate, and exact current weight).\n  * Presence of peripheral edema or chest discomfort.\n  * Recent renal function/basic metabolic panel status (specifically creatinine/eGFR alongside potassium).",
+  "transcript": "Physician: Hi Margaret, what is going on today?\nMargaret: I ran out of my heart pills two days ago. My regular doctor is out of town and the nearest urgent care is two hours away.\nPhysician: Any shortness of breath, cough, swelling, or trouble breathing lying flat?\nMargaret: No, none of that. I feel fine actually, I still walk about three miles most days.\nPhysician: Good. Let me check your labs - potassium from September 12th was normal at 4.3, and your weight has been steady at 70 to 72 kilos. Oxygen is good at 98 percent.\nMargaret: That is good to hear.\nPhysician: I am going to send a bridge refill of your usual four medications to get you through until you can see your regular doctor. Please schedule with them as soon as they are back.",
+  "physician_plan": "Bridge refill of all four medications, 30-day supply, no refills. Advise follow-up with PCP when back; return sooner if SOB, weight gain >2 kg, orthopnea, or leg swelling.",
+  "documents": {
+    "scribe": {
+      "output": "**DRAFT CLINICAL NOTE - FOR PHYSICIAN REVIEW AND SIGNATURE**\n\n**Patient Name:** Margaret Smith  \n**Date of Birth:** 1939-02-11  \n**Pharmacy on File:** CVS Pharmacy, 123 Main St  \n\n---\n\n### **Subjective**\nMargaret Smith is a patient with a history of heart failure with reduced ejection fraction (HFrEF) presenting via telemedicine for a medication refill. She reports running out of her heart failure medications two days ago. Her regular primary care physician is currently out of town, and the nearest urgent care is two hours away. \n\nHer current medication regimen on file includes:\n* Carvedilol 6.25 mg twice daily\n* Furosemide 40 mg daily\n* Spironolactone 25 mg daily\n* Sacubitril/valsartan 24/26 mg twice daily\n\nShe reports feeling fine and maintains a baseline activity level of walking about three miles most days. She denies any shortness of breath, cough, swelling, weight gain, or trouble breathing while lying flat (orthopnea).\n\n### **Objective**\n* **Vitals:** \n  * Weight: 70\u201372 kg (steady per record/visit)\n  * SpO2: 98%\n  * Blood Pressure: Not documented\n  * Heart Rate: Not documented\n  * Temperature / Respiratory Rate: Not documented\n* **Physical Exam:** Not documented (telemedicine visit).\n* **Laboratory Data on File:**\n  * 2026-09-12: Potassium 4.3 mEq/L (normal)\n  * 2025-08-20: Potassium 5.4 mEq/L (elevated, historical)\n\n### **Assessment**\n* **Heart failure with reduced ejection fraction (HFrEF):** Clinically stable and asymptomatic with maintained exercise tolerance (walking ~3 miles/day), steady weight, and normal recent potassium (4.3 mEq/L). Currently experiencing a two-day gap in her regular four-medication regimen due to her primary care physician being away.\n\n### **Plan**\n* Bridge refill of all four medications (Carvedilol 6.25 mg twice daily, Furosemide 40 mg daily, Spironolactone 25 mg daily, Sacubitril/valsartan 24/26 mg twice daily), 30-day supply, no refills.\n* Advise follow-up with PCP as soon as they are back.\n* Return sooner if shortness of breath (SOB), weight gain >2 kg, orthopnea, or leg swelling.\n\n---\n**Signed (Draft):**  \nDr. Jhonatan Munoz",
+      "model": "gemini-4-argon",
+      "thinking_level": "medium",
+      "resolved": true,
+      "verification_rounds": [
+        {
+          "round": 1,
+          "draft": "**DRAFT CLINICAL NOTE - FOR PHYSICIAN REVIEW AND SIGNATURE**\n\n**Patient Name:** Margaret Smith  \n**Date of Birth:** 1939-02-11  \n**Pharmacy on File:** CVS Pharmacy, 123 Main St  \n\n---\n\n### **Subjective**\nMargaret Smith is a patient with a history of heart failure with reduced ejection fraction (HFrEF) presenting via telemedicine for a medication refill. She reports running out of her heart failure medications two days ago. Her regular primary care physician is currently out of town, and the nearest urgent care is two hours away. \n\nHer current medication regimen on file includes:\n* Carvedilol 6.25 mg twice daily\n* Furosemide 40 mg daily\n* Spironolactone 25 mg daily\n* Sacubitril/valsartan 24/26 mg twice daily\n\nShe reports feeling fine and maintains a baseline activity level of walking about three miles most days. She denies any shortness of breath, cough, swelling, weight gain, or trouble breathing while lying flat (orthopnea).\n\n### **Objective**\n* **Vitals:** \n  * Weight: 70\u201372 kg (steady per record/visit)\n  * SpO2: 98%\n  * Blood Pressure: Not documented\n  * Heart Rate: Not documented\n  * Temperature / Respiratory Rate: Not documented\n* **Physical Exam:** Not documented (telemedicine visit).\n* **Laboratory Data on File:**\n  * 2026-09-12: Potassium 4.3 mEq/L (normal)\n  * 2025-08-20: Potassium 5.4 mEq/L (elevated, historical)\n\n### **Assessment**\n* **Heart failure with reduced ejection fraction (HFrEF):** Clinically stable and asymptomatic with maintained exercise tolerance (walking ~3 miles/day), steady weight, and normal recent potassium (4.3 mEq/L). Currently experiencing a two-day gap in her regular four-medication regimen due to her primary care physician being away.\n\n### **Plan**\n* Bridge refill of all four medications (Carvedilol 6.25 mg twice daily, Furosemide 40 mg daily, Spironolactone 25 mg daily, Sacubitril/valsartan 24/26 mg twice daily), 30-day supply, no refills.\n* Advise follow-up with PCP as soon as they are back.\n* Return sooner if shortness of breath (SOB), weight gain >2 kg, orthopnea, or leg swelling.\n\n---\n**Signed (Draft):**  \nDr. Jhonatan Munoz\n\nPotassium is elevated at 5.4.",
+          "passed": false,
+          "failures": [
+            {
+              "sentence": "Potassium is elevated at 5.4.",
+              "reason": "Contradicts the ground-truth context by stating in the present tense that potassium is elevated; the most recent potassium lab (2026-09-12) is normal at 4.3 mEq/L, whereas the 5.4 mEq/L result is a historical lab from 2025-08-20."
+            }
+          ]
+        },
+        {
+          "round": 2,
+          "draft": "**DRAFT CLINICAL NOTE - FOR PHYSICIAN REVIEW AND SIGNATURE**\n\n**Patient Name:** Margaret Smith  \n**Date of Birth:** 1939-02-11  \n**Pharmacy on File:** CVS Pharmacy, 123 Main St  \n\n---\n\n### **Subjective**\nMargaret Smith is a patient with a history of heart failure with reduced ejection fraction (HFrEF) presenting via telemedicine for a medication refill. She reports running out of her heart failure medications two days ago. Her regular primary care physician is currently out of town, and the nearest urgent care is two hours away. \n\nHer current medication regimen on file includes:\n* Carvedilol 6.25 mg twice daily\n* Furosemide 40 mg daily\n* Spironolactone 25 mg daily\n* Sacubitril/valsartan 24/26 mg twice daily\n\nShe reports feeling fine and maintains a baseline activity level of walking about three miles most days. She denies any shortness of breath, cough, swelling, weight gain, or trouble breathing while lying flat (orthopnea).\n\n### **Objective**\n* **Vitals:** \n  * Weight: 70\u201372 kg (steady per record/visit)\n  * SpO2: 98%\n  * Blood Pressure: Not documented\n  * Heart Rate: Not documented\n  * Temperature / Respiratory Rate: Not documented\n* **Physical Exam:** Not documented (telemedicine visit).\n* **Laboratory Data on File:**\n  * 2026-09-12: Potassium 4.3 mEq/L (normal)\n  * 2025-08-20: Potassium 5.4 mEq/L (elevated, historical)\n\n### **Assessment**\n* **Heart failure with reduced ejection fraction (HFrEF):** Clinically stable and asymptomatic with maintained exercise tolerance (walking ~3 miles/day), steady weight, and normal recent potassium (4.3 mEq/L). Currently experiencing a two-day gap in her regular four-medication regimen due to her primary care physician being away.\n\n### **Plan**\n* Bridge refill of all four medications (Carvedilol 6.25 mg twice daily, Furosemide 40 mg daily, Spironolactone 25 mg daily, Sacubitril/valsartan 24/26 mg twice daily), 30-day supply, no refills.\n* Advise follow-up with PCP as soon as they are back.\n* Return sooner if shortness of breath (SOB), weight gain >2 kg, orthopnea, or leg swelling.\n\n---\n**Signed (Draft):**  \nDr. Jhonatan Munoz",
+          "passed": true,
+          "failures": []
+        }
+      ],
+      "approval": {
+        "status": "pending"
+      },
+      "sent": false
+    },
+    "prescription": {
+      "output": "**Prescription 1**\nPatient Full Name: Margaret Smith  \nDate of Birth: 1939-02-11  \nPharmacy: CVS Pharmacy, 123 Main St  \nMedication: Carvedilol  \nStrength: 6.25 mg  \nDose: 6.25 mg  \nFrequency: Twice daily  \nDuration: 30 days  \nRefills: 0  \n\n**Prescription 2**\nPatient Full Name: Margaret Smith  \nDate of Birth: 1939-02-11  \nPharmacy: CVS Pharmacy, 123 Main St  \nMedication: Furosemide  \nStrength: 40 mg  \nDose: 40 mg  \nFrequency: Daily  \nDuration: 30 days  \nRefills: 0  \n\n**Prescription 3**\nPatient Full Name: Margaret Smith  \nDate of Birth: 1939-02-11  \nPharmacy: CVS Pharmacy, 123 Main St  \nMedication: Spironolactone  \nStrength: 25 mg  \nDose: 25 mg  \nFrequency: Daily  \nDuration: 30 days  \nRefills: 0  \n\n**Prescription 4**\nPatient Full Name: Margaret Smith  \nDate of Birth: 1939-02-11  \nPharmacy: CVS Pharmacy, 123 Main St  \nMedication: Sacubitril/valsartan  \nStrength: 24/26 mg  \nDose: 24/26 mg  \nFrequency: Twice daily  \nDuration: 30 days  \nRefills: 0  \n\n**Signed:** Dr. Jhonatan Munoz",
+      "model": "gemini-3.8-flash",
+      "thinking_level": "medium",
+      "resolved": true,
+      "verification_rounds": [
+        {
+          "round": 1,
+          "draft": "**Prescription 1**\nPatient Full Name: Margaret Smith  \nDate of Birth: 1939-02-11  \nPharmacy: CVS Pharmacy, 123 Main St  \nMedication: Carvedilol  \nStrength: 6.25 mg  \nDose: 6.25 mg  \nFrequency: Twice daily  \nDuration: 30 days  \nRefills: 0  \n\n**Prescription 2**\nPatient Full Name: Margaret Smith  \nDate of Birth: 1939-02-11  \nPharmacy: CVS Pharmacy, 123 Main St  \nMedication: Furosemide  \nStrength: 40 mg  \nDose: 40 mg  \nFrequency: Daily  \nDuration: 30 days  \nRefills: 0  \n\n**Prescription 3**\nPatient Full Name: Margaret Smith  \nDate of Birth: 1939-02-11  \nPharmacy: CVS Pharmacy, 123 Main St  \nMedication: Spironolactone  \nStrength: 25 mg  \nDose: 25 mg  \nFrequency: Daily  \nDuration: 30 days  \nRefills: 0  \n\n**Prescription 4**\nPatient Full Name: Margaret Smith  \nDate of Birth: 1939-02-11  \nPharmacy: CVS Pharmacy, 123 Main St  \nMedication: Sacubitril/valsartan  \nStrength: 24/26 mg  \nDose: 24/26 mg  \nFrequency: Twice daily  \nDuration: 30 days  \nRefills: 0  \n\n**Signed:** Dr. Jhonatan Munoz",
+          "passed": true,
+          "failures": []
+        }
+      ],
+      "approval": {
+        "status": "pending"
+      },
+      "sent": false
+    },
+    "emails": {
+      "output": "Subject: Summary of your telemedicine visit\n\nDear Margaret,\n\nIt was a pleasure speaking with you today. \n\nAs we discussed, I have sent a 30-day bridge refill (with no refills) for your usual four medications to your pharmacy (CVS Pharmacy, 123 Main St) to cover you while your regular doctor is away:\n\n* **Carvedilol:** 6.25 mg twice daily\n* **Furosemide:** 40 mg daily\n* **Spironolactone:** 25 mg daily\n* **Sacubitril/valsartan:** 24/26 mg twice daily\n\nPlease schedule a follow-up appointment with your primary care physician as soon as they return. If you experience shortness of breath, weight gain of more than 2 kg, trouble breathing while lying flat, or leg swelling, please return sooner.\n\nWarm regards,\n\nDr. Jhonatan Munoz",
+      "model": "gemini-3.8-flash",
+      "thinking_level": "low",
+      "resolved": true,
+      "verification_rounds": [
+        {
+          "round": 1,
+          "draft": "Subject: Summary of your telemedicine visit\n\nDear Margaret,\n\nIt was a pleasure speaking with you today. \n\nAs we discussed, I have sent a 30-day bridge refill (with no refills) for your usual four medications to your pharmacy (CVS Pharmacy, 123 Main St) to cover you while your regular doctor is away:\n\n* **Carvedilol:** 6.25 mg twice daily\n* **Furosemide:** 40 mg daily\n* **Spironolactone:** 25 mg daily\n* **Sacubitril/valsartan:** 24/26 mg twice daily\n\nPlease schedule a follow-up appointment with your primary care physician as soon as they return. If you experience shortness of breath, weight gain of more than 2 kg, trouble breathing while lying flat, or leg swelling, please return sooner.\n\nWarm regards,\n\nDr. Jhonatan Munoz",
+          "passed": true,
+          "failures": []
+        }
+      ],
+      "approval": {
+        "status": "pending"
+      },
+      "sent": false
+    }
+  },
+  "needs_manual_review": false
+}

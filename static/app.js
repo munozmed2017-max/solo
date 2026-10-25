@@ -19,6 +19,15 @@ function escapeHtml(text) {
   return div.innerHTML;
 }
 
+function formatApptTime(iso) {
+  try {
+    const d = new Date(iso);
+    return d.toLocaleString(undefined, { weekday: "short", month: "short", day: "numeric", hour: "numeric", minute: "2-digit" });
+  } catch (e) {
+    return iso;
+  }
+}
+
 function inlineMd(s) {
   let escaped = escapeHtml(s);
   escaped = escaped.replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>");
@@ -135,6 +144,8 @@ async function renderVisits() {
               <li data-id="${v.id}" class="${v.id === state.activeVisitId ? "active" : ""}">
                 ${escapeHtml(v.patient_name)} &mdash; ${escapeHtml(v.reason)}
                 <span class="status-badge">${v.status}</span>
+                ${v.appointment_time ? `<span class="status-badge">${formatApptTime(v.appointment_time)}</span>` : ""}
+                ${v.payment_status === "paid (simulated)" ? '<span class="approved-yes">paid</span>' : ""}
                 ${v.needs_manual_review ? '<span class="approved-no">needs review</span>' : ""}
               </li>`
                   )
@@ -175,7 +186,11 @@ async function openVisit(visitId) {
     : "";
   detail.innerHTML = `
     <h2>Visit detail</h2>
-    <p><span class="status-badge">${v.status}</span></p>
+    <p>
+      <span class="status-badge">${v.status}</span>
+      ${v.appointment_time ? `<span class="status-badge">${formatApptTime(v.appointment_time)}</span>` : ""}
+      ${v.payment_status === "paid (simulated)" ? '<span class="approved-yes">paid (simulated)</span>' : '<span class="muted">unpaid</span>'}
+    </p>
     ${reviewBanner}
     <div class="two-col">
       <div>
@@ -611,7 +626,19 @@ function pollResults() {
 async function renderPractice() {
   const container = document.getElementById("tab-content");
   const practice = await api("/api/practice");
-  const bookingUrl = `${window.location.origin}/book`;
+  const earnings = await api("/api/earnings");
+  let ngrokUrl = null;
+  try {
+    const r = await api("/api/ngrok-url");
+    ngrokUrl = r.url;
+  } catch (e) {
+    ngrokUrl = null;
+  }
+  const origin = ngrokUrl || window.location.origin;
+  const bookingUrl = `${origin}/book`;
+  const ngrokNote = ngrokUrl
+    ? '<p class="muted">Using the live ngrok tunnel - this code works from any phone.</p>'
+    : '<p class="approved-no">ngrok isn\'t running - this falls back to the current page\'s URL, which won\'t be phone-reachable if that\'s localhost. Run <code>./start_demo.sh</code> to get a real tunnel.</p>';
   container.innerHTML = `
     <section class="panel">
       <h2>Practice setup</h2>
@@ -625,6 +652,7 @@ async function renderPractice() {
       <input id="p-fee" type="text" value="${escapeHtml(practice.visit_fee)}">
       <button id="p-save-btn">Save</button>
       <div id="p-save-status" class="muted"></div>
+      <p class="muted">Practice earnings (simulated): ${earnings.paid_visit_count} paid visit${earnings.paid_visit_count === 1 ? "" : "s"}, $${earnings.total_amount.toFixed(2)} total.</p>
     </section>
     <section class="panel" id="qr-screen">
       <h2>Booking link</h2>
@@ -633,7 +661,7 @@ async function renderPractice() {
       <div style="text-align:center; padding: 1rem;">
         <img src="/api/qr?url=${encodeURIComponent(bookingUrl)}" alt="QR code to booking page" style="width:260px;height:260px;">
       </div>
-      <p class="muted">Note: this QR encodes whatever URL you're viewing this dashboard from. If you're on <code>localhost</code>, a phone can't reach it - view this page via your ngrok URL for a phone-scannable code.</p>
+      ${ngrokNote}
     </section>
   `;
   document.getElementById("p-save-btn").addEventListener("click", async () => {
@@ -680,6 +708,15 @@ async function initHeader() {
       method: "POST",
       body: JSON.stringify({ value: toggle.checked }),
     });
+  });
+
+  document.getElementById("reset-demo-btn").addEventListener("click", async () => {
+    if (!confirm("Reset demo? This clears all visits and approvals except Margaret's demo case. My tools, Results, and Practice settings are kept.")) {
+      return;
+    }
+    await api("/api/demo/reset", { method: "POST" });
+    state.activeVisitId = null;
+    render();
   });
 }
 

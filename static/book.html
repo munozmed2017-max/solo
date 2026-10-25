@@ -12,6 +12,11 @@
     .practice-header h1 { margin: 0 0 0.2rem; font-size: 1.4rem; }
     footer.powered-by { text-align: center; margin-top: 2rem; color: var(--muted); font-size: 0.8rem; }
     .confirm { text-align: center; padding: 2rem 1rem; }
+    .slot-day { font-weight: 600; margin: 0.8rem 0 0.3rem; font-size: 0.9rem; }
+    .slot-grid { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+    .slot-btn { width: auto; background: var(--bg); color: var(--text); border: 1px solid var(--border); padding: 0.4rem 0.7rem; margin: 0; font-size: 0.85rem; }
+    .slot-btn:hover { background: var(--accent); color: #fff; }
+    .fee-box { text-align: center; padding: 1rem; font-size: 1.3rem; font-weight: 700; }
   </style>
 </head>
 <body>
@@ -36,18 +41,35 @@
     <div id="step2-questions"></div>
     <label>Attach a file (optional)</label>
     <input type="file" id="b-file">
-    <button id="b-submit">Request visit</button>
+    <button id="b-next2">Next</button>
     <p id="b-error2" class="approved-no"></p>
   </section>
 
+  <section class="panel" id="step3-section" style="display:none;">
+    <h2>Pick a time</h2>
+    <div id="step3-slots"></div>
+    <p id="b-error3" class="approved-no"></p>
+  </section>
+
+  <section class="panel" id="step4-section" style="display:none;">
+    <h2>Checkout</h2>
+    <div class="fee-box" id="fee-box"></div>
+    <button id="b-pay"></button>
+    <p id="b-error4" class="approved-no"></p>
+  </section>
+
   <section class="panel confirm" id="confirm-section" style="display:none;">
-    <h2>Thanks!</h2>
-    <p class="muted">Your visit request has been sent to the practice. You'll hear back soon.</p>
+    <h2>You're booked!</h2>
+    <p id="confirm-text"></p>
+    <p class="approved-yes" id="confirm-paid"></p>
   </section>
 
   <footer class="powered-by">Powered by Solo</footer>
 
   <script>
+    let practiceData = null;
+    let currentVisit = null;
+
     async function api(path, opts) {
       const res = await fetch(path, { headers: { "Content-Type": "application/json" }, ...opts });
       if (!res.ok) throw new Error(await res.text());
@@ -56,21 +78,23 @@
 
     (async () => {
       try {
-        const practice = await api("/api/practice");
-        document.getElementById("practice-name").textContent = practice.name;
+        practiceData = await api("/api/practice");
+        document.getElementById("practice-name").textContent = practiceData.name;
         document.getElementById("practice-sub").textContent = "Request a telemedicine visit";
       } catch (e) {
         document.getElementById("practice-name").textContent = "Book a visit";
       }
     })();
 
+    function showStep(id) {
+      ["step1-section", "step2-section", "step3-section", "step4-section", "confirm-section"].forEach((s) => {
+        document.getElementById(s).style.display = s === id ? "block" : "none";
+      });
+    }
+
     function questionField(q) {
-      if (q.type === "yes_no") {
-        return `<select id="q-${q.id}" data-qid="${q.id}"><option>No</option><option>Yes</option></select>`;
-      }
-      if (q.type === "scale_0_10") {
-        return `<input type="number" min="0" max="10" id="q-${q.id}" data-qid="${q.id}">`;
-      }
+      if (q.type === "yes_no") return `<select id="q-${q.id}" data-qid="${q.id}"><option>No</option><option>Yes</option></select>`;
+      if (q.type === "scale_0_10") return `<input type="number" min="0" max="10" id="q-${q.id}" data-qid="${q.id}">`;
       return `<input type="text" id="q-${q.id}" data-qid="${q.id}">`;
     }
 
@@ -89,10 +113,7 @@
       nextBtn.textContent = "Loading questions...";
       let questions;
       try {
-        const res = await api("/api/booking/intake-questions", {
-          method: "POST",
-          body: JSON.stringify({ reason }),
-        });
+        const res = await api("/api/booking/intake-questions", { method: "POST", body: JSON.stringify({ reason }) });
         questions = res.questions;
       } catch (e) {
         questions = null;
@@ -103,40 +124,86 @@
         errorEl.textContent = "Could not load follow-up questions. Please try again.";
         return;
       }
-      document.getElementById("step2-questions").innerHTML = questions
-        .map((q) => `<label>${q.text}</label>${questionField(q)}`)
-        .join("");
-      document.getElementById("step1-section").style.display = "none";
-      document.getElementById("step2-section").style.display = "block";
-      document.getElementById("step2-section").dataset.name = name;
-      document.getElementById("step2-section").dataset.dob = dob;
-      document.getElementById("step2-section").dataset.reason = reason;
+      document.getElementById("step2-questions").innerHTML = questions.map((q) => `<label>${q.text}</label>${questionField(q)}`).join("");
+      showStep("step2-section");
+      const s2 = document.getElementById("step2-section");
+      s2.dataset.name = name; s2.dataset.dob = dob; s2.dataset.reason = reason;
     });
 
-    document.getElementById("b-submit").addEventListener("click", async () => {
-      const section = document.getElementById("step2-section");
+    document.getElementById("b-next2").addEventListener("click", async () => {
       const errorEl = document.getElementById("b-error2");
+      errorEl.textContent = "";
+      const btn = document.getElementById("b-next2");
+      btn.disabled = true;
+      btn.textContent = "Loading times...";
+      let slots;
+      try {
+        const res = await api("/api/booking/available-slots");
+        slots = res.slots;
+      } catch (e) {
+        slots = null;
+      }
+      btn.disabled = false;
+      btn.textContent = "Next";
+      if (!slots || !slots.length) {
+        errorEl.textContent = "No appointment times available right now. Please try again later.";
+        return;
+      }
+      const byDay = {};
+      slots.forEach((s) => { (byDay[s.date_label] = byDay[s.date_label] || []).push(s); });
+      document.getElementById("step3-slots").innerHTML = Object.entries(byDay)
+        .map(([day, daySlots]) => `
+          <div class="slot-day">${day}</div>
+          <div class="slot-grid">${daySlots.map((s) => `<button class="slot-btn" data-iso="${s.iso}" data-label="${day} at ${s.time_label}">${s.time_label}</button>`).join("")}</div>
+        `).join("");
+      showStep("step3-section");
+    });
+
+    document.getElementById("step3-slots").addEventListener("click", async (e) => {
+      const btn = e.target.closest(".slot-btn");
+      if (!btn) return;
+      const errorEl = document.getElementById("b-error3");
+      errorEl.textContent = "";
+      const s2 = document.getElementById("step2-section");
+      const symptoms = {};
+      s2.querySelectorAll("[data-qid]").forEach((el) => { symptoms[el.dataset.qid] = el.value; });
       const fileInput = document.getElementById("b-file");
       const uploaded_files = fileInput.files.length ? [fileInput.files[0].name] : [];
-      const symptoms = {};
-      section.querySelectorAll("[data-qid]").forEach((el) => {
-        symptoms[el.dataset.qid] = el.value;
-      });
       try {
-        await api("/api/booking", {
+        currentVisit = await api("/api/booking", {
           method: "POST",
           body: JSON.stringify({
-            name: section.dataset.name,
-            dob: section.dataset.dob,
-            reason: section.dataset.reason,
+            name: s2.dataset.name,
+            dob: s2.dataset.dob,
+            reason: s2.dataset.reason,
             symptoms,
             uploaded_files,
+            appointment_time: btn.dataset.iso,
           }),
         });
-        section.style.display = "none";
-        document.getElementById("confirm-section").style.display = "block";
+        currentVisit._label = btn.dataset.label;
+        const fee = (practiceData && practiceData.visit_fee) || "$0";
+        document.getElementById("fee-box").textContent = `Visit fee: ${fee}`;
+        document.getElementById("b-pay").textContent = `Pay ${fee} (simulated)`;
+        showStep("step4-section");
+      } catch (err) {
+        errorEl.textContent = "That time may no longer be available. Please pick another.";
+      }
+    });
+
+    document.getElementById("b-pay").addEventListener("click", async () => {
+      const errorEl = document.getElementById("b-error4");
+      errorEl.textContent = "";
+      try {
+        await api(`/api/visits/${currentVisit.id}/pay`, { method: "POST" });
+        const physicianName = (practiceData && practiceData.physician_name) || "your physician";
+        const fee = (practiceData && practiceData.visit_fee) || "$0";
+        document.getElementById("confirm-text").textContent =
+          `You're booked with ${physicianName} on ${currentVisit._label} (video visit). Visit fee: ${fee}.`;
+        document.getElementById("confirm-paid").textContent = "Payment received (simulated).";
+        showStep("confirm-section");
       } catch (e) {
-        errorEl.textContent = "Something went wrong submitting your request. Please try again.";
+        errorEl.textContent = "Payment failed. Please try again.";
       }
     });
   </script>
