@@ -1,10 +1,15 @@
 from fastapi import APIRouter, HTTPException
 from pydantic import BaseModel
 
+from app.agents.intake_questions import get_questions
 from app.orchestrator import approve_visit, generate_intake
 from app.storage import create_visit, get_visit, list_visits, log_activity, save_visit
 
 router = APIRouter(prefix="/api")
+
+
+class IntakeQuestionsRequest(BaseModel):
+    reason: str
 
 
 class BookingIn(BaseModel):
@@ -20,6 +25,11 @@ class BookingIn(BaseModel):
 class VisitUpdate(BaseModel):
     transcript: str | None = None
     physician_plan: str | None = None
+
+
+@router.post("/booking/intake-questions")
+def api_intake_questions(req: IntakeQuestionsRequest):
+    return get_questions(req.reason)
 
 
 @router.post("/booking")

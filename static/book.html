@@ -21,28 +21,23 @@
   </div>
   <div class="banner">Use made-up information only.</div>
 
-  <section class="panel" id="booking-form-section">
+  <section class="panel" id="step1-section">
     <label>Full name</label>
     <input type="text" id="b-name" required>
     <label>Date of birth</label>
     <input type="date" id="b-dob" required>
     <label>Reason for visit</label>
     <textarea id="b-reason" rows="2" required></textarea>
+    <button id="b-next">Next</button>
+    <p id="b-error1" class="approved-no"></p>
+  </section>
 
-    <label>Shortness of breath?</label>
-    <select id="b-sob"><option>No</option><option>Yes</option></select>
-    <label>Cough?</label>
-    <select id="b-cough"><option>No</option><option>Yes</option></select>
-    <label>Weight gain?</label>
-    <select id="b-weight"><option>No</option><option>Yes</option></select>
-    <label>Trouble breathing lying flat (orthopnea)?</label>
-    <select id="b-orthopnea"><option>No</option><option>Yes</option></select>
-
+  <section class="panel" id="step2-section" style="display:none;">
+    <div id="step2-questions"></div>
     <label>Attach a file (optional)</label>
     <input type="file" id="b-file">
-
     <button id="b-submit">Request visit</button>
-    <p id="b-error" class="approved-no"></p>
+    <p id="b-error2" class="approved-no"></p>
   </section>
 
   <section class="panel confirm" id="confirm-section" style="display:none;">
@@ -69,35 +64,76 @@
       }
     })();
 
-    document.getElementById("b-submit").addEventListener("click", async () => {
+    function questionField(q) {
+      if (q.type === "yes_no") {
+        return `<select id="q-${q.id}" data-qid="${q.id}"><option>No</option><option>Yes</option></select>`;
+      }
+      if (q.type === "scale_0_10") {
+        return `<input type="number" min="0" max="10" id="q-${q.id}" data-qid="${q.id}">`;
+      }
+      return `<input type="text" id="q-${q.id}" data-qid="${q.id}">`;
+    }
+
+    document.getElementById("b-next").addEventListener("click", async () => {
       const name = document.getElementById("b-name").value.trim();
       const dob = document.getElementById("b-dob").value;
       const reason = document.getElementById("b-reason").value.trim();
-      const errorEl = document.getElementById("b-error");
+      const errorEl = document.getElementById("b-error1");
       errorEl.textContent = "";
       if (!name || !dob || !reason) {
         errorEl.textContent = "Please fill in your name, date of birth, and reason for visit.";
         return;
       }
+      const nextBtn = document.getElementById("b-next");
+      nextBtn.disabled = true;
+      nextBtn.textContent = "Loading questions...";
+      let questions;
+      try {
+        const res = await api("/api/booking/intake-questions", {
+          method: "POST",
+          body: JSON.stringify({ reason }),
+        });
+        questions = res.questions;
+      } catch (e) {
+        questions = null;
+      }
+      nextBtn.disabled = false;
+      nextBtn.textContent = "Next";
+      if (!questions || !questions.length) {
+        errorEl.textContent = "Could not load follow-up questions. Please try again.";
+        return;
+      }
+      document.getElementById("step2-questions").innerHTML = questions
+        .map((q) => `<label>${q.text}</label>${questionField(q)}`)
+        .join("");
+      document.getElementById("step1-section").style.display = "none";
+      document.getElementById("step2-section").style.display = "block";
+      document.getElementById("step2-section").dataset.name = name;
+      document.getElementById("step2-section").dataset.dob = dob;
+      document.getElementById("step2-section").dataset.reason = reason;
+    });
+
+    document.getElementById("b-submit").addEventListener("click", async () => {
+      const section = document.getElementById("step2-section");
+      const errorEl = document.getElementById("b-error2");
       const fileInput = document.getElementById("b-file");
       const uploaded_files = fileInput.files.length ? [fileInput.files[0].name] : [];
+      const symptoms = {};
+      section.querySelectorAll("[data-qid]").forEach((el) => {
+        symptoms[el.dataset.qid] = el.value;
+      });
       try {
         await api("/api/booking", {
           method: "POST",
           body: JSON.stringify({
-            name,
-            dob,
-            reason,
-            symptoms: {
-              shortness_of_breath: document.getElementById("b-sob").value,
-              cough: document.getElementById("b-cough").value,
-              weight_gain: document.getElementById("b-weight").value,
-              orthopnea: document.getElementById("b-orthopnea").value,
-            },
+            name: section.dataset.name,
+            dob: section.dataset.dob,
+            reason: section.dataset.reason,
+            symptoms,
             uploaded_files,
           }),
         });
-        document.getElementById("booking-form-section").style.display = "none";
+        section.style.display = "none";
         document.getElementById("confirm-section").style.display = "block";
       } catch (e) {
         errorEl.textContent = "Something went wrong submitting your request. Please try again.";
