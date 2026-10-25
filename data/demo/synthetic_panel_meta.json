@@ -1,0 +1,6 @@
+{
+  "total_patients": 2500,
+  "true_diabetic_count": 465,
+  "ground_truth_rule": "conditions contains 'Type 2 diabetes'",
+  "seed": 42
+}

@@ -1,0 +1,2501 @@
+id,name,age,sex,conditions,last_a1c,visits_last_2yr
+P0001,Sarah Davis,36,F,Chronic kidney disease; Hyperlipidemia,,1
+P0002,Susan Davis,25,F,,5.8,9
+P0003,Mark Jackson,75,F,Asthma; Anxiety disorder,,3
+P0004,Michael Williams,49,M,GERD,,1
+P0005,Matthew Williams,80,F,COPD; GERD,,12
+P0006,Joseph Harris,30,F,,5.0,5
+P0007,David Lopez,80,M,Hyperlipidemia,,3
+P0008,Sandra Gonzalez,53,F,Chronic kidney disease; Osteoarthritis; GERD,,1
+P0009,Christopher Gonzalez,51,F,,,12
+P0010,Ashley Gonzalez,62,F,Asthma,,4
+P0011,Donna Gonzalez,55,M,Asthma; Chronic kidney disease; Depression,4.9,2
+P0012,Margaret Martin,41,F,Type 2 diabetes; Depression,8.4,5
+P0013,Charles Wilson,65,F,Type 2 diabetes,8.5,11
+P0014,Elizabeth Lopez,86,F,Chronic kidney disease,,10
+P0015,Mary Brown,63,M,Hypothyroidism; Osteoarthritis,6.2,2
+P0016,Robert Harris,32,M,,,9
+P0017,Kimberly Ramirez,43,M,Chronic kidney disease; Osteoarthritis; Hypothyroidism,,11
+P0018,Kimberly Anderson,69,M,Type 2 diabetes,8.2,1
+P0019,Steven Davis,64,F,Chronic kidney disease,6.3,10
+P0020,Donald Sanchez,82,F,,,6
+P0021,Sandra Ramirez,76,M,Hyperlipidemia,6.0,2
+P0022,Richard Moore,53,F,Hypothyroidism,,2
+P0023,Patricia Lee,78,F,Hyperlipidemia; Osteoarthritis,5.6,4
+P0024,David Gonzalez,73,F,Type 2 diabetes; Depression,7.4,4
+P0025,Christopher Johnson,29,F,Type 2 diabetes; Chronic kidney disease,7.5,2
+P0026,Michelle Williams,53,F,Chronic kidney disease,,5
+P0027,Jessica Rodriguez,48,M,Hypothyroidism,,2
+P0028,Michelle Jackson,23,M,,5.2,6
+P0029,Lisa Martinez,30,F,Type 2 diabetes; Hypothyroidism; Chronic kidney disease,6.1,2
+P0030,Charles Martin,41,M,,,5
+P0031,Thomas Lewis,86,M,,,5
+P0032,Nancy Harris,27,F,Type 2 diabetes; Asthma; Depression; Anxiety disorder,8.0,9
+P0033,William Johnson,40,M,Hypertension; GERD,5.2,2
+P0034,Michelle White,67,M,Type 2 diabetes; Asthma; COPD; Anxiety disorder,7.1,5
+P0035,Matthew Ramirez,42,F,Type 2 diabetes; Osteoarthritis,9.1,6
+P0036,Sarah Lopez,57,F,Chronic kidney disease,,1
+P0037,Barbara Jackson,36,M,,5.5,12
+P0038,Joshua Taylor,62,M,Type 2 diabetes; Osteoarthritis; Hypothyroidism,7.2,4
+P0039,Robert Perez,68,M,Hyperlipidemia,,5
+P0040,Anthony Hernandez,86,M,,5.5,7
+P0041,Betty Moore,44,M,,6.1,10
+P0042,Mark Anderson,63,M,Asthma,,5
+P0043,Jennifer Clark,87,M,,,4
+P0044,John Davis,40,F,Hyperlipidemia,,11
+P0045,Ashley Gonzalez,46,M,Hypertension,,2
+P0046,Barbara Sanchez,76,F,Hypertension,,2
+P0047,Sandra Perez,80,F,GERD,,8
+P0048,Emily Anderson,86,M,Depression; COPD,,4
+P0049,Jessica Rodriguez,57,M,Osteoarthritis; Hypothyroidism,,9
+P0050,Elizabeth Davis,32,F,,5.5,6
+P0051,Patricia Miller,81,M,COPD,,1
+P0052,James Lopez,70,M,Anxiety disorder,,12
+P0053,Joseph Rodriguez,50,M,,,11
+P0054,Sandra Robinson,73,F,Type 2 diabetes; Hypertension,10.2,5
+P0055,Susan Anderson,70,M,Anxiety disorder; Hypothyroidism,,7
+P0056,Donald Smith,54,F,,,4
+P0057,Mary Davis,30,F,,5.0,11
+P0058,Sandra Thompson,36,F,COPD,,12
+P0059,Karen Brown,36,F,COPD; Anxiety disorder; Chronic kidney disease,,4
+P0060,Michael Thompson,31,F,COPD; Hyperlipidemia,,10
+P0061,Paul Wilson,27,M,,,1
+P0062,Michael Wilson,75,M,Depression,,7
+P0063,Michelle Sanchez,44,M,Depression; Anxiety disorder,,10
+P0064,Jessica Clark,56,M,,,8
+P0065,Mary Thomas,70,M,,6.1,6
+P0066,Emily Smith,57,M,,5.5,9
+P0067,Ashley Anderson,52,M,,5.9,5
+P0068,Emily Taylor,69,M,Chronic kidney disease; GERD; COPD,,5
+P0069,Joseph Brown,61,M,,,12
+P0070,Susan White,45,F,Chronic kidney disease; Hypothyroidism,,4
+P0071,Lisa Garcia,59,F,Asthma; Hypothyroidism,4.9,5
+P0072,Michael Ramirez,38,M,Type 2 diabetes,7.5,8
+P0073,Elizabeth Jones,31,F,Hyperlipidemia; Osteoarthritis; COPD,,7
+P0074,Mark Robinson,50,M,Anxiety disorder; Hypothyroidism,,1
+P0075,Susan Rodriguez,34,F,,4.9,1
+P0076,Joshua Thomas,74,M,,,12
+P0077,Joseph Robinson,80,F,COPD; Osteoarthritis,,9
+P0078,Sarah Clark,50,F,Type 2 diabetes,9.2,7
+P0079,Mark Williams,56,M,GERD; Hypothyroidism,5.2,11
+P0080,Andrew Johnson,24,M,,,8
+P0081,Donna Wilson,57,F,Hyperlipidemia,,7
+P0082,Michael Ramirez,64,M,Type 2 diabetes; Depression,7.3,7
+P0083,Paul Anderson,87,F,,,8
+P0084,Susan Rodriguez,78,F,Depression; COPD; Hyperlipidemia,5.8,4
+P0085,Emily Smith,42,M,,,2
+P0086,Elizabeth Thomas,81,F,,,7
+P0087,Jessica Anderson,83,M,COPD,,3
+P0088,Anthony Hernandez,30,M,Hypertension,,5
+P0089,Mark Moore,84,F,,,7
+P0090,Richard Thompson,80,M,Anxiety disorder,6.0,12
+P0091,Elizabeth Thomas,70,M,,,6
+P0092,Michael Taylor,34,M,,6.2,3
+P0093,Thomas Hernandez,31,M,Hyperlipidemia,,11
+P0094,Ashley Ramirez,70,M,Osteoarthritis,,5
+P0095,Margaret Brown,51,F,Hyperlipidemia; Depression,5.3,1
+P0096,Patricia Martinez,27,M,Osteoarthritis,,10
+P0097,Barbara Williams,45,F,Osteoarthritis,,10
+P0098,Sandra Lee,40,F,,6.1,5
+P0099,Mark Lopez,42,F,,,12
+P0100,Karen Miller,54,M,Hyperlipidemia; Osteoarthritis,,6
+P0101,Mary Clark,59,M,,,11
+P0102,Charles Harris,28,M,GERD,5.1,5
+P0103,John Martinez,39,F,,,3
+P0104,Christopher White,33,M,,,6
+P0105,David Rodriguez,89,M,Hypothyroidism; GERD; Hyperlipidemia,,2
+P0106,Betty Ramirez,40,F,Anxiety disorder,5.7,8
+P0107,Donna Gonzalez,69,M,Hyperlipidemia; Osteoarthritis; Depression,6.2,9
+P0108,Robert Lee,63,F,Hypothyroidism; Anxiety disorder; Hyperlipidemia,6.3,5
+P0109,Michael Davis,85,F,,,11
+P0110,Anthony Lee,75,F,Type 2 diabetes; Anxiety disorder,9.5,11
+P0111,Patricia Gonzalez,69,M,Depression; Hyperlipidemia; Osteoarthritis,,10
+P0112,Nancy Davis,24,F,Osteoarthritis; Hyperlipidemia,,9
+P0113,Joseph Hernandez,48,F,COPD; Hypertension,,3
+P0114,Barbara Brown,38,M,,6.1,4
+P0115,Barbara Rodriguez,63,F,Type 2 diabetes; Chronic kidney disease; Hyperlipidemia,9.3,1
+P0116,Sandra Lee,88,M,,,7
+P0117,Ashley Thompson,76,F,,5.8,2
+P0118,Michelle Lee,38,M,Anxiety disorder; Chronic kidney disease,,9
+P0119,Linda Ramirez,77,F,Chronic kidney disease; Osteoarthritis,,4
+P0120,Sandra Gonzalez,74,M,,,11
+P0121,Elizabeth Perez,54,M,,,2
+P0122,Lisa Sanchez,77,F,Type 2 diabetes,10.3,12
+P0123,Joshua Martinez,28,M,Osteoarthritis,5.6,2
+P0124,Linda Harris,66,M,,,9
+P0125,Mary Garcia,25,M,GERD; COPD,6.2,10
+P0126,Elizabeth White,73,F,,,4
+P0127,Sandra Hernandez,70,M,Type 2 diabetes,8.1,2
+P0128,Margaret Thomas,56,M,Osteoarthritis,,2
+P0129,Linda Martinez,66,M,Chronic kidney disease,,1
+P0130,Joshua Johnson,50,M,Type 2 diabetes,7.9,7
+P0131,Robert Gonzalez,51,M,,6.3,6
+P0132,Anthony Martinez,76,M,Type 2 diabetes,7.0,4
+P0133,Kimberly Williams,77,M,,,6
+P0134,Steven Lee,43,F,Type 2 diabetes; GERD,7.6,3
+P0135,Ashley Anderson,31,F,Depression; GERD,,11
+P0136,Mark Williams,62,F,Hypothyroidism,,6
+P0137,Karen Anderson,86,F,,,2
+P0138,Sandra Jackson,33,M,Hypertension; Depression,,10
+P0139,Joshua Thomas,46,M,Depression; Hyperlipidemia; GERD,,2
+P0140,John Davis,86,F,Chronic kidney disease; COPD; Asthma,,5
+P0141,Nancy Perez,71,M,GERD; Hyperlipidemia,,9
+P0142,Thomas White,71,M,COPD; Asthma; GERD,5.9,6
+P0143,William Martin,61,M,,,11
+P0144,Kimberly Williams,64,F,GERD,5.3,4
+P0145,Richard Davis,65,M,,,2
+P0146,Nancy Lewis,86,F,,,3
+P0147,Mark Johnson,45,F,Osteoarthritis,,10
+P0148,Joseph Moore,58,M,Depression; Osteoarthritis; GERD,,10
+P0149,Charles Harris,78,M,Asthma,,10
+P0150,Patricia Lee,39,M,Hyperlipidemia,,9
+P0151,Jennifer Harris,37,M,Type 2 diabetes; Chronic kidney disease,6.8,1
+P0152,Jessica Gonzalez,72,M,Hypertension,,2
+P0153,William Johnson,64,F,Asthma; Depression,,1
+P0154,Thomas Miller,32,F,COPD,,2
+P0155,Karen Brown,58,F,Type 2 diabetes; COPD,8.2,3
+P0156,James Martin,59,M,Asthma,,2
+P0157,Robert Taylor,89,M,Chronic kidney disease; COPD,6.2,1
+P0158,Thomas White,71,M,Type 2 diabetes; GERD; Osteoarthritis,8.6,11
+P0159,Donald Lee,44,M,,,8
+P0160,Richard Johnson,26,M,GERD; Hypothyroidism,,9
+P0161,John Harris,82,M,,,1
+P0162,Linda Sanchez,64,M,Depression; Anxiety disorder,,3
+P0163,Lisa Robinson,85,M,,5.5,7
+P0164,Christopher Brown,45,M,Type 2 diabetes; Hypothyroidism,8.6,10
+P0165,Patricia Williams,77,M,Chronic kidney disease,,11
+P0166,Elizabeth Ramirez,42,F,Hypertension; Asthma,6.0,6
+P0167,Andrew Johnson,68,M,GERD,,2
+P0168,Betty Hernandez,39,M,,6.0,8
+P0169,Emily Brown,88,M,,,10
+P0170,Richard Brown,58,M,Type 2 diabetes,7.4,12
+P0171,Karen Ramirez,30,M,Type 2 diabetes; Asthma; GERD,7.8,6
+P0172,Michelle Lewis,81,F,Type 2 diabetes,9.4,11
+P0173,Sandra Perez,31,M,,,9
+P0174,Margaret Taylor,45,F,,5.0,3
+P0175,Joseph Lopez,42,M,Hypothyroidism,,5
+P0176,William Lee,47,M,Chronic kidney disease,,10
+P0177,Michelle White,41,F,,,1
+P0178,John Lee,25,F,,5.7,10
+P0179,Paul Martinez,25,M,,6.1,7
+P0180,Robert Thompson,60,M,Type 2 diabetes; Depression,9.0,7
+P0181,Steven Moore,38,M,Type 2 diabetes,7.4,3
+P0182,Richard Harris,63,M,Type 2 diabetes; Depression; COPD; Hypothyroidism,8.6,5
+P0183,Charles Moore,85,M,Type 2 diabetes,6.8,6
+P0184,Matthew Taylor,58,F,COPD,,2
+P0185,Betty Lopez,38,F,,,3
+P0186,Steven Johnson,47,M,Type 2 diabetes,7.6,3
+P0187,Donna Hernandez,72,M,Depression,,5
+P0188,Lisa Hernandez,82,F,COPD; Hypothyroidism; Hypertension,,5
+P0189,Donna Thomas,51,F,Type 2 diabetes; COPD,9.4,8
+P0190,Elizabeth Wilson,62,M,COPD,,12
+P0191,Kimberly Miller,29,F,Depression; Chronic kidney disease; Anxiety disorder,,3
+P0192,Paul Lopez,80,M,Hypothyroidism; Depression,5.2,9
+P0193,Karen Harris,60,F,,,6
+P0194,Emily Robinson,83,M,Hypothyroidism; Hyperlipidemia,,9
+P0195,Daniel Harris,70,M,,,12
+P0196,Mark Lee,32,M,Osteoarthritis,,5
+P0197,Michael Martin,56,F,,6.2,4
+P0198,Michael Wilson,51,F,Asthma,5.7,3
+P0199,Donald Lee,74,M,GERD; Hypothyroidism; Hypertension,,2
+P0200,Barbara Wilson,51,F,,,7
+P0201,Charles Lewis,85,F,Type 2 diabetes,8.7,3
+P0202,Sarah Miller,86,M,,,11
+P0203,James White,54,F,,,4
+P0204,Margaret Taylor,44,M,Hyperlipidemia,5.0,6
+P0205,Thomas Gonzalez,53,F,GERD; Hypothyroidism,,10
+P0206,Lisa Thompson,23,M,Depression,,7
+P0207,Linda Lee,86,M,,,4
+P0208,Elizabeth Anderson,39,M,Anxiety disorder,,8
+P0209,Joshua Ramirez,49,F,Chronic kidney disease,,2
+P0210,Emily Lewis,36,F,Asthma,6.2,8
+P0211,Donna Thomas,36,F,Type 2 diabetes; Hypertension,8.6,7
+P0212,Susan Jackson,54,F,Type 2 diabetes; Hyperlipidemia,8.1,3
+P0213,Matthew Anderson,75,M,Anxiety disorder; Hyperlipidemia; Asthma,,6
+P0214,Paul Gonzalez,37,F,Osteoarthritis; Hypertension,,5
+P0215,Paul Gonzalez,81,M,,,5
+P0216,John Sanchez,46,F,Hypertension,4.9,10
+P0217,Joshua Perez,26,M,,,7
+P0218,Paul Miller,78,F,Asthma; Chronic kidney disease,,4
+P0219,Jessica Martinez,62,M,Chronic kidney disease; Osteoarthritis; Anxiety disorder,,1
+P0220,Emily Thomas,44,M,Type 2 diabetes,8.6,9
+P0221,Joseph Martinez,82,F,,,1
+P0222,Emily Taylor,74,M,Type 2 diabetes,7.6,5
+P0223,Robert Miller,70,F,Chronic kidney disease,5.1,6
+P0224,Susan Robinson,60,F,Depression; Osteoarthritis,,12
+P0225,Jessica Moore,48,M,,,11
+P0226,Thomas Lopez,67,M,Hyperlipidemia,,12
+P0227,Susan Lopez,82,M,,,12
+P0228,Thomas Moore,40,F,Anxiety disorder,,4
+P0229,Matthew Jackson,64,F,GERD,,8
+P0230,David White,84,M,,,8
+P0231,Kimberly Johnson,45,F,,,1
+P0232,William Clark,22,M,,5.1,8
+P0233,Michelle Lee,69,F,Depression,,1
+P0234,James Smith,22,M,,,1
+P0235,Barbara Brown,86,M,Osteoarthritis,5.6,6
+P0236,Jennifer Lopez,56,M,Osteoarthritis,,4
+P0237,John Williams,60,F,Depression,4.8,3
+P0238,Margaret Lee,32,M,Hyperlipidemia,,1
+P0239,Andrew Thomas,51,F,Hypothyroidism; Chronic kidney disease; Hypertension,6.2,1
+P0240,Betty Robinson,48,F,Type 2 diabetes,7.9,12
+P0241,Patricia Brown,32,M,GERD; Anxiety disorder,,6
+P0242,Mark Thomas,25,M,Anxiety disorder,,11
+P0243,Michelle Martinez,70,F,Hyperlipidemia; Hypothyroidism,5.9,11
+P0244,Christopher Lopez,41,M,Type 2 diabetes,7.8,7
+P0245,Jennifer Lopez,35,F,GERD,,1
+P0246,Matthew Harris,59,M,Type 2 diabetes; Osteoarthritis; Chronic kidney disease; Asthma,8.8,5
+P0247,Lisa Rodriguez,83,F,Depression; Osteoarthritis,,3
+P0248,Betty Hernandez,60,F,GERD,,7
+P0249,Christopher Martin,39,M,,,7
+P0250,Ashley Jackson,62,M,,,7
+P0251,Andrew Miller,68,F,Chronic kidney disease,6.0,12
+P0252,Charles Clark,48,M,Anxiety disorder; Depression,5.3,5
+P0253,Matthew Williams,41,M,COPD,,9
+P0254,Lisa Thompson,75,F,Hyperlipidemia,5.2,11
+P0255,Michelle Johnson,67,F,Anxiety disorder,,6
+P0256,James Brown,77,F,Chronic kidney disease,,12
+P0257,Lisa Gonzalez,50,M,Chronic kidney disease,6.4,8
+P0258,Anthony Robinson,35,M,,,3
+P0259,Nancy Anderson,66,M,GERD,,8
+P0260,Robert Martinez,79,M,Type 2 diabetes; Hypertension; GERD,8.7,9
+P0261,Joseph Sanchez,76,M,,,7
+P0262,Michelle Lewis,72,F,Anxiety disorder,5.1,5
+P0263,Paul Garcia,30,F,,5.9,8
+P0264,Joshua Gonzalez,89,M,GERD,,8
+P0265,Michelle Jackson,44,M,Type 2 diabetes,7.0,7
+P0266,Ashley Lee,76,F,Asthma; Chronic kidney disease; COPD,,3
+P0267,Mark Martin,45,M,Type 2 diabetes; Hypertension,8.2,12
+P0268,David Williams,78,M,Osteoarthritis; Hypothyroidism,5.2,5
+P0269,Andrew White,43,M,Chronic kidney disease,5.0,9
+P0270,Mark Moore,68,F,Osteoarthritis,,1
+P0271,Daniel Ramirez,79,M,Hyperlipidemia,,4
+P0272,Michelle Lee,48,M,Osteoarthritis,,1
+P0273,Joshua Moore,66,M,Type 2 diabetes; Hypothyroidism; COPD; Chronic kidney disease,10.2,1
+P0274,William Davis,57,F,Type 2 diabetes,7.6,2
+P0275,Steven White,33,M,GERD; Depression; Chronic kidney disease,,1
+P0276,Daniel Ramirez,33,M,Type 2 diabetes; Osteoarthritis,10.1,8
+P0277,John Brown,65,F,Hypertension; Hyperlipidemia,,3
+P0278,James Wilson,78,M,Asthma,,5
+P0279,Jennifer Lee,42,M,,,11
+P0280,Betty Lee,43,F,Osteoarthritis,,2
+P0281,Susan Thomas,34,F,Type 2 diabetes; Chronic kidney disease,8.6,2
+P0282,Jennifer White,51,M,,,5
+P0283,William Lee,39,M,,,1
+P0284,Daniel White,43,M,Anxiety disorder; Depression,,2
+P0285,Linda Jackson,34,F,Anxiety disorder,,3
+P0286,Jennifer Davis,53,M,COPD,,12
+P0287,Susan Taylor,25,M,,,11
+P0288,Ashley Gonzalez,28,F,Type 2 diabetes; COPD,7.0,7
+P0289,Donald Harris,68,F,Type 2 diabetes; Hypertension,7.8,7
+P0290,Jennifer Lee,76,M,Hypothyroidism,4.9,4
+P0291,Betty Jackson,41,M,Hyperlipidemia; Hypothyroidism,,12
+P0292,Jessica Williams,52,F,,,1
+P0293,Linda Smith,61,F,Asthma; Depression,,9
+P0294,David Lopez,88,M,Type 2 diabetes; Hypothyroidism; Hyperlipidemia,9.6,2
+P0295,Steven Lopez,85,M,Type 2 diabetes; Asthma; GERD,7.4,1
+P0296,Donald Lopez,53,F,,,1
+P0297,Christopher Davis,75,F,Hypothyroidism; Hyperlipidemia,,2
+P0298,Barbara Davis,86,F,Anxiety disorder; Hyperlipidemia; Depression,,5
+P0299,Emily Anderson,63,F,Type 2 diabetes,8.5,4
+P0300,James Robinson,53,F,,,12
+P0301,James Harris,23,M,Hypothyroidism; Hyperlipidemia,6.4,7
+P0302,Elizabeth Thompson,84,F,,6.2,7
+P0303,Jennifer Jackson,69,M,Type 2 diabetes,8.9,6
+P0304,Christopher Anderson,72,M,,6.0,10
+P0305,Michael Garcia,35,F,,5.4,4
+P0306,Sandra Rodriguez,79,M,,,5
+P0307,Christopher Jones,27,F,Type 2 diabetes,7.0,8
+P0308,Sandra Brown,53,F,,6.1,4
+P0309,Betty Lopez,38,F,Hyperlipidemia; Hypothyroidism; COPD,4.9,11
+P0310,Jennifer Lewis,78,F,Hyperlipidemia; Hypertension,,1
+P0311,Betty Thomas,43,M,Type 2 diabetes; Asthma,8.2,11
+P0312,Anthony Lewis,59,M,,,3
+P0313,Kimberly Davis,75,F,Hypertension; Anxiety disorder,,6
+P0314,Daniel Robinson,83,M,,,1
+P0315,Mary Lewis,62,F,,,8
+P0316,Donna Davis,89,M,,,5
+P0317,Andrew Ramirez,29,F,Asthma,5.7,12
+P0318,Daniel Jackson,67,F,Osteoarthritis,,8
+P0319,Ashley Johnson,61,F,Type 2 diabetes,7.2,6
+P0320,Elizabeth Jackson,29,F,,5.6,6
+P0321,Betty Jackson,31,M,Type 2 diabetes,6.9,9
+P0322,Donna Clark,67,F,Type 2 diabetes,8.6,10
+P0323,Joshua Hernandez,26,F,Osteoarthritis; Hyperlipidemia; Depression,6.0,4
+P0324,David Lee,66,M,,,11
+P0325,James Rodriguez,64,M,GERD,,2
+P0326,Matthew Anderson,22,F,Anxiety disorder; Depression; COPD,,7
+P0327,Andrew Lee,34,M,,,1
+P0328,Christopher Rodriguez,59,F,,5.4,12
+P0329,Nancy Martin,31,F,Hypertension; Anxiety disorder,,3
+P0330,Patricia Brown,77,F,Anxiety disorder; Chronic kidney disease; Hypothyroidism,,5
+P0331,Patricia Gonzalez,52,F,Asthma; Hypertension,,7
+P0332,Joshua Thomas,33,M,,5.3,2
+P0333,Karen Sanchez,82,F,Hypothyroidism,5.7,3
+P0334,Lisa Garcia,69,M,,,4
+P0335,Elizabeth Harris,56,F,,,9
+P0336,Emily Johnson,74,F,Anxiety disorder; Chronic kidney disease,,8
+P0337,Karen Williams,52,M,Hypertension; Chronic kidney disease,,9
+P0338,Mark Garcia,40,F,,5.1,1
+P0339,Margaret Miller,76,F,COPD,,12
+P0340,Matthew Moore,30,F,,,8
+P0341,Linda Wilson,23,M,Type 2 diabetes; COPD,9.0,6
+P0342,Matthew Lee,74,M,Hypertension,5.4,10
+P0343,Betty Lewis,73,F,Hypertension,,5
+P0344,Nancy Clark,69,F,,,12
+P0345,William Martinez,34,F,GERD,,7
+P0346,Mark Miller,33,F,Depression,,6
+P0347,Robert Martinez,29,F,Chronic kidney disease,,1
+P0348,Richard Clark,44,F,Type 2 diabetes,6.8,11
+P0349,Lisa Thomas,25,F,,,10
+P0350,David Clark,66,M,Hyperlipidemia; Hypothyroidism,4.9,10
+P0351,Joseph Perez,49,F,Chronic kidney disease,6.0,11
+P0352,William Lee,23,M,Type 2 diabetes; Osteoarthritis; Hypothyroidism,9.2,8
+P0353,Sandra Martinez,54,F,Anxiety disorder; Hyperlipidemia,6.4,6
+P0354,Michael Thomas,58,M,Type 2 diabetes; GERD; Hypothyroidism; Chronic kidney disease,8.5,10
+P0355,William White,73,M,Type 2 diabetes; Hypothyroidism,7.6,12
+P0356,Daniel Taylor,50,M,,,9
+P0357,Michael Thomas,45,M,Type 2 diabetes,9.1,12
+P0358,Nancy Lopez,61,M,,,8
+P0359,Donald Lewis,28,F,,,9
+P0360,Patricia Ramirez,60,M,,5.5,10
+P0361,Christopher Ramirez,80,F,Depression; GERD,,3
+P0362,James Anderson,62,F,Asthma; COPD,,2
+P0363,Margaret Gonzalez,38,M,Hypertension,5.1,6
+P0364,Kimberly Miller,23,M,Type 2 diabetes,9.2,2
+P0365,Charles Anderson,27,M,GERD,,11
+P0366,Ashley Lopez,39,M,,,7
+P0367,Joseph White,24,F,,5.6,2
+P0368,Matthew Lewis,68,F,COPD; Hypertension,,1
+P0369,Patricia Thompson,35,F,Type 2 diabetes; Hyperlipidemia,8.4,11
+P0370,Michelle Martin,88,M,Hyperlipidemia,,10
+P0371,Linda Sanchez,37,M,Type 2 diabetes,7.0,8
+P0372,Nancy Davis,48,M,Type 2 diabetes; Hyperlipidemia,9.9,5
+P0373,Charles Rodriguez,51,M,,4.9,5
+P0374,Margaret White,68,M,Type 2 diabetes; Hypertension; COPD,9.9,2
+P0375,Barbara Brown,69,M,Hypothyroidism; Anxiety disorder; Depression,,11
+P0376,William Thompson,43,F,Asthma; Hyperlipidemia; Anxiety disorder,,8
+P0377,Michelle Gonzalez,78,F,Asthma,,8
+P0378,Mark Johnson,36,M,Type 2 diabetes; Hypertension,9.5,6
+P0379,Margaret Perez,88,F,Anxiety disorder,6.1,10
+P0380,David Taylor,28,F,Asthma; Hyperlipidemia,,6
+P0381,Sarah Johnson,52,M,Anxiety disorder,,4
+P0382,Mark Sanchez,32,M,,,6
+P0383,Mary Brown,37,M,,,2
+P0384,Sandra Hernandez,60,F,,5.5,9
+P0385,Mark Brown,82,M,Type 2 diabetes; Hypertension,7.8,3
+P0386,Anthony Brown,85,F,,6.2,4
+P0387,Nancy Brown,80,F,,,11
+P0388,Sandra Perez,37,M,Depression,6.0,9
+P0389,Steven Harris,77,M,,,12
+P0390,Matthew Perez,38,F,Chronic kidney disease; Anxiety disorder,,10
+P0391,Betty Hernandez,53,M,Asthma,5.8,12
+P0392,Emily Ramirez,87,M,Chronic kidney disease; Osteoarthritis,5.8,5
+P0393,Barbara Taylor,66,F,Hyperlipidemia,,9
+P0394,Paul Martinez,83,M,Hypertension,,1
+P0395,Patricia Perez,70,F,Type 2 diabetes,9.8,9
+P0396,Mark Brown,26,M,Chronic kidney disease,,12
+P0397,Steven Sanchez,71,F,Hypertension,,7
+P0398,Emily Johnson,75,M,Type 2 diabetes,8.7,10
+P0399,Charles Anderson,47,F,Type 2 diabetes; Asthma,9.9,5
+P0400,Sandra Thompson,22,M,,,10
+P0401,Ashley Sanchez,28,M,GERD,,3
+P0402,Steven Garcia,88,F,Hyperlipidemia,,4
+P0403,Lisa Martinez,64,M,Chronic kidney disease; Depression,,11
+P0404,Daniel Anderson,23,F,COPD,4.9,6
+P0405,Matthew Rodriguez,70,F,,,6
+P0406,Ashley Johnson,87,M,GERD,,2
+P0407,Robert Miller,43,F,Anxiety disorder; Hyperlipidemia,6.1,12
+P0408,Elizabeth Smith,77,F,,4.9,5
+P0409,Thomas Wilson,31,F,Anxiety disorder,,7
+P0410,Michelle Williams,37,F,Hyperlipidemia,,9
+P0411,Karen Martin,35,M,Type 2 diabetes; Depression; Anxiety disorder,8.0,9
+P0412,Karen Perez,59,F,GERD; Hypertension; Asthma,4.8,10
+P0413,Karen Miller,72,F,GERD; Osteoarthritis; Anxiety disorder,,9
+P0414,Barbara Davis,40,F,,5.9,10
+P0415,Emily Williams,28,M,,6.0,8
+P0416,William Perez,64,M,,,4
+P0417,Mark Hernandez,62,M,,,10
+P0418,Margaret Garcia,68,M,Type 2 diabetes,7.8,8
+P0419,Karen Thomas,79,M,,,5
+P0420,Thomas White,39,F,,4.8,9
+P0421,Donna Miller,25,M,Chronic kidney disease,,9
+P0422,Lisa Gonzalez,82,F,Hypothyroidism; Asthma,,9
+P0423,Lisa Taylor,33,M,Type 2 diabetes,9.6,10
+P0424,Daniel Johnson,40,M,Hyperlipidemia,,4
+P0425,Kimberly Robinson,27,F,Depression,,1
+P0426,Kimberly Lee,63,F,Hypothyroidism; Chronic kidney disease,,7
+P0427,Donna Lee,70,M,,,4
+P0428,Daniel Clark,88,M,Depression,,1
+P0429,Mark Garcia,86,F,Hypothyroidism,5.1,6
+P0430,Anthony Sanchez,37,F,,,8
+P0431,Anthony Smith,48,F,,,3
+P0432,Andrew Jones,87,F,Type 2 diabetes,7.6,5
+P0433,Mark Martin,32,F,Asthma; Osteoarthritis,,10
+P0434,Michelle Perez,40,F,,,8
+P0435,Matthew Gonzalez,30,F,Type 2 diabetes,7.9,10
+P0436,Jennifer Thomas,26,F,Chronic kidney disease; Hypertension; Anxiety disorder,,6
+P0437,Joseph Sanchez,27,M,GERD; Hyperlipidemia,,5
+P0438,Jennifer Martinez,83,F,Hypothyroidism,5.9,1
+P0439,Kimberly Smith,88,F,,,7
+P0440,Elizabeth Wilson,68,F,,,7
+P0441,Betty Harris,68,M,Chronic kidney disease,,6
+P0442,Karen Jackson,83,M,Asthma; Hyperlipidemia,,8
+P0443,Susan Taylor,42,F,,,12
+P0444,Matthew Lee,28,F,Type 2 diabetes,6.7,7
+P0445,Joshua Johnson,73,M,Depression; COPD,6.2,9
+P0446,John Sanchez,58,F,Osteoarthritis,,11
+P0447,Jessica Lee,26,M,Type 2 diabetes,10.1,2
+P0448,Emily Robinson,33,M,,,4
+P0449,Betty Jackson,46,M,Type 2 diabetes,8.5,9
+P0450,Matthew Jackson,54,M,,,8
+P0451,Donald Brown,80,F,Osteoarthritis,,4
+P0452,Daniel Taylor,62,M,Hypothyroidism; Osteoarthritis,,7
+P0453,Emily Robinson,65,F,Type 2 diabetes,6.9,4
+P0454,Susan Davis,52,M,,,3
+P0455,Jennifer Perez,35,F,Hypertension,,9
+P0456,Lisa Martin,27,M,COPD; Hypothyroidism,,9
+P0457,Joseph Harris,57,M,,,8
+P0458,Betty Ramirez,26,M,,,12
+P0459,Christopher Thompson,88,M,Type 2 diabetes; Anxiety disorder,8.3,10
+P0460,Barbara Thomas,65,M,GERD,,7
+P0461,Barbara Jackson,57,M,Type 2 diabetes; Osteoarthritis,8.8,12
+P0462,James Garcia,41,M,,,11
+P0463,Ashley Martinez,88,M,Hypertension; Anxiety disorder,5.1,4
+P0464,Michael Anderson,54,M,,,9
+P0465,Mary Wilson,54,M,Type 2 diabetes; COPD; Osteoarthritis,8.5,12
+P0466,Matthew Martin,79,F,Asthma,,11
+P0467,Michelle Jackson,65,M,Hyperlipidemia; Asthma; GERD,5.3,5
+P0468,Sarah Lewis,56,M,GERD; Chronic kidney disease,,7
+P0469,Mary Jones,43,F,Hyperlipidemia,5.4,2
+P0470,Emily Johnson,30,M,Type 2 diabetes; Hyperlipidemia,6.8,8
+P0471,Kimberly Clark,38,F,Type 2 diabetes,8.1,3
+P0472,Andrew Wilson,44,M,Hypothyroidism,,8
+P0473,Mark Martinez,51,F,,,1
+P0474,Daniel Martinez,88,F,,,8
+P0475,Margaret Sanchez,60,F,,5.4,7
+P0476,Jessica Garcia,77,M,Anxiety disorder,4.9,11
+P0477,Charles Lee,52,M,Anxiety disorder; Osteoarthritis,,3
+P0478,Linda Lee,39,M,COPD,,6
+P0479,Patricia Moore,24,F,Type 2 diabetes; Hypothyroidism; COPD; Asthma,9.0,8
+P0480,John Hernandez,69,M,Type 2 diabetes; Asthma; Hypertension,7.1,1
+P0481,Matthew Harris,37,F,,,4
+P0482,Kimberly Perez,80,F,Hypothyroidism,,3
+P0483,Thomas Thomas,27,F,,,11
+P0484,Jessica Lee,49,F,,,10
+P0485,Jessica Smith,37,M,Depression,,3
+P0486,Jessica Garcia,69,F,GERD,,11
+P0487,Daniel Lee,29,F,Type 2 diabetes; Hyperlipidemia,7.1,4
+P0488,Daniel White,24,M,Type 2 diabetes; Depression; COPD,8.3,10
+P0489,Kimberly Jones,42,F,Chronic kidney disease; GERD,,11
+P0490,Barbara Lewis,86,M,Type 2 diabetes; COPD; Osteoarthritis,7.9,3
+P0491,Anthony Lee,58,M,,,1
+P0492,John Miller,38,F,Type 2 diabetes,6.8,4
+P0493,Susan Lee,31,F,Hyperlipidemia; Depression,,1
+P0494,Lisa Sanchez,68,M,Hypothyroidism; Chronic kidney disease,4.9,5
+P0495,Kimberly Brown,31,F,Type 2 diabetes,7.8,12
+P0496,Sandra Thompson,35,M,Asthma; COPD,,9
+P0497,Paul Martin,65,F,GERD,,6
+P0498,Margaret Clark,69,M,COPD,,7
+P0499,Mark Anderson,54,M,,5.3,1
+P0500,Karen Smith,88,F,,,1
+P0501,Michael Johnson,57,F,,,10
+P0502,Thomas Sanchez,53,F,COPD,,12
+P0503,Donald Garcia,31,M,COPD; Hyperlipidemia,,5
+P0504,Jennifer Harris,26,M,Type 2 diabetes; GERD; Anxiety disorder,8.0,11
+P0505,Karen Taylor,70,F,Type 2 diabetes; Asthma,8.2,10
+P0506,Joseph Wilson,86,F,Asthma,,8
+P0507,Thomas Williams,28,M,Asthma,,8
+P0508,Betty Lee,47,M,Chronic kidney disease,4.9,7
+P0509,Linda Perez,63,F,Osteoarthritis,,10
+P0510,David Lopez,25,M,Depression; Asthma; COPD,6.1,4
+P0511,Jennifer Brown,69,F,,,3
+P0512,Nancy Thompson,58,F,,,6
+P0513,Susan Moore,48,F,,,12
+P0514,Matthew Jackson,40,F,Hypothyroidism,5.3,12
+P0515,Sandra Lee,56,F,,,11
+P0516,Mary Martinez,68,F,Osteoarthritis,,9
+P0517,Ashley Ramirez,34,M,,6.3,9
+P0518,Jessica Robinson,24,F,,,3
+P0519,Daniel Lopez,24,M,,,9
+P0520,Thomas Lewis,57,F,Hypertension; Chronic kidney disease; Hypothyroidism,5.3,7
+P0521,Matthew Taylor,39,F,Osteoarthritis,,10
+P0522,Karen Robinson,41,M,Asthma,5.0,9
+P0523,Karen Thompson,47,F,Asthma,,3
+P0524,Robert Moore,42,M,Asthma; GERD,,3
+P0525,Anthony Wilson,25,M,Hypothyroidism; Asthma,,2
+P0526,Mary Harris,38,F,COPD,,4
+P0527,Mary Lopez,51,F,Type 2 diabetes; Asthma; Chronic kidney disease,9.5,4
+P0528,James Robinson,26,M,Osteoarthritis,,2
+P0529,Michelle Thomas,44,M,Osteoarthritis; Anxiety disorder,,1
+P0530,Betty Martin,70,M,Chronic kidney disease,,12
+P0531,Mark Anderson,26,F,,,9
+P0532,Emily Gonzalez,72,F,Hypertension,5.5,5
+P0533,David Wilson,58,M,Chronic kidney disease; Asthma; Depression,,8
+P0534,Barbara Harris,33,F,Chronic kidney disease; Asthma,,6
+P0535,Barbara Anderson,79,F,Osteoarthritis; Depression,5.3,11
+P0536,Jennifer Brown,42,F,Hyperlipidemia,,7
+P0537,Matthew Moore,87,F,GERD; Asthma,5.0,12
+P0538,Karen Martinez,28,M,Hypothyroidism; Asthma; Hyperlipidemia,,4
+P0539,James Anderson,22,M,Hypertension,,8
+P0540,Donna Perez,52,F,Hyperlipidemia,,1
+P0541,Michelle Lee,53,M,Hypertension; Asthma,5.8,1
+P0542,Andrew Clark,40,F,,5.0,3
+P0543,Michelle Perez,42,M,Chronic kidney disease,5.5,10
+P0544,Jennifer Harris,68,F,Anxiety disorder,,7
+P0545,Donald Jones,30,M,Type 2 diabetes; GERD; Chronic kidney disease,8.7,2
+P0546,Margaret Martin,83,M,,,10
+P0547,Michelle Jackson,67,F,Depression; COPD,,10
+P0548,Richard Smith,51,M,Type 2 diabetes; Hyperlipidemia,9.1,4
+P0549,Charles Rodriguez,23,F,,,6
+P0550,Nancy Hernandez,22,F,Hypertension,,4
+P0551,Donald Robinson,64,M,,5.0,8
+P0552,Anthony Robinson,64,M,Hypothyroidism; GERD,,1
+P0553,Daniel Williams,48,M,,6.4,11
+P0554,Barbara Martin,43,M,Type 2 diabetes; Hypothyroidism; GERD,9.7,9
+P0555,Linda Lopez,60,F,Hyperlipidemia; Depression,,8
+P0556,Richard Hernandez,86,F,Chronic kidney disease; Hypothyroidism,,3
+P0557,Susan White,34,F,Type 2 diabetes; Chronic kidney disease,6.8,2
+P0558,Mary Jackson,88,M,Osteoarthritis,,4
+P0559,Paul Hernandez,58,M,Hypothyroidism,5.2,1
+P0560,Susan Moore,87,F,,5.9,5
+P0561,Robert Martinez,53,F,,,3
+P0562,Patricia Brown,25,M,,,12
+P0563,Karen Hernandez,79,M,Chronic kidney disease; Hyperlipidemia,,8
+P0564,Sandra Brown,38,F,Depression,,4
+P0565,Lisa Gonzalez,40,M,GERD; COPD; Depression,,2
+P0566,Daniel Thomas,82,F,,,10
+P0567,Betty Clark,38,F,,,2
+P0568,Betty Jackson,60,M,Chronic kidney disease,5.6,2
+P0569,Donna Wilson,65,F,GERD,,4
+P0570,Andrew Clark,44,F,Depression,,2
+P0571,Karen Gonzalez,78,F,Type 2 diabetes,8.9,10
+P0572,Elizabeth Anderson,22,F,COPD,,4
+P0573,Andrew Sanchez,62,M,,,7
+P0574,Donna Smith,66,F,Asthma,,1
+P0575,James Thompson,69,F,Hyperlipidemia; Hypothyroidism; Hypertension,5.9,7
+P0576,Betty Gonzalez,62,M,,5.0,9
+P0577,Anthony Jones,71,M,Asthma; COPD,5.8,3
+P0578,William Williams,84,M,Type 2 diabetes; Depression; Anxiety disorder,8.5,1
+P0579,Steven Rodriguez,85,F,GERD,4.9,8
+P0580,Donna Thomas,69,F,,,9
+P0581,Kimberly Williams,57,M,Osteoarthritis,,12
+P0582,Michelle Johnson,31,M,Hypertension,,9
+P0583,Anthony Lopez,82,M,Hypothyroidism; Asthma,6.3,12
+P0584,Patricia Lee,60,M,,6.4,12
+P0585,Ashley Williams,25,M,Type 2 diabetes,9.7,10
+P0586,Lisa Sanchez,41,M,Type 2 diabetes; Osteoarthritis; Depression,7.3,8
+P0587,Jessica Perez,74,M,Osteoarthritis,,6
+P0588,Linda Johnson,28,M,Type 2 diabetes; Hypothyroidism,7.9,9
+P0589,Charles Robinson,77,F,GERD,,11
+P0590,Paul Lee,27,F,COPD; Hypothyroidism,,5
+P0591,Donna Gonzalez,34,M,Osteoarthritis,,10
+P0592,Barbara Hernandez,46,M,Hyperlipidemia,5.0,2
+P0593,Joseph White,79,M,,4.9,10
+P0594,Linda Williams,49,F,,,11
+P0595,Barbara Rodriguez,45,F,Hyperlipidemia,,5
+P0596,Thomas Garcia,76,M,,5.4,1
+P0597,Barbara Anderson,55,M,Type 2 diabetes; Osteoarthritis; Anxiety disorder; Asthma,8.3,5
+P0598,Robert Williams,35,F,,,8
+P0599,John Perez,41,F,,,7
+P0600,Donald Wilson,22,M,Hyperlipidemia; Chronic kidney disease,5.4,12
+P0601,Andrew Moore,83,F,Hypothyroidism,,11
+P0602,Paul Ramirez,33,M,,,5
+P0603,Emily Johnson,47,F,Hypothyroidism,,2
+P0604,Jennifer Lewis,67,M,Asthma; Hypertension,6.0,10
+P0605,Matthew Williams,52,M,Depression,,8
+P0606,Nancy Johnson,24,F,Anxiety disorder; Hyperlipidemia,5.8,9
+P0607,Donna Davis,80,F,,5.8,8
+P0608,William Smith,27,F,Type 2 diabetes,8.0,8
+P0609,Richard Wilson,50,F,Anxiety disorder; GERD,5.9,9
+P0610,Susan Harris,39,M,Type 2 diabetes,6.4,10
+P0611,Michael Sanchez,27,F,Asthma,5.6,1
+P0612,Jennifer Thompson,22,F,Anxiety disorder; Depression,,4
+P0613,Kimberly Anderson,40,M,COPD; Hypertension; Asthma,,10
+P0614,Daniel Wilson,33,M,Type 2 diabetes,7.1,11
+P0615,Patricia Miller,48,M,Type 2 diabetes,8.8,4
+P0616,Nancy Martin,77,M,Hypertension; Hyperlipidemia,,9
+P0617,Mary Thomas,44,F,,5.5,10
+P0618,Richard White,63,M,,,6
+P0619,Jessica White,51,F,,,2
+P0620,Patricia Lewis,82,M,,,3
+P0621,William Anderson,71,M,Hypothyroidism,5.0,12
+P0622,William Brown,29,M,Asthma,,4
+P0623,Michelle Lewis,59,F,Type 2 diabetes; Osteoarthritis; Hyperlipidemia; Anxiety disorder,9.0,12
+P0624,Christopher Wilson,53,F,COPD; Asthma,,1
+P0625,John Thomas,75,F,Anxiety disorder,,8
+P0626,Ashley Davis,34,M,Type 2 diabetes; Anxiety disorder; Osteoarthritis,6.8,10
+P0627,Sandra Harris,25,M,Type 2 diabetes; Asthma; GERD,9.3,5
+P0628,Michelle Moore,76,M,,,10
+P0629,Steven Robinson,64,F,Hyperlipidemia; Anxiety disorder,,10
+P0630,Lisa Garcia,27,M,Chronic kidney disease; Osteoarthritis,5.3,9
+P0631,Donna Ramirez,36,M,,,4
+P0632,Sarah Taylor,63,M,,5.4,8
+P0633,Donald Thompson,86,F,Hypothyroidism; Depression,,11
+P0634,Sandra Williams,30,F,Type 2 diabetes; Hypothyroidism; Hyperlipidemia,6.8,5
+P0635,Donald Lopez,75,F,Hypertension; Hypothyroidism,4.8,4
+P0636,Anthony Jackson,88,M,GERD,,11
+P0637,Sandra Martinez,89,M,Hypothyroidism; Asthma,,4
+P0638,Charles Harris,83,M,,,3
+P0639,Barbara Garcia,42,M,Asthma,5.0,6
+P0640,Thomas Lopez,38,M,Hypertension,,6
+P0641,Mark Moore,40,M,Hyperlipidemia,,7
+P0642,Sandra Robinson,85,F,,,9
+P0643,Donald Lewis,64,M,COPD; Asthma; Depression,,2
+P0644,William Perez,83,F,,,4
+P0645,Jennifer Hernandez,79,M,Type 2 diabetes; COPD,8.9,2
+P0646,Richard Thomas,87,M,Hypertension,,6
+P0647,Margaret Lopez,72,F,,,5
+P0648,Susan White,79,F,Anxiety disorder; Depression,,12
+P0649,William Clark,76,M,,5.6,9
+P0650,Donna Harris,64,F,,,5
+P0651,Emily Anderson,75,F,Asthma; Osteoarthritis,5.4,9
+P0652,Karen Clark,84,F,Depression,6.1,3
+P0653,Donald Brown,55,M,Anxiety disorder; Asthma,,12
+P0654,Linda Harris,53,F,Hyperlipidemia; GERD; Depression,,5
+P0655,Lisa Taylor,82,F,,,10
+P0656,Christopher Anderson,29,F,,5.2,7
+P0657,Charles Martinez,67,F,Chronic kidney disease; Osteoarthritis; Asthma,,10
+P0658,Christopher Clark,43,M,Hypothyroidism; GERD,5.7,3
+P0659,Kimberly Martinez,23,F,GERD,,3
+P0660,Elizabeth Taylor,35,F,,,10
+P0661,Anthony Anderson,89,F,,4.8,6
+P0662,William Clark,61,M,Chronic kidney disease; GERD; Asthma,,1
+P0663,William Ramirez,37,F,Hypothyroidism,5.0,2
+P0664,Robert Smith,76,F,Hypertension; Osteoarthritis,6.1,9
+P0665,Linda Robinson,29,M,,,2
+P0666,Donna Lewis,37,F,Hypertension,6.2,5
+P0667,David Ramirez,66,M,Osteoarthritis; Chronic kidney disease,,2
+P0668,Richard Martinez,23,F,Type 2 diabetes; Hypertension; Hyperlipidemia,9.2,2
+P0669,Matthew Wilson,45,M,,6.4,2
+P0670,Kimberly Jones,81,F,Hypothyroidism,,1
+P0671,Ashley Brown,32,M,Hypothyroidism,,8
+P0672,Charles Ramirez,50,M,Depression; GERD,6.4,8
+P0673,Mark Taylor,35,M,,5.4,10
+P0674,Robert Lopez,35,F,,,7
+P0675,Margaret White,37,F,COPD; Hypothyroidism,,11
+P0676,Donald Perez,73,M,Depression,,3
+P0677,Linda Rodriguez,80,F,,,1
+P0678,Robert Thomas,34,F,Anxiety disorder; GERD; Asthma,,10
+P0679,Kimberly Harris,34,F,Hypothyroidism,,8
+P0680,Paul Hernandez,86,M,Hypertension,,1
+P0681,Matthew Anderson,77,F,Depression,5.1,11
+P0682,Ashley Wilson,60,F,Type 2 diabetes; Depression; Hyperlipidemia,8.7,1
+P0683,Ashley Jackson,72,M,GERD,,5
+P0684,Mary Jackson,63,F,Type 2 diabetes; GERD; Hypertension,9.0,4
+P0685,Karen Jackson,53,F,Type 2 diabetes; Hypothyroidism,6.8,7
+P0686,Donald Jackson,56,F,Type 2 diabetes,8.3,11
+P0687,Michelle Martinez,65,F,Depression,,2
+P0688,Thomas Johnson,49,M,Osteoarthritis,,2
+P0689,Sarah Williams,34,M,Anxiety disorder,6.1,11
+P0690,Margaret Perez,60,M,,,10
+P0691,Emily Garcia,87,M,Chronic kidney disease,,10
+P0692,Sandra Rodriguez,85,F,COPD,,7
+P0693,Lisa Anderson,29,F,Type 2 diabetes,8.4,7
+P0694,David Rodriguez,56,M,,5.0,1
+P0695,Sandra Thomas,53,M,Hypertension,5.2,1
+P0696,Emily Garcia,55,M,,,1
+P0697,Christopher Martin,29,F,,,6
+P0698,William Davis,33,M,Type 2 diabetes; Hyperlipidemia; Chronic kidney disease,8.3,6
+P0699,Jessica Robinson,64,M,,6.4,8
+P0700,Donna Johnson,74,M,Hyperlipidemia,,7
+P0701,Sarah Lewis,82,F,,,6
+P0702,Joshua Johnson,61,F,Hypertension,,11
+P0703,Emily Gonzalez,52,M,GERD; Hyperlipidemia; Osteoarthritis,,7
+P0704,Thomas Martinez,23,M,Type 2 diabetes; Osteoarthritis; Hypothyroidism,7.3,1
+P0705,Ashley Thomas,57,F,GERD; Anxiety disorder; Hyperlipidemia,,12
+P0706,Daniel Wilson,55,F,GERD; Depression,,1
+P0707,William Smith,45,M,GERD,,2
+P0708,Kimberly Thompson,42,F,Asthma; Anxiety disorder,,6
+P0709,William Rodriguez,79,M,Type 2 diabetes; GERD,9.8,4
+P0710,Emily Lee,24,F,,5.5,5
+P0711,Betty Martin,43,F,,5.4,10
+P0712,Kimberly Wilson,37,F,Depression; Hyperlipidemia; Osteoarthritis,,4
+P0713,Ashley Gonzalez,56,M,Type 2 diabetes; COPD; Osteoarthritis,9.6,5
+P0714,Jessica Lopez,52,M,Hyperlipidemia,5.0,6
+P0715,Matthew Thompson,72,F,Hyperlipidemia,4.9,6
+P0716,Daniel Martin,52,M,COPD; Hypertension; Chronic kidney disease,,10
+P0717,Betty Perez,70,M,Chronic kidney disease; Hypertension; Asthma,,9
+P0718,Sandra Jones,85,M,Type 2 diabetes; Anxiety disorder; Asthma,6.9,7
+P0719,Michelle Clark,58,M,,,3
+P0720,Elizabeth Moore,62,M,Depression,5.0,4
+P0721,Donald Rodriguez,45,F,Type 2 diabetes; Hyperlipidemia,10.2,12
+P0722,Daniel Williams,40,F,,,12
+P0723,Andrew Lewis,87,M,,,1
+P0724,Anthony Robinson,89,F,Type 2 diabetes; Hyperlipidemia; GERD,7.1,3
+P0725,Sandra Clark,25,F,Hypothyroidism,,1
+P0726,Michelle Anderson,64,F,COPD; Asthma,4.9,11
+P0727,Patricia White,58,M,Type 2 diabetes; Anxiety disorder; Hyperlipidemia; COPD,7.2,7
+P0728,Linda Martinez,58,F,Hypothyroidism,,10
+P0729,Michael Clark,38,M,,,7
+P0730,Andrew Martin,82,M,GERD; Asthma,,7
+P0731,Steven Hernandez,33,F,Asthma,,9
+P0732,Charles Anderson,89,F,Depression; Hypothyroidism; Asthma,,11
+P0733,Kimberly Wilson,60,F,,4.9,2
+P0734,Anthony Brown,87,M,Hypothyroidism; GERD,,2
+P0735,Linda White,86,F,,5.4,2
+P0736,Christopher Jackson,75,M,Depression; Hypothyroidism,,3
+P0737,Jennifer White,49,F,,,7
+P0738,Betty Brown,24,F,Type 2 diabetes; Depression,9.0,6
+P0739,Jennifer Jones,72,M,Type 2 diabetes,9.2,11
+P0740,Karen Harris,46,F,Hypertension,6.2,12
+P0741,Donald Smith,78,M,Osteoarthritis,,7
+P0742,James Brown,28,M,Anxiety disorder; Depression,,10
+P0743,Ashley Gonzalez,59,F,COPD,,8
+P0744,Kimberly Smith,51,F,,6.2,7
+P0745,Ashley Martin,82,F,,,1
+P0746,Richard Thomas,42,M,,6.3,6
+P0747,Charles White,81,F,GERD; Depression; Asthma,,5
+P0748,William Garcia,33,M,Hyperlipidemia,,8
+P0749,Susan Moore,60,F,Type 2 diabetes,9.1,7
+P0750,Linda Moore,36,F,,,6
+P0751,Elizabeth Ramirez,27,M,Hyperlipidemia,,8
+P0752,Michael Sanchez,80,F,Hyperlipidemia; Chronic kidney disease,5.0,11
+P0753,Lisa Garcia,37,F,Chronic kidney disease; Depression,,2
+P0754,Nancy Clark,41,M,Type 2 diabetes; Depression; Anxiety disorder,8.8,12
+P0755,Jessica Jones,75,M,Osteoarthritis,5.5,7
+P0756,Mary Anderson,80,M,Type 2 diabetes,9.0,1
+P0757,Kimberly Martinez,41,F,Chronic kidney disease; Hypothyroidism,,6
+P0758,Sarah Lewis,66,F,Anxiety disorder; Depression; Osteoarthritis,,10
+P0759,Betty Harris,78,M,,5.3,12
+P0760,Susan Williams,38,M,,,11
+P0761,Mary Lewis,42,F,Osteoarthritis,,5
+P0762,Patricia Clark,76,F,GERD,6.0,2
+P0763,Andrew White,79,M,Type 2 diabetes,7.4,4
+P0764,Charles Perez,66,M,Asthma; Anxiety disorder,,4
+P0765,Kimberly Jackson,35,M,Depression; Hyperlipidemia,5.5,7
+P0766,Patricia Wilson,32,F,Depression,5.9,7
+P0767,Thomas Jackson,88,M,Depression,,8
+P0768,Elizabeth Taylor,75,F,Type 2 diabetes; Asthma; Chronic kidney disease,10.2,2
+P0769,Linda Lopez,74,F,,5.4,6
+P0770,Ashley Smith,60,M,,,1
+P0771,Susan Garcia,61,M,Hyperlipidemia,,2
+P0772,Donald Jackson,27,M,GERD,,8
+P0773,Steven Lee,38,F,Depression,6.0,2
+P0774,Joseph Lewis,74,M,Depression,,11
+P0775,Mary Jackson,33,F,Hypothyroidism; Chronic kidney disease,,11
+P0776,Michelle Moore,32,F,,,4
+P0777,Linda Perez,82,F,,6.1,4
+P0778,Paul Martin,78,F,Depression,,1
+P0779,Barbara Wilson,65,M,Type 2 diabetes; Anxiety disorder,7.5,5
+P0780,Patricia Martin,74,F,,,5
+P0781,Christopher Jones,71,F,,,2
+P0782,Jessica Harris,28,F,,,9
+P0783,Sarah Johnson,71,F,Hyperlipidemia,,7
+P0784,Sarah Moore,51,F,Osteoarthritis,,11
+P0785,Andrew Wilson,38,M,Chronic kidney disease; Osteoarthritis,,3
+P0786,Jessica Moore,69,F,Chronic kidney disease; Depression; Hypertension,5.5,10
+P0787,James Johnson,59,F,COPD,,11
+P0788,Susan Jackson,70,M,,5.7,2
+P0789,Betty Thompson,60,F,Type 2 diabetes,8.2,6
+P0790,Sarah Davis,55,M,,6.3,6
+P0791,James Martin,24,F,Asthma; Anxiety disorder; Depression,,9
+P0792,Paul Smith,32,F,Depression; Hyperlipidemia,,7
+P0793,Barbara Clark,67,M,Hypertension,5.4,4
+P0794,Joseph White,78,F,Type 2 diabetes,10.3,8
+P0795,Sarah Thomas,68,F,Osteoarthritis; Hypertension,6.1,7
+P0796,Andrew Taylor,36,M,COPD,,10
+P0797,Donna Jones,44,F,,,4
+P0798,Richard Ramirez,88,M,Chronic kidney disease; Hypothyroidism; Depression,5.5,11
+P0799,Margaret Ramirez,28,M,,,8
+P0800,Kimberly Harris,85,M,Type 2 diabetes; Hypertension; Hypothyroidism,10.4,12
+P0801,Robert Robinson,50,M,,,11
+P0802,Donald Wilson,34,F,GERD,,4
+P0803,Jessica Hernandez,35,M,Chronic kidney disease; Osteoarthritis,,10
+P0804,Mark Jackson,78,F,Type 2 diabetes; Hypertension; Anxiety disorder; GERD,8.9,7
+P0805,Patricia Moore,30,F,Type 2 diabetes; Anxiety disorder; Hyperlipidemia,8.5,7
+P0806,Mary Anderson,34,M,Hyperlipidemia,5.8,2
+P0807,Steven Rodriguez,46,F,COPD,,4
+P0808,Patricia Jones,39,F,GERD,,9
+P0809,Donald Martinez,40,F,,,9
+P0810,Jessica Taylor,40,F,Hypertension,,4
+P0811,Robert Hernandez,47,F,Depression,,6
+P0812,Anthony Hernandez,64,M,Type 2 diabetes; Hypertension,7.9,6
+P0813,Betty Garcia,70,F,,5.4,9
+P0814,Charles Anderson,36,F,GERD,4.8,4
+P0815,Joseph Lewis,58,F,,,4
+P0816,Mary Garcia,44,F,Hypertension; Asthma; Anxiety disorder,,2
+P0817,Karen Anderson,65,F,Asthma; Chronic kidney disease,,10
+P0818,Linda Jones,77,F,,5.7,12
+P0819,Joshua Wilson,69,M,,5.8,4
+P0820,Christopher Davis,59,F,Type 2 diabetes; Asthma; Chronic kidney disease,10.3,9
+P0821,Ashley Taylor,71,M,,,12
+P0822,Donald Rodriguez,83,M,COPD,,4
+P0823,Mark Ramirez,50,F,,,7
+P0824,Thomas Moore,42,M,Type 2 diabetes; Hypothyroidism; Depression,8.6,6
+P0825,Sarah Gonzalez,85,M,Type 2 diabetes; Hypothyroidism,9.2,4
+P0826,Robert Lopez,34,F,Type 2 diabetes,7.0,3
+P0827,Karen Martinez,55,F,Anxiety disorder; COPD,,11
+P0828,Steven Harris,23,M,Osteoarthritis; COPD,,4
+P0829,Kimberly Jackson,82,F,Depression; GERD,,6
+P0830,Anthony Miller,46,M,Hypertension; GERD,6.2,5
+P0831,Daniel Hernandez,23,M,Anxiety disorder,,12
+P0832,Donna Smith,60,M,,6.4,6
+P0833,Susan Gonzalez,72,M,Type 2 diabetes; Depression,6.7,1
+P0834,Barbara Miller,84,F,Type 2 diabetes; Hypothyroidism; Osteoarthritis; Chronic kidney disease,7.6,7
+P0835,William Moore,42,F,Anxiety disorder; Osteoarthritis,5.1,7
+P0836,Joshua Jackson,82,F,Chronic kidney disease,,8
+P0837,James Jones,57,F,COPD; Osteoarthritis,,10
+P0838,Sandra Jackson,84,M,Type 2 diabetes,8.7,3
+P0839,Barbara Lewis,75,F,Anxiety disorder,,3
+P0840,John Davis,34,M,,,9
+P0841,Susan Robinson,59,F,Chronic kidney disease; Hyperlipidemia; GERD,5.0,6
+P0842,David Rodriguez,74,M,,5.8,11
+P0843,Nancy White,81,M,,5.2,12
+P0844,Sandra Thomas,39,M,,,12
+P0845,Donald Clark,78,F,,,10
+P0846,Charles Brown,34,F,Hyperlipidemia,,1
+P0847,Mark Lopez,56,F,Type 2 diabetes; Chronic kidney disease; Osteoarthritis,8.2,12
+P0848,Patricia Martin,61,M,Type 2 diabetes; Osteoarthritis; COPD,7.7,11
+P0849,Michael Sanchez,30,F,Asthma,5.6,6
+P0850,Michelle Miller,63,F,Anxiety disorder,5.1,6
+P0851,James Gonzalez,63,F,,5.2,11
+P0852,John Williams,57,M,COPD,,2
+P0853,Michael Martin,43,M,Anxiety disorder,,12
+P0854,Barbara Lee,39,M,Depression,4.8,10
+P0855,Steven Lee,79,M,Hypertension,5.8,2
+P0856,Margaret Harris,61,F,,5.6,4
+P0857,Susan Lee,41,M,Type 2 diabetes; COPD; Depression; GERD,6.7,1
+P0858,Nancy Davis,51,M,,,4
+P0859,Kimberly Hernandez,50,M,Hyperlipidemia,,2
+P0860,Elizabeth Miller,46,F,Type 2 diabetes,8.6,4
+P0861,Barbara Martin,53,M,,,11
+P0862,Donald Williams,47,M,Anxiety disorder,5.5,9
+P0863,Donald Smith,77,F,Hyperlipidemia,,5
+P0864,Thomas Gonzalez,41,F,Anxiety disorder,,8
+P0865,William Thompson,31,M,,4.8,9
+P0866,Betty Robinson,69,M,GERD,,5
+P0867,John Robinson,31,M,Type 2 diabetes; Asthma; Osteoarthritis; Anxiety disorder,9.9,1
+P0868,Jessica Davis,71,M,GERD; Hypertension; Asthma,,8
+P0869,Jessica Martin,40,M,Asthma,6.0,11
+P0870,Donna Lewis,71,M,Type 2 diabetes; Anxiety disorder; Asthma; COPD,7.1,12
+P0871,Andrew Harris,33,F,Hypothyroidism; Osteoarthritis,,7
+P0872,David Clark,61,F,,,7
+P0873,Charles White,89,M,,5.0,8
+P0874,Mark Jackson,45,F,,5.1,4
+P0875,Mark Lee,55,M,,,2
+P0876,Matthew Brown,59,F,,,8
+P0877,James Johnson,84,F,COPD; Hypertension; Hyperlipidemia,6.1,7
+P0878,Ashley Thomas,88,M,GERD,,6
+P0879,Lisa Perez,62,F,GERD,,2
+P0880,Betty White,22,M,Hypertension; Hyperlipidemia; Hypothyroidism,,4
+P0881,Michelle Perez,69,M,Anxiety disorder,,1
+P0882,Lisa Ramirez,63,F,Type 2 diabetes; GERD; Depression,7.9,8
+P0883,Charles Martin,34,M,,,10
+P0884,William Thomas,86,F,,,9
+P0885,Mark Brown,81,F,Osteoarthritis,6.0,11
+P0886,Margaret Thompson,33,F,Type 2 diabetes; GERD; Anxiety disorder; Hypothyroidism,7.1,12
+P0887,Nancy Ramirez,84,F,COPD,5.3,12
+P0888,Joseph Davis,70,M,,5.3,10
+P0889,Andrew Lopez,46,F,Type 2 diabetes,8.0,6
+P0890,Michael Gonzalez,38,F,Type 2 diabetes; GERD; Asthma,9.5,12
+P0891,Karen Taylor,26,M,,,12
+P0892,Ashley Martinez,83,F,GERD,5.9,12
+P0893,Barbara Ramirez,50,F,Asthma,,9
+P0894,Margaret Perez,72,M,,,2
+P0895,Charles Thompson,89,M,Chronic kidney disease; Anxiety disorder,5.3,10
+P0896,Sandra Lee,28,M,Type 2 diabetes,9.4,12
+P0897,Matthew Wilson,35,F,,5.4,8
+P0898,Linda Taylor,44,F,Asthma,,7
+P0899,Linda Davis,53,F,,,3
+P0900,Sandra Ramirez,70,F,Depression,,2
+P0901,Linda Thomas,36,F,Osteoarthritis; Hypertension; Depression,,12
+P0902,Matthew Thomas,34,F,Hypothyroidism; Asthma,4.9,9
+P0903,Mary Gonzalez,45,M,Chronic kidney disease,,9
+P0904,Linda Garcia,37,F,Hypertension,,6
+P0905,William Jackson,37,F,,,1
+P0906,Steven Martinez,32,F,Anxiety disorder,,11
+P0907,Karen Johnson,22,F,Hypothyroidism,,8
+P0908,Christopher Taylor,39,M,COPD; Chronic kidney disease; Osteoarthritis,,11
+P0909,John Miller,27,F,Type 2 diabetes; Osteoarthritis; Asthma,8.2,7
+P0910,Sandra Williams,42,M,Asthma,,2
+P0911,Lisa Jackson,56,F,COPD; Asthma,,3
+P0912,Matthew Smith,62,M,,,9
+P0913,Robert Hernandez,36,M,GERD,,3
+P0914,James Brown,50,M,Anxiety disorder; Hyperlipidemia; Chronic kidney disease,6.0,5
+P0915,Kimberly Lopez,84,F,Chronic kidney disease; Hypothyroidism,,1
+P0916,Matthew Garcia,43,M,Chronic kidney disease; COPD,,7
+P0917,Thomas Smith,83,F,Asthma; COPD,,12
+P0918,Lisa Thompson,56,F,Anxiety disorder,,3
+P0919,Sandra Taylor,78,M,Chronic kidney disease; Osteoarthritis; Hypothyroidism,,2
+P0920,Christopher Ramirez,61,M,Type 2 diabetes,9.3,1
+P0921,Donald Thomas,76,F,Chronic kidney disease; Hyperlipidemia; Anxiety disorder,5.1,12
+P0922,Paul White,22,M,Chronic kidney disease; Hypertension; Depression,,11
+P0923,Barbara Williams,89,F,,,1
+P0924,Matthew Garcia,76,M,,,4
+P0925,Karen Thomas,37,M,,,10
+P0926,Karen Robinson,72,F,Hypertension,,10
+P0927,Daniel Smith,84,F,,,1
+P0928,Betty Lopez,66,F,Type 2 diabetes; Osteoarthritis,6.6,4
+P0929,Lisa Martinez,82,M,Chronic kidney disease; Hypothyroidism,5.5,8
+P0930,Daniel White,42,F,Osteoarthritis,5.3,3
+P0931,Nancy Lewis,72,M,Type 2 diabetes; Depression,10.3,7
+P0932,William Brown,86,M,Asthma; COPD,,1
+P0933,Nancy Wilson,52,F,Anxiety disorder; Depression,,8
+P0934,Jessica Martin,32,M,Type 2 diabetes; Osteoarthritis,7.5,2
+P0935,Richard Ramirez,86,F,Osteoarthritis,5.4,5
+P0936,Margaret Smith,46,F,,5.5,5
+P0937,Nancy Wilson,51,F,Hypertension,,5
+P0938,Daniel Thompson,68,M,,4.9,1
+P0939,Charles Thomas,63,F,Anxiety disorder,6.3,6
+P0940,Linda Brown,64,M,Asthma,,12
+P0941,Jessica Lee,68,M,Hyperlipidemia,,3
+P0942,Donna Robinson,37,F,Osteoarthritis; Depression,,2
+P0943,Donald Harris,65,M,Hypertension; Asthma,5.7,5
+P0944,Mark Lee,66,M,Hyperlipidemia; Depression; Anxiety disorder,,9
+P0945,Joshua Rodriguez,24,F,,5.7,12
+P0946,Ashley Perez,46,M,Hyperlipidemia,6.0,7
+P0947,Joshua Rodriguez,71,M,,,10
+P0948,Steven Thompson,23,M,,,5
+P0949,David Davis,56,F,Type 2 diabetes,7.0,4
+P0950,James Lee,48,F,GERD,,12
+P0951,Anthony Lewis,55,F,,6.1,6
+P0952,Barbara Rodriguez,50,M,COPD,6.0,7
+P0953,Mark Davis,54,F,,,7
+P0954,Joseph White,41,M,Depression,5.1,3
+P0955,Andrew Thomas,44,F,,,5
+P0956,Betty Perez,42,F,,5.2,11
+P0957,Kimberly Jones,73,F,COPD; Hyperlipidemia,,1
+P0958,John Jones,36,F,,5.8,1
+P0959,Paul White,23,F,Hyperlipidemia; Osteoarthritis,6.0,8
+P0960,Nancy Thomas,42,M,Type 2 diabetes,9.1,7
+P0961,Joseph Smith,40,F,GERD,,4
+P0962,Ashley Garcia,71,F,,,5
+P0963,Michelle Hernandez,67,F,Type 2 diabetes; Hyperlipidemia; Hypertension; Asthma,7.5,5
+P0964,Sarah Robinson,66,F,Hypothyroidism,,12
+P0965,Elizabeth Harris,31,F,,,12
+P0966,Linda Jackson,83,F,Asthma; Hyperlipidemia,,3
+P0967,Daniel Hernandez,45,M,Anxiety disorder,,11
+P0968,Jessica Gonzalez,64,F,Chronic kidney disease,,9
+P0969,Jennifer Jackson,51,M,Osteoarthritis,,4
+P0970,Susan Ramirez,68,F,Type 2 diabetes; Asthma,10.1,3
+P0971,Susan Clark,75,F,Hyperlipidemia; Asthma,,1
+P0972,Patricia Thompson,76,M,Type 2 diabetes; Depression,9.4,7
+P0973,Donald White,41,F,Type 2 diabetes; Hypothyroidism,8.0,11
+P0974,Steven Garcia,26,F,Type 2 diabetes; Depression; Chronic kidney disease,9.7,2
+P0975,William White,88,M,Osteoarthritis,,12
+P0976,Donald Hernandez,31,M,Anxiety disorder,6.1,11
+P0977,Sarah Brown,76,F,Type 2 diabetes; GERD,7.0,9
+P0978,Jessica Rodriguez,47,F,Type 2 diabetes; Hypertension,8.0,5
+P0979,Christopher Harris,72,F,Asthma,,2
+P0980,Steven Brown,64,M,Hypertension; Anxiety disorder,,1
+P0981,Elizabeth Perez,59,F,Hyperlipidemia; Osteoarthritis,,11
+P0982,Steven Taylor,40,F,Chronic kidney disease,,6
+P0983,Nancy Martinez,79,F,Anxiety disorder; Hypertension,,11
+P0984,Susan Martin,71,F,COPD; Depression; Hyperlipidemia,,3
+P0985,Ashley Brown,61,F,,,2
+P0986,Daniel Williams,57,M,Type 2 diabetes; Depression; Hypothyroidism,10.3,8
+P0987,Charles Gonzalez,27,M,Asthma,,9
+P0988,Jennifer Perez,62,M,Hypertension,,11
+P0989,Emily Smith,29,F,Type 2 diabetes,7.8,8
+P0990,Jennifer Garcia,81,F,Anxiety disorder; COPD; Osteoarthritis,,2
+P0991,Joshua Thomas,62,M,Hyperlipidemia; Hypothyroidism,,9
+P0992,Elizabeth Lee,41,M,COPD,,1
+P0993,Donald Miller,68,M,Type 2 diabetes; Anxiety disorder; Hypothyroidism,8.2,7
+P0994,Thomas Garcia,89,F,,,6
+P0995,Richard Lopez,60,F,Chronic kidney disease,,3
+P0996,Andrew Gonzalez,77,M,COPD,6.0,10
+P0997,Christopher Smith,40,M,Type 2 diabetes; Asthma,8.6,3
+P0998,John Miller,79,F,,,3
+P0999,Daniel Miller,70,F,COPD; Hypertension; GERD,,1
+P1000,Steven Clark,60,M,Depression,,6
+P1001,Kimberly Harris,67,M,Depression; Anxiety disorder; GERD,5.8,9
+P1002,Charles Ramirez,77,M,Hypothyroidism,,2
+P1003,Jennifer Lee,33,F,Type 2 diabetes; Hyperlipidemia; Depression; COPD,8.2,9
+P1004,Richard Ramirez,70,F,,,8
+P1005,James Lopez,74,M,Hypothyroidism,,5
+P1006,Jessica Smith,61,M,Hypertension,6.1,9
+P1007,David Jackson,62,M,,,4
+P1008,Andrew Wilson,72,F,Type 2 diabetes; Asthma,7.6,10
+P1009,Emily Garcia,72,M,,5.5,11
+P1010,Michelle Thompson,41,F,COPD; Anxiety disorder; Hypertension,,3
+P1011,Barbara Davis,80,M,,6.1,12
+P1012,Patricia Rodriguez,70,M,Type 2 diabetes,5.9,5
+P1013,Robert Thomas,45,F,Osteoarthritis; Anxiety disorder; Hyperlipidemia,,1
+P1014,Ashley Lee,74,F,Type 2 diabetes; Anxiety disorder,10.3,11
+P1015,Nancy Lopez,26,F,Chronic kidney disease,5.6,5
+P1016,Joshua Smith,37,F,Asthma,5.4,4
+P1017,William Davis,25,M,Type 2 diabetes; Asthma,7.1,8
+P1018,Richard Rodriguez,77,M,Type 2 diabetes; Hypothyroidism,9.6,7
+P1019,Joshua White,79,M,,5.4,4
+P1020,Robert Anderson,67,M,Type 2 diabetes,9.0,1
+P1021,Christopher Wilson,36,F,Hyperlipidemia,5.4,3
+P1022,James Hernandez,62,F,Osteoarthritis; Depression,,6
+P1023,Matthew Martinez,51,F,Hyperlipidemia,,12
+P1024,Margaret Hernandez,31,M,,5.6,1
+P1025,Linda Brown,57,M,COPD,,10
+P1026,Mary Lee,24,M,Hypertension,,5
+P1027,John Lewis,38,M,GERD,,2
+P1028,Anthony White,82,F,,,2
+P1029,Michelle Johnson,62,M,Depression,,11
+P1030,Michelle Brown,37,M,Type 2 diabetes,6.3,6
+P1031,Thomas Lewis,22,F,,,2
+P1032,Michelle Sanchez,55,M,,5.0,8
+P1033,Christopher Ramirez,37,F,Type 2 diabetes; Anxiety disorder,8.8,12
+P1034,Jennifer Rodriguez,83,F,GERD; Chronic kidney disease,,4
+P1035,Robert Thomas,48,F,Type 2 diabetes,7.7,6
+P1036,Elizabeth Ramirez,61,M,Osteoarthritis; GERD; Anxiety disorder,,10
+P1037,Betty Miller,87,F,Type 2 diabetes; Hypothyroidism,9.8,8
+P1038,Mary Thomas,45,M,Hypothyroidism,5.7,6
+P1039,Elizabeth Gonzalez,77,F,Hypertension,,6
+P1040,Matthew White,34,F,,5.1,5
+P1041,Kimberly Wilson,89,M,Type 2 diabetes,7.3,5
+P1042,Betty Gonzalez,50,M,Type 2 diabetes; Hypothyroidism; Depression,7.6,9
+P1043,Jessica Garcia,83,M,,6.2,3
+P1044,Margaret Hernandez,23,M,Type 2 diabetes; Hyperlipidemia; Asthma; Hypertension,8.3,10
+P1045,Kimberly Taylor,59,F,Type 2 diabetes,7.3,8
+P1046,Sandra Smith,54,M,,,9
+P1047,Sarah Perez,83,F,Asthma,,4
+P1048,Ashley Smith,40,M,Anxiety disorder; GERD,4.9,7
+P1049,Paul Lewis,35,M,Chronic kidney disease; Asthma; Hypothyroidism,,6
+P1050,Donna Wilson,64,M,,5.7,12
+P1051,Margaret Sanchez,65,F,GERD; Hypothyroidism; Hyperlipidemia,,8
+P1052,Elizabeth Taylor,40,M,Asthma,,5
+P1053,James Anderson,30,M,Type 2 diabetes,8.1,6
+P1054,Jennifer Thompson,58,F,Osteoarthritis; Anxiety disorder; Hyperlipidemia,,1
+P1055,Jessica Sanchez,82,M,Anxiety disorder,,2
+P1056,Joshua Martinez,55,M,Type 2 diabetes; GERD,9.0,5
+P1057,Matthew Sanchez,81,F,Asthma,,12
+P1058,Sandra Lopez,62,M,Anxiety disorder,,9
+P1059,Jennifer Harris,25,M,Type 2 diabetes; Osteoarthritis; Chronic kidney disease; GERD,6.8,1
+P1060,Patricia Williams,81,M,Type 2 diabetes; Hyperlipidemia; GERD,8.1,9
+P1061,Kimberly Jones,28,F,Asthma; Osteoarthritis; COPD,,5
+P1062,Michelle Thompson,22,M,,6.2,9
+P1063,Susan Brown,34,F,Depression; Anxiety disorder,5.0,7
+P1064,Jessica Clark,83,F,,,8
+P1065,Elizabeth Lee,37,M,Type 2 diabetes,9.3,2
+P1066,Sarah Gonzalez,85,M,Depression; Anxiety disorder,,3
+P1067,Sandra Brown,25,M,,,11
+P1068,Daniel Jones,78,F,Hypothyroidism; Hypertension,,6
+P1069,Daniel Lewis,86,F,Hyperlipidemia,5.0,11
+P1070,William Rodriguez,65,M,Anxiety disorder,6.1,8
+P1071,Joshua Perez,70,M,Chronic kidney disease; COPD,,12
+P1072,Donna Martin,63,M,,6.0,4
+P1073,Ashley Robinson,34,F,,6.0,12
+P1074,Barbara White,52,F,Anxiety disorder; Hyperlipidemia,5.2,1
+P1075,Lisa Martin,31,M,,5.0,8
+P1076,Andrew Moore,70,F,,,5
+P1077,David Wilson,50,F,Osteoarthritis; Hyperlipidemia,,11
+P1078,John Sanchez,34,F,Type 2 diabetes,9.6,9
+P1079,Susan Jackson,85,F,GERD,,9
+P1080,Mark Wilson,39,F,COPD; Hyperlipidemia,5.6,2
+P1081,Joseph Johnson,37,M,,6.3,5
+P1082,Robert Ramirez,71,M,Hyperlipidemia; Chronic kidney disease; Osteoarthritis,,10
+P1083,Betty Martin,86,M,Type 2 diabetes; Hyperlipidemia,8.5,1
+P1084,Emily Clark,39,F,Hypertension; Osteoarthritis; Depression,6.3,10
+P1085,Robert Wilson,26,M,Hyperlipidemia,,8
+P1086,John Brown,38,M,Type 2 diabetes; GERD,7.6,4
+P1087,Emily Thomas,70,F,Type 2 diabetes; Asthma; Anxiety disorder,9.6,6
+P1088,Jessica Davis,77,F,Type 2 diabetes,8.5,4
+P1089,Patricia Jones,29,F,,,10
+P1090,William Martin,53,M,Hyperlipidemia,6.3,4
+P1091,Joseph Anderson,85,M,Chronic kidney disease; Hypothyroidism; Osteoarthritis,,5
+P1092,Patricia Lopez,62,F,COPD; Depression,,4
+P1093,Karen White,39,F,,,3
+P1094,Mark Lee,26,F,Hypertension; Depression; COPD,,10
+P1095,Jennifer Johnson,71,M,Depression,5.4,8
+P1096,Susan Gonzalez,27,F,Hypertension,,1
+P1097,Joshua Harris,66,F,Hypothyroidism; Osteoarthritis; Hypertension,,10
+P1098,Patricia Sanchez,77,M,Type 2 diabetes; Hypothyroidism,9.6,7
+P1099,William Robinson,81,F,Type 2 diabetes; Hypothyroidism; Hyperlipidemia,10.1,5
+P1100,Karen Jackson,23,F,Asthma; Depression,,8
+P1101,John Lopez,23,M,Osteoarthritis; Anxiety disorder,6.3,5
+P1102,Mark Garcia,62,F,Hypothyroidism; Depression,5.8,3
+P1103,Linda Lee,28,F,Type 2 diabetes; Depression,8.2,11
+P1104,Joshua Davis,67,F,,,9
+P1105,Susan Hernandez,31,F,Anxiety disorder; Hyperlipidemia,,5
+P1106,Christopher Martin,40,F,,,11
+P1107,Charles Martin,69,M,Type 2 diabetes; Hypothyroidism,9.9,9
+P1108,Matthew Clark,66,F,Asthma,,11
+P1109,Joseph Jackson,32,F,Chronic kidney disease,,9
+P1110,Joshua Thomas,37,F,GERD,,10
+P1111,Nancy Davis,59,F,Osteoarthritis; Depression; GERD,,2
+P1112,Anthony Lopez,52,M,Type 2 diabetes; Hyperlipidemia,9.9,3
+P1113,Donna Perez,53,M,Type 2 diabetes,7.7,4
+P1114,James Garcia,45,M,Type 2 diabetes,8.5,2
+P1115,Margaret Lopez,38,M,Type 2 diabetes; Osteoarthritis,9.0,1
+P1116,Mark Robinson,31,M,Anxiety disorder,,8
+P1117,Donna Robinson,39,F,Asthma,,10
+P1118,Matthew Hernandez,69,M,COPD,,2
+P1119,Ashley Hernandez,51,M,Type 2 diabetes; Chronic kidney disease,8.3,12
+P1120,Kimberly Rodriguez,48,M,Hyperlipidemia,,3
+P1121,Sarah Thomas,37,M,Hypothyroidism; COPD,,2
+P1122,Elizabeth Brown,51,M,Asthma; Hypertension,,1
+P1123,Ashley Clark,46,F,Hypothyroidism,,10
+P1124,Kimberly Jones,76,M,,5.9,2
+P1125,Ashley Rodriguez,78,M,Type 2 diabetes,7.0,3
+P1126,Sarah Anderson,86,M,Hyperlipidemia,,6
+P1127,Michael Robinson,26,M,Osteoarthritis,,11
+P1128,Jessica Jones,26,F,Osteoarthritis; COPD,,3
+P1129,Ashley Martinez,84,F,Type 2 diabetes; Hyperlipidemia,10.1,3
+P1130,Thomas Martin,26,M,GERD,,11
+P1131,Joseph Lewis,45,M,Anxiety disorder,,9
+P1132,Michael Davis,83,M,Type 2 diabetes; Hypothyroidism; Anxiety disorder,9.7,12
+P1133,Donald Clark,72,F,Anxiety disorder,,1
+P1134,Steven Miller,59,M,Hypertension; Chronic kidney disease,,5
+P1135,Betty Sanchez,62,M,Hypertension,,12
+P1136,John Martinez,50,M,,,9
+P1137,Michelle Martin,48,F,Hypertension,,1
+P1138,Nancy Robinson,70,F,Hyperlipidemia; Hypertension,,6
+P1139,Paul Gonzalez,47,F,,,6
+P1140,Susan Moore,64,M,Hypertension; COPD; Hyperlipidemia,,8
+P1141,Charles Martinez,27,F,Type 2 diabetes; Osteoarthritis,7.0,2
+P1142,Steven White,31,F,Hypertension; COPD,,9
+P1143,Donna Sanchez,41,F,Hypothyroidism; GERD,,12
+P1144,Sarah Anderson,24,M,,,8
+P1145,Margaret Williams,70,M,Hypothyroidism,,12
+P1146,Matthew Smith,86,F,GERD; Chronic kidney disease,,8
+P1147,Betty Harris,50,F,COPD,5.3,3
+P1148,Emily Garcia,32,F,COPD; Osteoarthritis; Hyperlipidemia,5.8,8
+P1149,Patricia Harris,88,F,GERD,,1
+P1150,James Rodriguez,63,M,Depression; Chronic kidney disease,,11
+P1151,Sandra Thompson,52,M,Hyperlipidemia,,7
+P1152,William Harris,31,M,Type 2 diabetes; Hyperlipidemia,6.6,8
+P1153,Betty Smith,39,M,Hypothyroidism,,11
+P1154,Michelle Lewis,56,M,Asthma,,11
+P1155,Kimberly Martin,48,M,GERD,,12
+P1156,Kimberly Thompson,39,F,,,3
+P1157,James Martinez,82,F,,5.5,2
+P1158,Joshua Garcia,29,M,Type 2 diabetes; Osteoarthritis,7.7,6
+P1159,Emily Moore,73,M,,,2
+P1160,Barbara Rodriguez,49,M,,,11
+P1161,Andrew Harris,71,M,COPD,,8
+P1162,James Sanchez,48,F,,,10
+P1163,David Thomas,40,F,,,1
+P1164,Margaret Perez,39,M,,,4
+P1165,Matthew Thompson,72,M,,,9
+P1166,David Lee,32,F,Anxiety disorder; Chronic kidney disease,,12
+P1167,Emily Lewis,54,F,,5.4,8
+P1168,Susan Martin,66,M,Osteoarthritis; Anxiety disorder; GERD,6.0,1
+P1169,Lisa Taylor,47,M,GERD,5.4,5
+P1170,Joshua Rodriguez,86,F,Type 2 diabetes,8.7,12
+P1171,Ashley Garcia,82,M,Chronic kidney disease; Hyperlipidemia,4.8,12
+P1172,William Williams,41,F,Hypertension; Depression,,1
+P1173,Paul Rodriguez,62,F,,,1
+P1174,David Lewis,64,M,GERD; Chronic kidney disease,5.9,7
+P1175,Richard Clark,29,F,,,3
+P1176,Sarah Martin,78,F,Asthma,,1
+P1177,Emily Lopez,61,M,Type 2 diabetes; Hyperlipidemia,8.3,1
+P1178,Susan Lee,43,F,,,4
+P1179,William Martinez,61,F,Type 2 diabetes; Asthma; Hypothyroidism,6.7,12
+P1180,Jennifer Thomas,78,M,Chronic kidney disease,,11
+P1181,Donna Gonzalez,43,F,Type 2 diabetes; Anxiety disorder,7.6,5
+P1182,Thomas Miller,33,F,,5.9,3
+P1183,Sandra Jackson,82,F,COPD,,6
+P1184,James Garcia,35,M,,,2
+P1185,Karen Garcia,45,M,,6.1,8
+P1186,Donald Clark,77,M,COPD; GERD,,7
+P1187,Joseph Harris,60,F,Hyperlipidemia; Anxiety disorder; Chronic kidney disease,,10
+P1188,David Taylor,73,F,Type 2 diabetes,8.2,1
+P1189,Elizabeth Sanchez,33,M,Depression,5.0,3
+P1190,Jennifer Garcia,60,M,,5.2,11
+P1191,Donald Garcia,69,F,Anxiety disorder,,8
+P1192,Jessica Harris,70,M,GERD,,3
+P1193,Charles Clark,73,M,COPD; Anxiety disorder,,6
+P1194,Joseph Lewis,84,F,GERD; COPD,,1
+P1195,Joseph Jones,72,F,,,2
+P1196,Barbara Wilson,65,M,Type 2 diabetes,9.1,2
+P1197,Daniel Perez,81,F,Anxiety disorder,,1
+P1198,William Jackson,42,M,Hypertension,,11
+P1199,Patricia Martinez,73,M,Hyperlipidemia; Depression,,8
+P1200,Linda Sanchez,64,M,Type 2 diabetes; Anxiety disorder,9.5,10
+P1201,Patricia Anderson,80,M,,,6
+P1202,Thomas Wilson,28,M,,,9
+P1203,Charles Lopez,56,F,Hypothyroidism,,10
+P1204,John Moore,36,M,,5.0,12
+P1205,Margaret Lewis,40,M,COPD; Osteoarthritis; Depression,5.3,1
+P1206,Matthew Taylor,40,F,,,12
+P1207,Betty Smith,60,M,Hyperlipidemia; Anxiety disorder,,4
+P1208,Michelle Taylor,55,M,Hypertension; GERD,,4
+P1209,Barbara Rodriguez,77,M,,,3
+P1210,James Wilson,58,M,Asthma; Hypothyroidism,,10
+P1211,Joseph Davis,62,F,Type 2 diabetes,6.9,7
+P1212,Nancy Hernandez,82,F,Asthma; Depression,,8
+P1213,Matthew Rodriguez,48,F,COPD,,11
+P1214,Jennifer Miller,84,M,Hypothyroidism,,6
+P1215,Mary Jones,79,M,,,7
+P1216,Charles Moore,75,F,Anxiety disorder; Chronic kidney disease; Asthma,,2
+P1217,Susan Miller,34,M,Asthma,,12
+P1218,Daniel Harris,73,M,Hypothyroidism; GERD; Chronic kidney disease,,11
+P1219,Joseph Ramirez,62,M,Hypothyroidism; Depression,6.2,7
+P1220,Paul Clark,58,F,Asthma,,2
+P1221,Anthony Wilson,71,M,,5.8,9
+P1222,Mary Hernandez,32,M,,,11
+P1223,Mary White,33,M,Anxiety disorder; Chronic kidney disease,,4
+P1224,Lisa White,42,M,,,4
+P1225,Charles Williams,63,F,,,4
+P1226,Barbara Anderson,78,F,,,6
+P1227,Sandra White,42,F,,5.9,9
+P1228,Robert Sanchez,82,M,,,2
+P1229,Donald Clark,25,M,,,12
+P1230,Betty Thompson,27,M,Depression,,2
+P1231,Thomas Harris,35,F,Hyperlipidemia; Asthma,,11
+P1232,Jessica Sanchez,65,F,,,12
+P1233,Ashley Harris,31,M,,,8
+P1234,Thomas Jackson,64,M,,5.6,1
+P1235,Andrew Lopez,50,M,,,10
+P1236,Mark Perez,61,M,Asthma; COPD,,7
+P1237,Mary Ramirez,54,F,,,5
+P1238,Donald Martin,68,M,Asthma; Chronic kidney disease; GERD,,7
+P1239,Kimberly Thomas,84,F,Type 2 diabetes; Hypertension; Hyperlipidemia,8.1,6
+P1240,Andrew Robinson,85,M,,,9
+P1241,Lisa Perez,51,F,Type 2 diabetes; GERD,7.7,8
+P1242,Jessica Rodriguez,88,F,,,4
+P1243,Barbara Johnson,51,M,,,12
+P1244,William Taylor,46,F,,6.0,8
+P1245,Paul Lewis,81,F,,,4
+P1246,Mark Williams,83,F,,,10
+P1247,Andrew Smith,84,M,Hyperlipidemia; Depression,,4
+P1248,Thomas Harris,80,F,,,6
+P1249,Steven Martinez,86,M,,,4
+P1250,Emily Taylor,65,M,Asthma,,6
+P1251,Ashley Garcia,87,M,Type 2 diabetes; Hypothyroidism; Hyperlipidemia,10.2,4
+P1252,Christopher Harris,61,M,,,10
+P1253,Christopher Garcia,48,F,Asthma,,10
+P1254,Kimberly Thomas,42,M,Hypothyroidism; Osteoarthritis,,8
+P1255,Elizabeth Martinez,60,M,GERD,,7
+P1256,James Harris,72,M,,,11
+P1257,Sarah Smith,39,M,,,5
+P1258,Mary Hernandez,59,M,Chronic kidney disease,,4
+P1259,Sarah Brown,49,M,Type 2 diabetes,9.3,12
+P1260,Sarah Martin,84,F,,5.3,9
+P1261,Charles Brown,69,M,Hyperlipidemia; GERD,,12
+P1262,Elizabeth Jackson,74,F,,5.2,10
+P1263,Mary Jones,55,M,,,12
+P1264,Mark White,62,M,,,8
+P1265,Richard Perez,68,M,,,1
+P1266,Anthony Wilson,39,F,Hypertension,,1
+P1267,Mary Jackson,87,M,,,6
+P1268,Andrew Hernandez,84,M,COPD; Hyperlipidemia,,2
+P1269,Andrew Robinson,42,F,Osteoarthritis,,11
+P1270,Sandra Anderson,77,M,Asthma; GERD; Hyperlipidemia,5.7,8
+P1271,Mary Gonzalez,89,M,,,1
+P1272,Christopher Wilson,23,F,Type 2 diabetes; COPD; GERD,8.9,10
+P1273,Elizabeth Miller,41,F,,,1
+P1274,Robert Hernandez,38,M,Osteoarthritis; COPD; Hypothyroidism,6.4,4
+P1275,Mary Jones,49,M,Hyperlipidemia; Anxiety disorder; Hypertension,,12
+P1276,Patricia Anderson,48,M,,,10
+P1277,Barbara Taylor,37,F,Hyperlipidemia; Asthma,,2
+P1278,Christopher Wilson,84,M,Chronic kidney disease; GERD; Depression,,2
+P1279,James Gonzalez,80,F,Hyperlipidemia,,5
+P1280,Karen Davis,30,M,,,7
+P1281,Sarah White,82,F,,5.2,10
+P1282,Kimberly Jones,23,F,Type 2 diabetes; Hypertension,6.6,3
+P1283,Barbara Lopez,44,F,,5.6,5
+P1284,Thomas Martin,73,M,GERD; Hypertension,,1
+P1285,John Moore,40,M,Chronic kidney disease,5.0,6
+P1286,Anthony Williams,50,F,Type 2 diabetes; Anxiety disorder,9.5,5
+P1287,Paul Lopez,38,M,Hyperlipidemia,,12
+P1288,Joseph Taylor,47,F,Type 2 diabetes; Osteoarthritis; Hyperlipidemia; Chronic kidney disease,9.4,12
+P1289,William Hernandez,81,M,COPD,,1
+P1290,Richard Garcia,71,F,Type 2 diabetes; Osteoarthritis,7.4,10
+P1291,Susan Anderson,73,M,Hyperlipidemia,,11
+P1292,Nancy Lewis,87,M,,,9
+P1293,Nancy Harris,80,F,,,11
+P1294,Michael Davis,25,F,Hyperlipidemia; Chronic kidney disease,,3
+P1295,Mark Wilson,66,M,Chronic kidney disease; Asthma; Anxiety disorder,,9
+P1296,Joseph Harris,46,F,Type 2 diabetes; GERD; Chronic kidney disease,8.3,9
+P1297,David Brown,43,M,COPD,6.3,12
+P1298,Richard Rodriguez,41,M,Type 2 diabetes; Anxiety disorder; Hypothyroidism; COPD,10.3,5
+P1299,Michelle Martin,61,F,,,3
+P1300,Jessica Gonzalez,83,F,Anxiety disorder,,4
+P1301,Joseph Rodriguez,66,F,Type 2 diabetes; COPD,9.2,5
+P1302,Joshua Thomas,89,F,Hyperlipidemia,,10
+P1303,Robert Lewis,80,F,GERD; Hypothyroidism; Hypertension,,5
+P1304,Margaret Jackson,36,M,Type 2 diabetes; Depression; Hypothyroidism,7.0,11
+P1305,Anthony Johnson,85,M,Hypothyroidism; COPD,,11
+P1306,Anthony Perez,87,M,Hyperlipidemia; Hypertension; COPD,,8
+P1307,Joseph Jackson,53,M,,,12
+P1308,Joshua Taylor,84,M,Hypertension,,10
+P1309,Linda Harris,34,F,COPD,,7
+P1310,Mark Ramirez,27,M,Hypertension; Anxiety disorder,,11
+P1311,Susan Jackson,77,F,GERD,6.3,1
+P1312,Daniel Clark,80,M,Osteoarthritis,,1
+P1313,Thomas Harris,63,M,,,9
+P1314,Daniel Harris,63,M,Hyperlipidemia; GERD,,9
+P1315,Karen Brown,51,M,,,10
+P1316,Matthew Miller,85,F,GERD; COPD,,6
+P1317,Christopher Smith,42,F,Type 2 diabetes; Chronic kidney disease,9.2,2
+P1318,Elizabeth Thompson,73,M,Asthma,,2
+P1319,Christopher Davis,59,F,,,11
+P1320,Ashley Davis,57,F,Osteoarthritis; COPD; Depression,,4
+P1321,Charles Davis,40,F,Depression; COPD,,9
+P1322,Barbara Ramirez,46,M,COPD,,7
+P1323,Thomas Wilson,55,M,Osteoarthritis; GERD; Chronic kidney disease,5.9,6
+P1324,Michael Robinson,53,F,Depression,,2
+P1325,Emily Clark,51,M,COPD,,8
+P1326,Donna Wilson,78,M,Type 2 diabetes; Hypertension; Chronic kidney disease; Depression,9.0,12
+P1327,Mary Thompson,57,M,Asthma,,4
+P1328,Paul Thompson,79,M,,,9
+P1329,Paul Perez,74,F,COPD; Hypertension,,6
+P1330,Michelle Williams,37,F,Osteoarthritis; COPD,,3
+P1331,Ashley White,45,F,Type 2 diabetes,10.0,6
+P1332,Karen Lopez,45,F,Type 2 diabetes; Hypothyroidism,8.4,2
+P1333,Mary Lewis,89,M,Hypertension; GERD; Hyperlipidemia,6.3,9
+P1334,Christopher Gonzalez,23,F,COPD; GERD,,3
+P1335,Barbara Moore,46,M,,,3
+P1336,Mark Thompson,69,F,Chronic kidney disease; Asthma,,8
+P1337,Paul Lewis,25,F,Hypothyroidism; COPD; Hyperlipidemia,,3
+P1338,Michael Thomas,88,F,,,6
+P1339,Mark Brown,80,M,,5.0,8
+P1340,John Lopez,46,M,Type 2 diabetes; Depression; Hyperlipidemia; Chronic kidney disease,8.8,4
+P1341,William Anderson,58,M,,,7
+P1342,Jennifer Thomas,77,M,Type 2 diabetes,8.9,9
+P1343,Jennifer Martinez,27,F,COPD; Chronic kidney disease,5.3,1
+P1344,Karen Gonzalez,25,F,Hypertension; Anxiety disorder; Asthma,,11
+P1345,Michael Anderson,27,F,GERD; Hyperlipidemia,,8
+P1346,John Robinson,48,F,Hyperlipidemia; Hypothyroidism; Hypertension,,11
+P1347,Matthew Clark,64,F,Anxiety disorder; Hypertension; Asthma,5.2,11
+P1348,Andrew Thompson,55,M,Osteoarthritis,,11
+P1349,James Wilson,56,M,Osteoarthritis,,8
+P1350,Betty Johnson,54,F,Osteoarthritis,5.0,3
+P1351,Barbara Moore,84,F,Hypothyroidism; Anxiety disorder; COPD,,5
+P1352,Linda Gonzalez,55,F,Hyperlipidemia; Chronic kidney disease,,4
+P1353,Donald Thomas,38,F,Type 2 diabetes,9.7,3
+P1354,Steven Harris,78,F,GERD; Hypertension,,3
+P1355,Barbara Lopez,65,M,Hypertension; Anxiety disorder; Chronic kidney disease,5.3,2
+P1356,Richard Hernandez,50,F,Depression,5.2,9
+P1357,Elizabeth Moore,58,F,,,7
+P1358,Michelle White,88,F,Type 2 diabetes; GERD; Hypertension; Asthma,10.0,4
+P1359,Mary Lee,26,F,COPD,,5
+P1360,Jessica Perez,71,M,,,11
+P1361,Elizabeth Anderson,80,M,Asthma,,12
+P1362,Thomas Lewis,44,M,Type 2 diabetes; Anxiety disorder; Hypothyroidism,7.0,6
+P1363,Anthony Lewis,48,M,Depression; Anxiety disorder,,6
+P1364,William White,63,M,,,10
+P1365,Sandra Moore,46,M,GERD; Hypothyroidism,5.0,2
+P1366,Michelle Wilson,79,M,Type 2 diabetes,8.6,7
+P1367,Andrew Harris,44,M,Type 2 diabetes; Osteoarthritis,7.1,10
+P1368,Michael Sanchez,89,F,Type 2 diabetes,9.5,4
+P1369,Lisa Martin,61,F,Depression,,12
+P1370,Karen Brown,44,M,,,3
+P1371,Paul Robinson,75,F,,,8
+P1372,Linda Perez,57,F,Hyperlipidemia; Hypertension; Asthma,,8
+P1373,David Harris,70,M,Type 2 diabetes; GERD,10.3,6
+P1374,Robert Garcia,32,M,Type 2 diabetes,8.3,12
+P1375,Joshua Sanchez,32,M,COPD,,3
+P1376,Richard Taylor,68,M,Hypertension,,3
+P1377,Karen Rodriguez,28,F,Hypertension,,11
+P1378,Nancy Moore,80,F,Type 2 diabetes; COPD; Hypertension,8.7,12
+P1379,Lisa Sanchez,70,M,Anxiety disorder; COPD; GERD,5.4,5
+P1380,Charles Rodriguez,46,M,Type 2 diabetes; Hyperlipidemia,9.0,4
+P1381,Lisa Williams,31,F,Type 2 diabetes; Hyperlipidemia; COPD,6.1,8
+P1382,Michelle Brown,64,F,Type 2 diabetes,10.0,4
+P1383,Matthew Hernandez,28,F,,,12
+P1384,Donald Martinez,85,F,Hypertension,,9
+P1385,Barbara Miller,22,F,COPD; Osteoarthritis,,12
+P1386,Barbara Ramirez,31,F,Asthma; Anxiety disorder; Hypothyroidism,,9
+P1387,Margaret Rodriguez,58,F,Chronic kidney disease; Hypertension,,11
+P1388,David Williams,54,M,Type 2 diabetes; Hypertension,8.3,2
+P1389,Joshua Perez,62,M,GERD,,12
+P1390,Ashley Martinez,83,M,,,4
+P1391,John Thompson,51,F,Depression,,7
+P1392,Mark Jones,81,M,Type 2 diabetes; Anxiety disorder; Hypertension,9.7,11
+P1393,Donna Garcia,44,F,,,5
+P1394,Mary Thomas,65,F,,,9
+P1395,Richard Thomas,57,F,Anxiety disorder,,3
+P1396,Daniel Brown,84,F,Type 2 diabetes,8.2,5
+P1397,Karen Perez,42,M,COPD,5.3,12
+P1398,Lisa Jackson,69,F,,,7
+P1399,Christopher Thompson,53,F,GERD; Depression,,9
+P1400,Richard Lewis,65,M,Type 2 diabetes,9.4,8
+P1401,Steven Lewis,24,M,Type 2 diabetes; COPD; GERD,6.4,4
+P1402,Lisa Ramirez,57,F,Osteoarthritis,,6
+P1403,Emily Jones,67,M,Depression; GERD; Osteoarthritis,,11
+P1404,Charles White,46,F,Type 2 diabetes; Chronic kidney disease; COPD,7.5,1
+P1405,Jennifer Lopez,25,M,Asthma; Depression; Anxiety disorder,,10
+P1406,Michael Robinson,78,M,,,8
+P1407,Donna Jones,58,F,,5.3,8
+P1408,Christopher Clark,69,F,Anxiety disorder,,7
+P1409,Michelle Clark,44,M,GERD,,10
+P1410,William Thomas,27,F,Type 2 diabetes,7.4,7
+P1411,Ashley Gonzalez,65,F,Anxiety disorder,,9
+P1412,Mark Garcia,33,F,Type 2 diabetes; Hypothyroidism; Osteoarthritis; Chronic kidney disease,6.9,4
+P1413,Steven Hernandez,41,F,Anxiety disorder; Hypertension,,5
+P1414,Anthony Moore,85,F,Type 2 diabetes,7.4,3
+P1415,Elizabeth Moore,72,F,Type 2 diabetes; COPD,7.8,6
+P1416,Linda Lee,55,M,,,11
+P1417,Susan Garcia,87,M,Type 2 diabetes; Hyperlipidemia,9.6,10
+P1418,Sandra Johnson,60,M,,,5
+P1419,Karen Smith,49,F,,,8
+P1420,Sandra Gonzalez,71,M,,,9
+P1421,Robert Martin,58,F,Type 2 diabetes,7.0,3
+P1422,Lisa Miller,34,F,GERD; Hyperlipidemia; Hypothyroidism,,1
+P1423,Linda Martinez,60,F,Type 2 diabetes; Osteoarthritis,7.2,2
+P1424,Sandra Ramirez,33,F,Hypothyroidism,,12
+P1425,Elizabeth Miller,83,F,Type 2 diabetes; Hypertension,7.4,5
+P1426,Richard Sanchez,58,M,Osteoarthritis,5.5,1
+P1427,Emily Thompson,27,M,,,1
+P1428,Jennifer Martin,58,M,Chronic kidney disease; Asthma,,6
+P1429,Daniel Wilson,40,M,Type 2 diabetes; Depression,10.2,7
+P1430,William Hernandez,33,M,Depression,,11
+P1431,Nancy Taylor,43,F,Asthma; GERD; COPD,,10
+P1432,Betty Williams,39,F,Chronic kidney disease; COPD,5.0,1
+P1433,Joseph Perez,54,F,,6.0,6
+P1434,Joseph Jackson,72,M,Hyperlipidemia,5.8,3
+P1435,Steven Sanchez,46,F,Type 2 diabetes,6.9,4
+P1436,Mary Martinez,25,F,Type 2 diabetes,9.3,12
+P1437,Matthew Lopez,60,M,COPD,,11
+P1438,John Thomas,27,M,,,7
+P1439,Donna Martin,34,M,Depression; Hypertension; Anxiety disorder,5.6,2
+P1440,Paul Williams,82,M,Type 2 diabetes; Hyperlipidemia; Depression,8.0,8
+P1441,Michael Smith,49,M,Hypertension,,8
+P1442,Sandra Rodriguez,30,F,Chronic kidney disease,,1
+P1443,Kimberly Thomas,54,F,Type 2 diabetes; Asthma,6.1,4
+P1444,Barbara Harris,22,M,,6.2,10
+P1445,Mark Sanchez,85,F,Hyperlipidemia; Asthma; Chronic kidney disease,6.4,10
+P1446,Ashley Lopez,25,M,Chronic kidney disease,,6
+P1447,Donald Johnson,35,M,Anxiety disorder,4.9,11
+P1448,Betty Taylor,67,M,Asthma; Hyperlipidemia; Hypertension,5.7,11
+P1449,Paul Lopez,47,M,Asthma,,2
+P1450,Richard Jones,27,F,Anxiety disorder; Hypertension,,9
+P1451,Kimberly Perez,23,F,Hypothyroidism,,3
+P1452,Donald Sanchez,62,F,Depression,,2
+P1453,Emily Lee,44,M,Hyperlipidemia; Asthma,,9
+P1454,Donald Taylor,40,F,,5.8,7
+P1455,Thomas Wilson,68,F,Type 2 diabetes; GERD,9.4,12
+P1456,Michelle Sanchez,38,M,Asthma,5.6,8
+P1457,Joshua Smith,31,M,Asthma,,1
+P1458,Betty Rodriguez,69,M,GERD; Hypothyroidism,,10
+P1459,Donald Taylor,63,M,COPD; Chronic kidney disease,,10
+P1460,Nancy Williams,39,M,Chronic kidney disease; COPD; Hyperlipidemia,,5
+P1461,Joshua Taylor,56,M,GERD; Osteoarthritis; Chronic kidney disease,,5
+P1462,Kimberly Perez,46,M,,,11
+P1463,Charles Miller,46,F,Chronic kidney disease,,4
+P1464,Linda White,81,F,,5.8,11
+P1465,Ashley Lopez,65,F,Hypothyroidism,,8
+P1466,Thomas Martin,65,F,Type 2 diabetes,7.5,9
+P1467,Richard Rodriguez,57,M,Type 2 diabetes; Depression,8.7,1
+P1468,Sarah Brown,27,F,,,12
+P1469,John Lewis,76,F,,6.4,12
+P1470,Margaret Davis,57,M,COPD,,9
+P1471,Elizabeth Smith,67,F,,6.1,7
+P1472,David Williams,48,F,Hypothyroidism,,2
+P1473,Anthony Davis,34,F,Asthma,,5
+P1474,Jessica Perez,35,F,COPD,,8
+P1475,Michael Ramirez,49,F,Type 2 diabetes; Depression; Asthma,8.9,8
+P1476,Christopher Smith,77,M,Depression,,6
+P1477,Joshua Clark,40,F,Anxiety disorder,5.3,7
+P1478,Charles Lewis,57,F,Depression,,11
+P1479,Mark Thompson,53,F,GERD,,1
+P1480,Mark Robinson,84,M,GERD,5.4,5
+P1481,David Davis,83,F,COPD,,4
+P1482,Lisa Johnson,26,M,,,2
+P1483,Jennifer Taylor,28,M,Hypothyroidism,5.5,3
+P1484,Karen Garcia,51,M,,4.9,11
+P1485,Emily Thomas,44,M,Osteoarthritis; Hypertension,,4
+P1486,Michael Rodriguez,31,F,,5.5,6
+P1487,Paul Robinson,44,F,GERD; Asthma,,9
+P1488,Betty Jones,24,F,Type 2 diabetes; Asthma,7.5,12
+P1489,Joshua Harris,53,F,Type 2 diabetes; Asthma; Hypertension; Hypothyroidism,8.0,11
+P1490,Joshua Jackson,88,M,Hypothyroidism; Chronic kidney disease,,3
+P1491,William Sanchez,86,M,Type 2 diabetes,10.0,8
+P1492,Susan Wilson,47,F,Depression; Asthma,,5
+P1493,Elizabeth Smith,72,F,Hypothyroidism; Depression; Anxiety disorder,,8
+P1494,Sandra Jones,69,F,,,11
+P1495,Lisa Johnson,34,M,Anxiety disorder; Hyperlipidemia; Hypothyroidism,,9
+P1496,Donald Williams,83,F,,,3
+P1497,Elizabeth White,23,F,,5.1,9
+P1498,Mark Gonzalez,69,F,GERD,,5
+P1499,Kimberly Jackson,69,F,Type 2 diabetes; Depression,8.0,3
+P1500,Mark White,70,M,,6.3,2
+P1501,Betty Davis,71,M,Type 2 diabetes,9.4,5
+P1502,Robert Garcia,48,F,,,2
+P1503,David Robinson,50,M,,,6
+P1504,Thomas Jackson,69,M,GERD; COPD,,11
+P1505,Joshua Harris,88,M,,5.6,6
+P1506,Ashley White,87,M,,,5
+P1507,Emily Davis,35,F,,,8
+P1508,Paul Taylor,41,F,Anxiety disorder; GERD,,4
+P1509,Robert Harris,42,M,Anxiety disorder; COPD,,3
+P1510,Mary Hernandez,75,M,,6.2,8
+P1511,Betty Wilson,72,F,,,3
+P1512,Joshua Hernandez,65,F,Hyperlipidemia; COPD,6.0,3
+P1513,Jennifer Robinson,76,M,Asthma; Hypertension,5.1,3
+P1514,Daniel Perez,59,M,,,6
+P1515,Donna Williams,34,F,Osteoarthritis,,7
+P1516,Sarah Jackson,84,F,Hyperlipidemia; Hypothyroidism,5.5,5
+P1517,Ashley Martin,42,F,,,6
+P1518,Mark Lopez,42,M,,,7
+P1519,Karen Perez,75,F,,5.0,2
+P1520,Elizabeth Brown,29,F,,,5
+P1521,Donna Davis,64,M,Hyperlipidemia,,11
+P1522,Donald Lee,60,F,Type 2 diabetes,7.2,11
+P1523,Mark Jones,72,M,Anxiety disorder; GERD,,10
+P1524,David Rodriguez,45,F,GERD,6.2,4
+P1525,Sarah Robinson,87,M,,4.8,6
+P1526,Nancy Smith,65,M,Type 2 diabetes; Chronic kidney disease; Osteoarthritis,7.3,10
+P1527,John Anderson,47,M,Hypothyroidism,,8
+P1528,Nancy Smith,27,M,Hyperlipidemia,,7
+P1529,Christopher Clark,81,F,Hypothyroidism,,1
+P1530,Betty Rodriguez,51,M,Type 2 diabetes,7.2,9
+P1531,Steven Ramirez,75,F,Hypothyroidism; Hypertension,,10
+P1532,Linda Ramirez,49,M,Chronic kidney disease; GERD; Asthma,,4
+P1533,Jennifer Hernandez,23,M,Hypertension; Hyperlipidemia; Asthma,,12
+P1534,Charles Perez,55,F,,,12
+P1535,Michael Harris,42,M,,,9
+P1536,Elizabeth Ramirez,30,F,Type 2 diabetes; Osteoarthritis; Hyperlipidemia; Hypothyroidism,10.2,2
+P1537,Jennifer Lopez,83,M,Anxiety disorder,,9
+P1538,Michelle Sanchez,54,F,Hyperlipidemia; Asthma,5.1,12
+P1539,Daniel Smith,46,M,Anxiety disorder,5.6,7
+P1540,Richard Martin,49,F,Hyperlipidemia; Osteoarthritis,,8
+P1541,Christopher Lee,80,M,Hypertension; Depression,5.7,1
+P1542,Anthony White,69,M,Depression; Hyperlipidemia; Asthma,,10
+P1543,Donna Jones,88,F,Chronic kidney disease,,6
+P1544,Christopher Davis,37,F,Hypothyroidism; Hypertension,,1
+P1545,Thomas Clark,60,F,,,7
+P1546,Robert Thomas,31,M,,6.4,6
+P1547,William Robinson,45,F,Hyperlipidemia,,2
+P1548,Christopher Lewis,55,M,Type 2 diabetes; COPD,9.5,12
+P1549,Michael Lewis,60,M,Hypothyroidism; Anxiety disorder; Hyperlipidemia,,5
+P1550,Robert Brown,28,F,Hyperlipidemia,,1
+P1551,Betty Moore,82,M,Type 2 diabetes,10.6,2
+P1552,Susan White,24,M,,,11
+P1553,Anthony Smith,87,F,COPD; Osteoarthritis,,4
+P1554,Susan Martin,29,M,,,6
+P1555,Donna Wilson,39,M,,6.2,2
+P1556,Joshua Thomas,75,M,Type 2 diabetes,8.6,4
+P1557,Joseph Davis,38,F,Anxiety disorder; Asthma,,5
+P1558,Susan Thompson,36,F,Type 2 diabetes; Anxiety disorder,7.4,7
+P1559,Mark Perez,70,M,Osteoarthritis,,4
+P1560,Ashley Rodriguez,53,M,,,3
+P1561,Sandra Taylor,29,F,Hypothyroidism,5.2,7
+P1562,Kimberly Williams,23,M,,,8
+P1563,Donald Gonzalez,47,M,Depression,,1
+P1564,Matthew Davis,52,M,Asthma,6.0,9
+P1565,Sarah Ramirez,54,F,Anxiety disorder; Hypertension,6.3,2
+P1566,Thomas Sanchez,52,M,Chronic kidney disease; COPD; Asthma,,9
+P1567,Mary Hernandez,22,F,Anxiety disorder; GERD,5.1,2
+P1568,Thomas Thompson,61,M,Anxiety disorder,,10
+P1569,Matthew Thomas,67,F,GERD; Hypertension,,6
+P1570,Paul Hernandez,82,F,Chronic kidney disease,4.9,10
+P1571,Anthony Ramirez,39,F,Type 2 diabetes; Chronic kidney disease,9.6,4
+P1572,John Rodriguez,69,F,Type 2 diabetes; Hyperlipidemia,10.6,2
+P1573,John Thomas,54,F,Hypertension,,8
+P1574,Nancy Brown,49,M,Type 2 diabetes; COPD,7.9,2
+P1575,Richard Garcia,24,M,,5.1,4
+P1576,Charles Anderson,47,F,Type 2 diabetes; COPD,7.3,11
+P1577,Robert Clark,77,F,Hypertension,4.9,3
+P1578,Jennifer Harris,75,F,Type 2 diabetes,8.1,9
+P1579,David Clark,64,M,COPD,5.5,3
+P1580,Christopher Rodriguez,78,M,Hypertension; Osteoarthritis; Anxiety disorder,,9
+P1581,Donna Brown,81,F,,6.0,9
+P1582,Betty Robinson,36,M,Asthma; Hypertension,,9
+P1583,Jessica Robinson,51,F,Type 2 diabetes; Chronic kidney disease; Hyperlipidemia,7.4,3
+P1584,Ashley Ramirez,27,M,,,12
+P1585,Michelle Anderson,33,F,Type 2 diabetes; Chronic kidney disease; Hyperlipidemia,8.6,1
+P1586,Jennifer Hernandez,25,F,Type 2 diabetes; COPD; Hyperlipidemia,6.6,11
+P1587,Daniel Hernandez,25,F,,,11
+P1588,Thomas Garcia,59,M,Type 2 diabetes; COPD; Chronic kidney disease,8.6,1
+P1589,Donald Johnson,62,M,Hypertension,,1
+P1590,Matthew Lopez,55,F,,,5
+P1591,Betty Gonzalez,89,F,,5.2,4
+P1592,Patricia Lopez,63,M,,,12
+P1593,Donald Johnson,27,F,,,10
+P1594,Mary Harris,80,M,Chronic kidney disease,4.9,5
+P1595,Betty Rodriguez,28,F,,,9
+P1596,Thomas Ramirez,22,M,Depression,,4
+P1597,Matthew Thompson,88,F,Hyperlipidemia,,4
+P1598,Elizabeth Thompson,41,F,Asthma,,11
+P1599,Karen Garcia,61,M,Type 2 diabetes; Asthma; GERD,8.7,1
+P1600,Matthew Garcia,71,M,Hypothyroidism; Hypertension,6.1,12
+P1601,Paul Perez,69,M,,,12
+P1602,Donald Gonzalez,24,F,Hypothyroidism; Chronic kidney disease,,9
+P1603,Joseph White,86,F,Type 2 diabetes,8.4,12
+P1604,John Martinez,29,M,,,4
+P1605,Susan Harris,48,F,,,10
+P1606,Betty White,62,F,,5.0,10
+P1607,Linda Moore,80,M,Type 2 diabetes; Osteoarthritis; Hyperlipidemia; COPD,8.3,2
+P1608,Christopher Gonzalez,32,M,Type 2 diabetes; Anxiety disorder; Chronic kidney disease; Hypertension,6.2,2
+P1609,Jessica Thompson,38,F,Depression,,5
+P1610,James Lewis,37,M,,,6
+P1611,Robert Martinez,39,F,Chronic kidney disease; Hypothyroidism,5.3,4
+P1612,Nancy Clark,72,M,Type 2 diabetes,10.2,4
+P1613,Nancy Hernandez,79,M,,,12
+P1614,Kimberly Moore,59,F,GERD; Hypertension,,6
+P1615,Betty Wilson,52,M,Hypertension; Chronic kidney disease,,2
+P1616,Mary Johnson,38,M,Hypertension; Chronic kidney disease,,6
+P1617,Joshua Williams,71,M,Anxiety disorder; Asthma,,2
+P1618,Michael Garcia,63,F,,,1
+P1619,Margaret Jackson,77,F,Type 2 diabetes; Depression,8.1,1
+P1620,Karen Lewis,36,F,Depression; Osteoarthritis,,4
+P1621,Anthony Johnson,83,F,COPD,,1
+P1622,Mark Thompson,35,M,Hypertension,,10
+P1623,Charles Jackson,30,M,,,5
+P1624,Joshua Thompson,43,M,Anxiety disorder; COPD; Hypothyroidism,,11
+P1625,Kimberly Martinez,80,F,Type 2 diabetes; COPD; Anxiety disorder,9.4,10
+P1626,Richard Brown,46,F,Osteoarthritis; Hypothyroidism,,7
+P1627,Anthony Martin,73,F,Depression; Asthma; Anxiety disorder,,8
+P1628,Mark Garcia,75,F,,,12
+P1629,Christopher Perez,51,F,Osteoarthritis; Chronic kidney disease; Asthma,,9
+P1630,James Lewis,24,M,Hyperlipidemia,,12
+P1631,Mary Moore,77,M,Anxiety disorder; GERD,,3
+P1632,Jennifer Sanchez,77,M,GERD,,2
+P1633,Emily Thomas,49,F,,,3
+P1634,Andrew Hernandez,46,M,Hypothyroidism; Osteoarthritis,,7
+P1635,Donna Sanchez,41,F,Hypothyroidism; Hypertension,,3
+P1636,James Smith,83,F,COPD,,7
+P1637,Linda Clark,30,F,Osteoarthritis,5.9,10
+P1638,Patricia Williams,64,F,,,2
+P1639,Christopher Johnson,59,F,Chronic kidney disease; Osteoarthritis,,8
+P1640,Patricia White,74,F,Hypothyroidism,5.6,8
+P1641,David Johnson,58,M,Asthma,,7
+P1642,Daniel Smith,38,F,,,12
+P1643,Patricia Garcia,82,M,Hyperlipidemia; Hypothyroidism; Hypertension,,9
+P1644,Richard Miller,55,F,,,6
+P1645,Richard Lopez,67,F,Depression,,2
+P1646,Susan Ramirez,81,F,Hyperlipidemia; COPD; Asthma,5.0,7
+P1647,William Anderson,52,M,GERD,,4
+P1648,Robert Lewis,49,M,,,1
+P1649,Patricia Jones,43,M,,6.1,7
+P1650,Patricia Davis,57,M,Hyperlipidemia,,9
+P1651,Sandra White,35,F,Asthma,,2
+P1652,Jennifer Lewis,23,F,Chronic kidney disease; Asthma,5.1,9
+P1653,Andrew Moore,75,F,COPD; Depression,5.5,4
+P1654,Steven Garcia,53,F,Anxiety disorder; Hypertension; GERD,6.0,12
+P1655,Donna Moore,24,M,Hyperlipidemia,,12
+P1656,Ashley Davis,29,M,Asthma,,1
+P1657,Matthew Moore,68,F,Type 2 diabetes; Asthma,7.3,1
+P1658,Michael Perez,64,M,Hyperlipidemia,,3
+P1659,Christopher Jackson,31,F,COPD,,9
+P1660,Margaret Martin,56,F,,,1
+P1661,John Ramirez,42,F,,,12
+P1662,Joshua Thompson,51,M,Hypothyroidism,,5
+P1663,Jennifer Martinez,65,F,Chronic kidney disease,,1
+P1664,Daniel Robinson,78,F,Type 2 diabetes; Anxiety disorder; Depression,8.2,2
+P1665,Ashley Martin,30,M,Asthma,,10
+P1666,Elizabeth Clark,77,M,,,8
+P1667,Kimberly Smith,26,M,,,4
+P1668,Sarah Lewis,69,F,Type 2 diabetes; GERD; Anxiety disorder,7.6,9
+P1669,Lisa Rodriguez,44,M,Anxiety disorder; Depression; COPD,5.4,10
+P1670,Jessica Lee,59,F,COPD,,7
+P1671,Paul Lewis,50,F,GERD; Anxiety disorder; Asthma,,11
+P1672,Paul Harris,63,F,Depression; Asthma; GERD,,10
+P1673,Donna Davis,43,M,,,11
+P1674,Joseph Ramirez,69,F,Chronic kidney disease,,6
+P1675,Ashley Taylor,68,F,Chronic kidney disease,,10
+P1676,Charles Clark,63,M,,,10
+P1677,Linda Robinson,37,F,Hypertension,6.1,6
+P1678,John Williams,52,M,,,6
+P1679,Michael Hernandez,59,M,,5.1,10
+P1680,Donald White,49,M,Osteoarthritis,,8
+P1681,Mary Martin,62,F,Hyperlipidemia; Hypothyroidism,,2
+P1682,Barbara Anderson,26,M,Hyperlipidemia,,9
+P1683,Joshua White,82,F,Hypertension; Hypothyroidism,,4
+P1684,Betty Garcia,87,M,Chronic kidney disease; Anxiety disorder; COPD,5.3,10
+P1685,Mark Moore,86,M,,5.6,6
+P1686,Sarah Moore,87,M,Anxiety disorder; GERD,,6
+P1687,Steven Jones,58,F,Hyperlipidemia,,12
+P1688,Mary Jones,76,M,,5.0,5
+P1689,Donna Lee,69,F,,5.8,2
+P1690,Robert Miller,63,M,Type 2 diabetes,6.3,9
+P1691,Matthew Jackson,89,M,Asthma; Depression,,12
+P1692,Mark Lewis,50,M,Hypothyroidism,,3
+P1693,Lisa Ramirez,22,F,Asthma; GERD,,2
+P1694,Barbara Thompson,89,F,Asthma; Osteoarthritis,,3
+P1695,James Lee,47,F,,,1
+P1696,Anthony Rodriguez,33,F,,,6
+P1697,Donald Gonzalez,25,F,,,3
+P1698,Sandra Hernandez,66,M,Chronic kidney disease; Hypothyroidism; Depression,5.0,10
+P1699,Elizabeth Martin,26,M,Type 2 diabetes; Depression; Anxiety disorder,9.3,2
+P1700,Robert Anderson,82,F,,,12
+P1701,Mary Hernandez,49,F,,,10
+P1702,David Brown,49,M,COPD; Hyperlipidemia,,4
+P1703,David Hernandez,40,F,Osteoarthritis; Chronic kidney disease,5.7,5
+P1704,Linda Thomas,56,M,Depression,6.1,5
+P1705,Andrew Hernandez,53,F,,,8
+P1706,Mark Martin,36,F,Depression; Hypertension,5.1,2
+P1707,Nancy Davis,42,F,Chronic kidney disease,,12
+P1708,Ashley Thompson,36,F,,,9
+P1709,William Jones,88,F,Type 2 diabetes; Hyperlipidemia,6.8,1
+P1710,Joshua Sanchez,55,M,Chronic kidney disease; COPD,,10
+P1711,Susan Thompson,78,M,GERD; Chronic kidney disease,,4
+P1712,John Miller,72,F,Type 2 diabetes; Osteoarthritis; Anxiety disorder; Hyperlipidemia,10.0,4
+P1713,Elizabeth Lee,33,F,COPD; GERD,,2
+P1714,Donald Rodriguez,60,F,Osteoarthritis; Hypertension,,4
+P1715,Donald Williams,22,M,Hyperlipidemia,,2
+P1716,Patricia Lee,40,M,Type 2 diabetes,7.2,1
+P1717,Linda Brown,36,F,,,1
+P1718,Mark Jones,37,F,Chronic kidney disease,,4
+P1719,John Martinez,47,F,GERD,4.8,3
+P1720,Kimberly Brown,80,M,Type 2 diabetes; Asthma; Hyperlipidemia,7.4,10
+P1721,Elizabeth Martin,63,F,,,10
+P1722,Daniel White,46,M,Hypertension; Osteoarthritis,,10
+P1723,Donna Thomas,66,F,Osteoarthritis; Depression,5.2,7
+P1724,Paul Lopez,67,M,Asthma; Osteoarthritis,,5
+P1725,Mary Jones,31,F,Anxiety disorder; Hyperlipidemia; GERD,,8
+P1726,Sarah Johnson,51,M,Type 2 diabetes; Depression,9.0,5
+P1727,Nancy Hernandez,89,F,Hypertension; Osteoarthritis,,5
+P1728,Patricia Brown,26,F,Type 2 diabetes; Anxiety disorder,10.2,6
+P1729,Lisa Martinez,78,M,,5.6,2
+P1730,Sandra Wilson,39,M,Type 2 diabetes,7.2,7
+P1731,Mark Gonzalez,51,F,Depression; Asthma; Anxiety disorder,,9
+P1732,Lisa Anderson,23,F,Type 2 diabetes; Hyperlipidemia,10.2,8
+P1733,Jennifer Johnson,51,M,,,5
+P1734,Richard Sanchez,84,M,,4.8,7
+P1735,Paul Ramirez,45,M,Anxiety disorder,,10
+P1736,Mary Miller,54,M,Type 2 diabetes,7.6,8
+P1737,Betty Wilson,54,M,,,9
+P1738,Donald Smith,52,F,Type 2 diabetes; Anxiety disorder; COPD; Chronic kidney disease,6.6,8
+P1739,Thomas Johnson,81,F,Type 2 diabetes; COPD,7.6,12
+P1740,Christopher Davis,56,F,GERD; Asthma,5.8,9
+P1741,Joshua Clark,26,M,COPD; Chronic kidney disease; Depression,,11
+P1742,Sandra Jackson,30,F,,,10
+P1743,Anthony Robinson,59,F,,5.3,1
+P1744,Andrew Rodriguez,84,M,GERD; Anxiety disorder,6.0,9
+P1745,Michelle Anderson,59,F,,,5
+P1746,William Smith,43,M,,,9
+P1747,Jennifer Wilson,43,F,Type 2 diabetes,9.5,2
+P1748,Michelle Jackson,52,M,COPD,,3
+P1749,Mark Smith,36,F,COPD,,11
+P1750,Robert Moore,87,F,Hypothyroidism; Chronic kidney disease,6.0,8
+P1751,Andrew Anderson,67,F,Hypertension,,1
+P1752,Paul Johnson,25,M,,,3
+P1753,Andrew Williams,46,M,Hyperlipidemia,,9
+P1754,David Martin,85,M,Chronic kidney disease,6.0,7
+P1755,Sarah Johnson,83,F,,6.2,2
+P1756,Daniel Wilson,76,F,Type 2 diabetes; Osteoarthritis; Asthma,8.6,8
+P1757,Charles Lee,72,F,Type 2 diabetes; Anxiety disorder,8.8,1
+P1758,Steven Martinez,56,M,Type 2 diabetes; Asthma,9.1,7
+P1759,James Taylor,57,F,Osteoarthritis; Hypothyroidism; Anxiety disorder,,9
+P1760,Margaret Jones,51,F,Asthma,,9
+P1761,Margaret Smith,78,F,,,4
+P1762,Daniel Perez,36,F,Asthma,,4
+P1763,Joseph Miller,74,F,Hypertension,,4
+P1764,Christopher Moore,27,M,Hypertension,,6
+P1765,Ashley Jones,57,M,Anxiety disorder,,1
+P1766,Sarah Smith,46,M,Hyperlipidemia,,12
+P1767,Kimberly Jones,83,F,COPD,,11
+P1768,Betty Anderson,27,F,,,8
+P1769,Kimberly Ramirez,56,M,GERD; Asthma,,11
+P1770,Paul Wilson,70,M,Osteoarthritis,,10
+P1771,Karen Robinson,72,M,Hyperlipidemia,,10
+P1772,Patricia Brown,55,M,Type 2 diabetes,8.1,12
+P1773,Linda Williams,27,M,Hypertension,5.8,9
+P1774,Anthony Hernandez,72,F,Asthma; Hyperlipidemia; Hypothyroidism,,10
+P1775,Ashley Smith,29,M,Type 2 diabetes; COPD,7.5,7
+P1776,Margaret Thomas,57,M,,,3
+P1777,Christopher Wilson,23,M,Depression,,1
+P1778,Christopher Davis,79,M,COPD,5.0,6
+P1779,Matthew Sanchez,55,M,Type 2 diabetes; Anxiety disorder,7.7,1
+P1780,Barbara Brown,76,F,Type 2 diabetes,9.9,6
+P1781,Mary Brown,30,M,Type 2 diabetes,9.5,11
+P1782,James Harris,71,F,Hyperlipidemia,,9
+P1783,Ashley Moore,72,M,Type 2 diabetes; Asthma; GERD,9.0,5
+P1784,Robert Jones,43,M,Hypertension; Osteoarthritis; Hypothyroidism,6.0,8
+P1785,Margaret Lopez,65,F,Chronic kidney disease; Hypertension,,6
+P1786,Thomas Taylor,43,M,Type 2 diabetes,9.5,5
+P1787,Margaret Rodriguez,28,F,Depression,,3
+P1788,Linda Jones,47,F,,,8
+P1789,Michelle White,58,M,,,7
+P1790,Charles Lee,48,F,Depression; Asthma,6.2,9
+P1791,Robert Lewis,70,F,Chronic kidney disease; Hypertension,,2
+P1792,John Rodriguez,71,F,Hypertension,,4
+P1793,Sarah Martin,63,F,,5.3,1
+P1794,Betty Anderson,35,F,,,7
+P1795,Sarah Rodriguez,66,F,GERD,,7
+P1796,Paul Lewis,28,F,,,4
+P1797,James Lee,79,F,GERD; Osteoarthritis,,2
+P1798,Steven Taylor,40,M,Anxiety disorder; COPD,,9
+P1799,Joshua Johnson,87,F,Depression; Asthma; COPD,6.1,11
+P1800,Matthew Davis,39,M,Type 2 diabetes,8.9,9
+P1801,David Taylor,50,M,Hyperlipidemia,5.0,11
+P1802,Betty Robinson,85,F,COPD; Osteoarthritis; Asthma,,9
+P1803,David Jones,28,F,Type 2 diabetes; Hypertension; Asthma,7.6,1
+P1804,Matthew Brown,87,M,Type 2 diabetes,7.0,6
+P1805,Donna Taylor,53,F,Hypothyroidism; Anxiety disorder,,9
+P1806,Christopher Martinez,39,F,GERD; Hyperlipidemia; Hypertension,6.0,1
+P1807,Barbara Smith,80,M,GERD; Anxiety disorder,,2
+P1808,John Wilson,64,F,Anxiety disorder; COPD,,2
+P1809,Lisa Martinez,23,M,Osteoarthritis; Hypothyroidism,5.5,6
+P1810,Michelle Clark,34,M,COPD,,9
+P1811,Emily Harris,23,M,Osteoarthritis,,3
+P1812,David Gonzalez,70,M,Chronic kidney disease; Osteoarthritis,,9
+P1813,Donald Taylor,88,F,Depression,,2
+P1814,Lisa Sanchez,68,F,,,2
+P1815,Mary Thompson,80,M,,,3
+P1816,Sandra Ramirez,77,M,Chronic kidney disease,,3
+P1817,Karen Williams,70,F,,,10
+P1818,Robert Sanchez,69,F,,,2
+P1819,Sandra Martinez,80,M,Asthma,,7
+P1820,Michael Moore,45,F,Chronic kidney disease; Asthma,,10
+P1821,Margaret Rodriguez,73,F,Type 2 diabetes,10.2,5
+P1822,William Brown,68,M,,,8
+P1823,Margaret Harris,27,M,,,3
+P1824,James Thompson,68,M,Hypertension; Hyperlipidemia; Anxiety disorder,5.9,6
+P1825,Patricia Anderson,74,M,Type 2 diabetes; Hypothyroidism; Depression,10.2,1
+P1826,Kimberly Lee,33,M,Asthma; COPD,,12
+P1827,Jennifer Jones,79,F,,,9
+P1828,Donald Williams,69,F,Type 2 diabetes; Chronic kidney disease,8.5,8
+P1829,Christopher Garcia,35,F,Hypertension; GERD,6.1,8
+P1830,Richard Johnson,28,F,Type 2 diabetes,8.6,2
+P1831,Emily Thompson,86,M,,,3
+P1832,Anthony Jackson,88,M,,,6
+P1833,Sarah Thomas,38,M,Hyperlipidemia,,12
+P1834,Donald Miller,87,F,Hyperlipidemia; Osteoarthritis,,12
+P1835,Thomas Hernandez,31,F,Type 2 diabetes; Chronic kidney disease,8.3,12
+P1836,Thomas Taylor,68,M,GERD; Asthma,,1
+P1837,Paul Wilson,73,M,Type 2 diabetes; Osteoarthritis,8.7,5
+P1838,Joseph Gonzalez,44,M,Hypothyroidism; Anxiety disorder,,9
+P1839,Nancy Johnson,28,M,Hypothyroidism,,7
+P1840,Michelle Hernandez,68,M,Anxiety disorder,5.7,12
+P1841,Paul Robinson,23,F,Hyperlipidemia; Hypertension,,12
+P1842,Joshua Brown,61,F,,5.0,9
+P1843,Joshua Perez,71,F,Type 2 diabetes,7.1,12
+P1844,Christopher Clark,69,F,,,11
+P1845,Jennifer Perez,44,F,Type 2 diabetes; GERD,10.0,12
+P1846,Christopher Brown,28,F,Asthma; GERD,,11
+P1847,Michelle Hernandez,55,M,Type 2 diabetes,9.7,6
+P1848,Joseph Perez,68,F,,5.4,11
+P1849,James Miller,49,M,Hypertension,,3
+P1850,Margaret Johnson,26,F,Hypothyroidism,5.7,11
+P1851,Nancy Lewis,34,F,Chronic kidney disease; GERD,,4
+P1852,Elizabeth Johnson,69,M,,6.3,10
+P1853,Betty Jackson,23,F,Chronic kidney disease; Hypertension; Hyperlipidemia,,12
+P1854,Thomas Johnson,78,M,Depression; Chronic kidney disease,,11
+P1855,Richard Jackson,38,F,,,6
+P1856,James Gonzalez,50,F,Asthma,,1
+P1857,Daniel Clark,49,F,Type 2 diabetes; Anxiety disorder,7.5,11
+P1858,Joseph Sanchez,45,F,,4.8,1
+P1859,John Lopez,27,M,Chronic kidney disease,,7
+P1860,Jessica Smith,87,M,Type 2 diabetes; Hyperlipidemia; Anxiety disorder; Chronic kidney disease,7.8,8
+P1861,Christopher Ramirez,64,M,,6.0,7
+P1862,Betty Johnson,61,F,Anxiety disorder; Asthma,,12
+P1863,Lisa Lopez,40,M,,,8
+P1864,James Robinson,25,F,,,3
+P1865,Barbara Miller,50,F,Hyperlipidemia; Asthma; COPD,,9
+P1866,James Perez,37,M,,5.0,7
+P1867,Nancy Moore,49,M,GERD; Depression,,8
+P1868,Matthew Moore,43,F,GERD; Osteoarthritis,,12
+P1869,Emily Gonzalez,49,F,,,8
+P1870,Nancy Lewis,44,M,,5.6,3
+P1871,James Johnson,83,F,Type 2 diabetes,8.1,2
+P1872,Ashley Rodriguez,57,M,Chronic kidney disease; Hyperlipidemia,6.4,6
+P1873,William White,47,F,,5.1,1
+P1874,Joseph Ramirez,57,F,Type 2 diabetes; Depression; GERD,8.8,3
+P1875,Anthony Hernandez,86,F,Anxiety disorder,5.9,1
+P1876,Mark Anderson,66,F,COPD,5.7,3
+P1877,David Martin,31,F,Type 2 diabetes; Hyperlipidemia,8.6,2
+P1878,Jessica Clark,25,M,Hypothyroidism,5.4,3
+P1879,Richard Brown,41,F,,5.4,6
+P1880,Sandra Harris,75,M,,5.4,3
+P1881,Lisa Lopez,32,M,Type 2 diabetes; Hypothyroidism,7.4,12
+P1882,Daniel Smith,50,M,Asthma,,3
+P1883,William Wilson,43,M,,,3
+P1884,Anthony Perez,54,F,Type 2 diabetes; GERD; Chronic kidney disease,9.2,9
+P1885,Michelle Robinson,85,F,Hypothyroidism,,12
+P1886,Thomas Davis,32,M,,5.0,5
+P1887,Lisa Perez,80,F,Type 2 diabetes; Osteoarthritis,6.7,6
+P1888,Betty Smith,89,M,GERD; Depression,,7
+P1889,Nancy Sanchez,56,M,Hypothyroidism,,11
+P1890,Lisa Davis,64,F,Hypothyroidism,,12
+P1891,Robert Wilson,86,M,,5.3,6
+P1892,Andrew Hernandez,24,F,Hypothyroidism; Chronic kidney disease; Hyperlipidemia,,3
+P1893,Christopher Sanchez,73,F,Anxiety disorder,,8
+P1894,Jessica Smith,45,F,Asthma; Osteoarthritis; GERD,,10
+P1895,Barbara Gonzalez,37,M,Type 2 diabetes; Hypertension; Hypothyroidism,9.2,6
+P1896,Patricia Anderson,61,F,,,4
+P1897,Mary Moore,35,F,Depression; Chronic kidney disease,,3
+P1898,Jennifer Lopez,40,F,Chronic kidney disease,,3
+P1899,Sarah White,48,M,Chronic kidney disease,,5
+P1900,Patricia Brown,56,M,Asthma,,11
+P1901,Nancy Lewis,25,M,,,8
+P1902,Andrew Wilson,79,F,,5.5,2
+P1903,John Robinson,57,F,Asthma; Depression,,2
+P1904,Christopher Lee,25,M,Hypertension; COPD; Asthma,,11
+P1905,Robert Martinez,44,F,Osteoarthritis,4.8,5
+P1906,Susan Harris,51,F,Hyperlipidemia; Depression,,1
+P1907,Richard Gonzalez,47,F,Asthma,,7
+P1908,Joshua Lee,44,F,Depression; Osteoarthritis,,12
+P1909,Susan Robinson,69,M,,,8
+P1910,Kimberly Martin,51,F,,,8
+P1911,Joseph Jones,50,M,Chronic kidney disease,,1
+P1912,Jennifer Robinson,82,M,Type 2 diabetes; Hypertension; Chronic kidney disease; Asthma,8.1,1
+P1913,Ashley Brown,34,F,Type 2 diabetes,8.7,3
+P1914,Margaret Robinson,33,M,,,7
+P1915,Christopher Anderson,83,F,,6.4,4
+P1916,David Robinson,41,F,,5.8,5
+P1917,Emily Perez,41,M,Asthma,6.3,7
+P1918,Barbara Clark,29,M,GERD; Osteoarthritis; COPD,,7
+P1919,Jessica Williams,53,M,,5.4,8
+P1920,Jessica Smith,57,F,,,5
+P1921,Elizabeth Smith,37,M,,,3
+P1922,Steven Sanchez,73,F,COPD,,8
+P1923,Robert Hernandez,68,M,Hypertension; GERD,,10
+P1924,Robert Lopez,31,F,Type 2 diabetes; Hypothyroidism; Hyperlipidemia; Chronic kidney disease,9.4,12
+P1925,Donna Hernandez,70,F,Asthma,6.1,3
+P1926,David Wilson,24,M,Hyperlipidemia,,11
+P1927,William White,85,F,,5.1,4
+P1928,Sandra Moore,77,M,Hypertension,,9
+P1929,Robert Garcia,82,F,Osteoarthritis; Hyperlipidemia,,3
+P1930,Matthew Perez,38,M,GERD,,9
+P1931,Daniel Davis,82,M,COPD; Hypothyroidism; Osteoarthritis,4.9,7
+P1932,Richard Smith,64,M,COPD,,3
+P1933,Elizabeth Johnson,51,F,Type 2 diabetes; GERD,9.4,5
+P1934,Patricia Smith,83,F,Type 2 diabetes; Depression; Anxiety disorder; Hypothyroidism,7.8,2
+P1935,Matthew Lewis,75,F,Hypertension,,6
+P1936,Anthony Davis,26,F,Depression,5.7,7
+P1937,Michelle Garcia,56,M,Hyperlipidemia,,10
+P1938,Andrew Thompson,67,F,,5.4,8
+P1939,Lisa Lopez,23,F,Type 2 diabetes; Depression,8.1,10
+P1940,Daniel Robinson,64,M,Osteoarthritis,,6
+P1941,Joseph Martinez,55,M,Hypothyroidism; Hyperlipidemia,,10
+P1942,Thomas Rodriguez,53,F,,,5
+P1943,Mary Taylor,74,M,Chronic kidney disease; Asthma,4.9,6
+P1944,William Martin,86,M,Osteoarthritis; Chronic kidney disease,,9
+P1945,Jessica Garcia,56,F,Type 2 diabetes,10.0,6
+P1946,Richard Martinez,60,M,GERD; COPD,,10
+P1947,John Davis,38,F,Type 2 diabetes,8.2,1
+P1948,Michael Jones,40,M,,,6
+P1949,Kimberly Thompson,72,M,,,11
+P1950,Emily Wilson,82,F,,,4
+P1951,Lisa Moore,30,M,,,7
+P1952,Robert Davis,50,F,Hypertension,,5
+P1953,Anthony Garcia,45,F,Hypertension; Osteoarthritis,5.5,3
+P1954,Susan Lee,55,M,Type 2 diabetes,9.1,9
+P1955,Emily Sanchez,25,F,GERD; Asthma; Hypothyroidism,,10
+P1956,Jennifer Lee,28,F,Hypothyroidism,5.2,1
+P1957,Christopher Johnson,60,F,Type 2 diabetes; GERD,9.7,6
+P1958,Richard Jones,42,F,,,1
+P1959,William Hernandez,39,F,Osteoarthritis; COPD; Hypertension,5.2,5
+P1960,Mark Williams,74,M,,,8
+P1961,Mark Ramirez,68,F,COPD; GERD,,6
+P1962,Barbara Rodriguez,53,F,,6.2,4
+P1963,David Davis,55,M,Type 2 diabetes,10.5,12
+P1964,Sandra Thompson,24,F,Type 2 diabetes,9.4,5
+P1965,Donald Lee,81,F,Hypothyroidism,,10
+P1966,Patricia Gonzalez,45,M,Chronic kidney disease,,8
+P1967,Elizabeth Hernandez,41,M,Asthma; COPD; GERD,,10
+P1968,Betty Harris,65,M,Chronic kidney disease; Asthma,,8
+P1969,Mark Jackson,53,F,,5.0,2
+P1970,Kimberly Anderson,28,F,,,12
+P1971,Robert Anderson,75,F,Depression; Hypothyroidism,,11
+P1972,Daniel Brown,50,F,Hypothyroidism,,3
+P1973,Ashley Brown,62,F,Type 2 diabetes,8.0,5
+P1974,Linda Gonzalez,41,F,Type 2 diabetes; Hypothyroidism,8.9,4
+P1975,Charles Martinez,47,M,Hypertension; Hypothyroidism; Depression,,10
+P1976,Sarah Anderson,64,F,Type 2 diabetes,9.9,4
+P1977,Thomas Martin,79,M,,,11
+P1978,Joshua White,48,F,,6.3,8
+P1979,David Robinson,62,F,,,7
+P1980,Elizabeth Sanchez,66,F,,,12
+P1981,Donna Martinez,42,F,Type 2 diabetes,9.4,10
+P1982,Margaret Davis,73,F,Asthma; Anxiety disorder,5.8,5
+P1983,Margaret Gonzalez,45,F,Type 2 diabetes; COPD,8.0,1
+P1984,Andrew Moore,27,M,,,2
+P1985,Elizabeth Brown,32,F,,6.0,9
+P1986,Paul Jones,36,M,Chronic kidney disease,,7
+P1987,Michael Harris,60,F,Hypothyroidism,,1
+P1988,Karen Harris,71,M,Type 2 diabetes; Hypertension; COPD,9.4,6
+P1989,Matthew Lee,88,M,Anxiety disorder; Hypothyroidism; Hyperlipidemia,,12
+P1990,Charles Perez,38,F,Anxiety disorder,,3
+P1991,Barbara Smith,31,F,,,10
+P1992,Linda Martinez,54,F,COPD; Hyperlipidemia; Chronic kidney disease,,10
+P1993,Anthony Jackson,79,F,Hypothyroidism; Chronic kidney disease; Hyperlipidemia,,9
+P1994,Emily Smith,47,F,Type 2 diabetes; Anxiety disorder; COPD,7.5,9
+P1995,Paul Gonzalez,65,F,,,1
+P1996,Sarah Davis,63,F,Chronic kidney disease; Hypertension,,9
+P1997,Michelle Garcia,42,M,COPD,5.5,9
+P1998,Sandra Harris,77,F,,6.2,4
+P1999,Susan Miller,86,M,Hyperlipidemia,,11
+P2000,Barbara Gonzalez,36,M,,,2
+P2001,Richard Jones,22,F,Osteoarthritis; COPD,,3
+P2002,Daniel Lewis,34,F,Hyperlipidemia; Chronic kidney disease,,12
+P2003,Donald Thomas,24,M,Anxiety disorder,,12
+P2004,James Lee,69,F,Hyperlipidemia,,5
+P2005,Michelle Jones,53,F,Anxiety disorder,6.3,12
+P2006,Donna Wilson,36,M,Osteoarthritis,,5
+P2007,Barbara White,66,M,Asthma; Anxiety disorder; Chronic kidney disease,,7
+P2008,Michelle Ramirez,71,F,Asthma; GERD,,5
+P2009,Nancy Hernandez,86,F,,,11
+P2010,Karen Lewis,23,M,Type 2 diabetes; Hypertension; Depression,8.0,8
+P2011,Mary Moore,72,M,Type 2 diabetes; Depression; Hypothyroidism,8.6,9
+P2012,Linda Wilson,46,M,,,11
+P2013,Betty White,65,F,Hyperlipidemia; Anxiety disorder,,10
+P2014,Charles Hernandez,25,M,Type 2 diabetes; Chronic kidney disease,9.9,3
+P2015,Betty Gonzalez,80,F,Hypertension,5.7,5
+P2016,Kimberly Brown,54,M,,,10
+P2017,Nancy Thomas,46,F,Chronic kidney disease; Osteoarthritis,,12
+P2018,Michael Moore,82,M,Osteoarthritis; Hypertension; Asthma,,8
+P2019,Patricia Smith,69,F,Anxiety disorder,,7
+P2020,Susan Smith,35,M,Anxiety disorder; Hypothyroidism; Hyperlipidemia,,10
+P2021,Paul Perez,46,M,Anxiety disorder; Depression; Hypertension,,8
+P2022,Kimberly Thomas,24,F,Type 2 diabetes; Hypertension; COPD,6.9,5
+P2023,Joshua Martin,54,F,Hypothyroidism,,7
+P2024,David Martinez,73,M,Asthma,6.3,10
+P2025,William Hernandez,77,M,Asthma; COPD,4.8,4
+P2026,Mark Sanchez,49,M,Type 2 diabetes; Depression,9.6,3
+P2027,Paul Davis,34,F,Hyperlipidemia,,5
+P2028,Susan Brown,64,M,Type 2 diabetes; COPD; Hypertension,7.4,8
+P2029,Sandra Thomas,52,F,Type 2 diabetes; Chronic kidney disease; COPD,9.0,11
+P2030,Daniel Jones,61,F,,,9
+P2031,Lisa Martin,63,M,Type 2 diabetes,7.2,5
+P2032,Joseph Harris,56,M,,,5
+P2033,Linda Clark,78,M,GERD,,12
+P2034,Thomas Martinez,80,F,Hypertension,,8
+P2035,Joseph Miller,87,F,Type 2 diabetes,7.3,7
+P2036,Steven Moore,26,M,Chronic kidney disease; Hyperlipidemia,,3
+P2037,Richard Smith,83,M,Asthma,,2
+P2038,Linda Anderson,62,F,Osteoarthritis,,12
+P2039,Steven Johnson,50,M,Type 2 diabetes; Hyperlipidemia,7.5,12
+P2040,Donna Sanchez,70,F,Hypothyroidism; Osteoarthritis; Chronic kidney disease,,3
+P2041,Margaret Rodriguez,54,M,,,10
+P2042,Linda Johnson,25,F,Depression,4.8,4
+P2043,Michael Thompson,65,F,Type 2 diabetes; Chronic kidney disease,7.5,10
+P2044,Mark Garcia,80,M,Depression; GERD,,10
+P2045,Kimberly White,66,F,Type 2 diabetes; Asthma,7.5,2
+P2046,Kimberly Moore,39,M,Depression,,8
+P2047,Donna Taylor,23,M,GERD; Hyperlipidemia; Hypothyroidism,,4
+P2048,David Taylor,76,M,Hyperlipidemia; COPD; Asthma,,11
+P2049,Kimberly Taylor,25,F,Chronic kidney disease,4.9,4
+P2050,Sarah Robinson,84,F,,,12
+P2051,Mark Anderson,43,F,Asthma,,7
+P2052,Joseph Clark,76,F,,,6
+P2053,Sandra White,86,F,Type 2 diabetes; GERD; Osteoarthritis,7.3,4
+P2054,Karen Jones,38,M,,6.0,1
+P2055,Paul Sanchez,29,M,Type 2 diabetes; Hyperlipidemia,6.2,6
+P2056,Susan Gonzalez,89,M,,,4
+P2057,Andrew Davis,66,M,,,12
+P2058,Paul Hernandez,22,M,Anxiety disorder; Hyperlipidemia; GERD,,5
+P2059,Jennifer Lee,79,F,Anxiety disorder,5.6,3
+P2060,Linda Brown,67,M,,,10
+P2061,Steven Robinson,27,F,Depression,5.1,10
+P2062,Anthony Smith,75,M,,4.9,5
+P2063,Anthony Williams,54,F,Type 2 diabetes,10.1,5
+P2064,John Lopez,74,M,,,9
+P2065,Ashley Miller,22,F,Type 2 diabetes,8.2,8
+P2066,Donna Hernandez,36,F,COPD; Anxiety disorder; Hypertension,,7
+P2067,Andrew Garcia,55,F,Type 2 diabetes; Hypothyroidism,9.5,4
+P2068,William Ramirez,64,M,Osteoarthritis,6.3,9
+P2069,Matthew Clark,37,F,,,1
+P2070,Susan Jackson,47,M,Hyperlipidemia,,4
+P2071,Daniel Taylor,82,M,,,8
+P2072,Thomas Brown,79,F,,6.3,6
+P2073,Mary Garcia,46,M,GERD,,3
+P2074,Robert Lee,27,M,Osteoarthritis; Hyperlipidemia,,12
+P2075,Sandra Jones,67,M,Type 2 diabetes; Hyperlipidemia; Hypertension,6.9,6
+P2076,Patricia Martin,52,F,Hyperlipidemia,,3
+P2077,Paul Anderson,40,M,Type 2 diabetes; Chronic kidney disease; Depression,6.9,8
+P2078,Barbara Martinez,60,F,Type 2 diabetes; Osteoarthritis; Asthma,7.9,12
+P2079,Patricia Thomas,70,F,Type 2 diabetes; Depression,9.2,4
+P2080,William Williams,72,M,,,10
+P2081,Nancy Anderson,25,F,,5.6,3
+P2082,Mary Sanchez,64,F,Hyperlipidemia,6.0,11
+P2083,David Williams,79,F,Type 2 diabetes; Anxiety disorder,8.2,5
+P2084,Anthony Sanchez,62,M,Type 2 diabetes; COPD,6.9,1
+P2085,Karen Martinez,40,F,Asthma; COPD; GERD,5.8,1
+P2086,Barbara Miller,40,M,,6.3,11
+P2087,Karen White,24,M,Depression; Asthma,,1
+P2088,Anthony Lee,48,F,,5.0,7
+P2089,Joshua Clark,32,M,Asthma,,6
+P2090,Linda Gonzalez,67,M,Type 2 diabetes,7.8,9
+P2091,Joshua Sanchez,73,M,Depression,,9
+P2092,Susan Anderson,75,F,,5.6,5
+P2093,Mary Taylor,80,M,Chronic kidney disease,,10
+P2094,Ashley Martinez,36,F,Hyperlipidemia,,1
+P2095,Andrew White,28,M,Osteoarthritis,,12
+P2096,Christopher Davis,38,F,,,8
+P2097,Linda Davis,27,F,GERD,,3
+P2098,David Williams,40,F,,,11
+P2099,Daniel Lewis,40,F,Osteoarthritis; Hypertension,4.8,9
+P2100,Charles White,70,F,Osteoarthritis,,10
+P2101,Kimberly Taylor,22,F,Hyperlipidemia; COPD,,7
+P2102,Donna Ramirez,22,F,Asthma,,3
+P2103,Sandra White,85,F,COPD,,12
+P2104,James Moore,27,M,,,2
+P2105,Thomas Gonzalez,76,M,,,10
+P2106,Joseph Davis,87,M,Osteoarthritis; Depression,5.0,2
+P2107,Joshua Moore,62,F,GERD,,10
+P2108,Mary Miller,61,F,Hypertension; Hyperlipidemia,,6
+P2109,Anthony Wilson,52,M,Type 2 diabetes,10.4,3
+P2110,Patricia Moore,28,F,Type 2 diabetes; Hypertension; Asthma,9.3,10
+P2111,Elizabeth Lewis,58,F,,,2
+P2112,Christopher Lewis,85,M,Type 2 diabetes,9.4,1
+P2113,Jennifer Garcia,23,M,Chronic kidney disease; Asthma; GERD,5.0,7
+P2114,Christopher Lopez,30,F,,,7
+P2115,Patricia Anderson,36,F,,,7
+P2116,Jennifer Jones,25,F,Depression,4.9,12
+P2117,William Jackson,44,F,Anxiety disorder; Hyperlipidemia; GERD,4.8,5
+P2118,Ashley White,69,F,Osteoarthritis; Hypothyroidism,,12
+P2119,Barbara Lewis,27,M,Type 2 diabetes; Osteoarthritis,9.2,8
+P2120,Ashley Ramirez,48,M,Type 2 diabetes,9.2,12
+P2121,Barbara Gonzalez,38,M,,,7
+P2122,Betty Jones,71,M,,6.3,8
+P2123,Steven Ramirez,74,M,Hypothyroidism; Depression,,2
+P2124,Susan Lopez,42,F,Type 2 diabetes; Hyperlipidemia,8.8,5
+P2125,Patricia Martinez,48,M,Anxiety disorder; Chronic kidney disease,5.0,2
+P2126,Thomas Martin,65,M,GERD,,3
+P2127,Sarah Sanchez,24,M,Hyperlipidemia; COPD,,10
+P2128,Paul Moore,85,F,Type 2 diabetes,7.7,9
+P2129,Kimberly Taylor,44,F,Chronic kidney disease; Hypertension,,7
+P2130,Daniel Ramirez,55,F,Type 2 diabetes,7.0,12
+P2131,Mary Brown,45,F,,,9
+P2132,Jessica Thomas,76,F,Type 2 diabetes; Chronic kidney disease; Anxiety disorder,7.2,10
+P2133,Jennifer Sanchez,28,F,Osteoarthritis; Hypothyroidism; Depression,,4
+P2134,Michael Jackson,35,M,Chronic kidney disease; Anxiety disorder,6.0,11
+P2135,Daniel Perez,71,F,Hypertension; Chronic kidney disease; Hypothyroidism,5.8,11
+P2136,Lisa Robinson,81,M,Type 2 diabetes,6.8,9
+P2137,Kimberly White,89,M,Type 2 diabetes,7.5,12
+P2138,Michelle Thomas,87,F,,,11
+P2139,Donald Thomas,71,M,Depression,,4
+P2140,Anthony Moore,27,M,Hypertension; Asthma,,9
+P2141,Daniel Anderson,23,M,Hypertension,5.2,5
+P2142,Susan Lewis,46,F,,,2
+P2143,Matthew Martin,72,F,GERD,,5
+P2144,Mary Gonzalez,72,M,GERD,5.8,2
+P2145,Elizabeth Williams,53,M,Anxiety disorder; Hypothyroidism,,7
+P2146,Donald Robinson,31,F,Type 2 diabetes,7.1,4
+P2147,Andrew Jones,36,F,Chronic kidney disease; Hyperlipidemia,4.8,2
+P2148,James Hernandez,76,F,,6.3,7
+P2149,Emily Gonzalez,82,M,Osteoarthritis,6.2,10
+P2150,Karen Moore,64,F,Type 2 diabetes,6.9,9
+P2151,Christopher Thomas,76,F,,,2
+P2152,Mark Robinson,39,F,Asthma; Osteoarthritis,,10
+P2153,Nancy Lopez,85,F,Hypertension,,10
+P2154,Joseph White,81,F,,,7
+P2155,Margaret Harris,69,M,,,8
+P2156,Sandra Miller,35,F,Type 2 diabetes; Hyperlipidemia,7.9,12
+P2157,Michael Thomas,29,F,Chronic kidney disease; Hypertension; Asthma,,5
+P2158,Steven Ramirez,31,M,Asthma,,3
+P2159,Thomas Harris,44,M,Anxiety disorder,,8
+P2160,John Anderson,45,M,,5.8,7
+P2161,Donald Williams,48,F,GERD; Osteoarthritis,,7
+P2162,William Lopez,82,M,,,12
+P2163,Joshua Johnson,86,M,Hypertension,,9
+P2164,Donna Perez,88,M,,,6
+P2165,James Lopez,52,M,COPD,,8
+P2166,Jennifer Lewis,47,M,Anxiety disorder; Hypothyroidism,,6
+P2167,Anthony Anderson,46,M,Type 2 diabetes; COPD,9.3,1
+P2168,Elizabeth Ramirez,52,M,,,3
+P2169,Barbara Johnson,80,F,,,8
+P2170,Robert Clark,35,F,Depression,,2
+P2171,Margaret Garcia,84,F,Type 2 diabetes,9.0,6
+P2172,Margaret Jackson,44,F,Type 2 diabetes; Asthma,7.3,5
+P2173,Sarah Thomas,45,M,,,2
+P2174,Mary Robinson,79,M,Anxiety disorder; Osteoarthritis; Depression,,1
+P2175,John Martinez,65,F,,,8
+P2176,Sarah Gonzalez,45,M,Depression; Asthma,,8
+P2177,Emily Smith,77,F,Hypertension; Anxiety disorder; GERD,,3
+P2178,Michael Thompson,66,M,Osteoarthritis; Asthma,,3
+P2179,Paul Ramirez,85,F,Type 2 diabetes; Hyperlipidemia; Anxiety disorder,6.8,12
+P2180,Betty Lee,75,M,,,9
+P2181,Susan Jackson,60,M,COPD,,8
+P2182,Karen Clark,22,M,Type 2 diabetes; GERD; Anxiety disorder,9.2,3
+P2183,Barbara Harris,27,F,Type 2 diabetes; Hypothyroidism,9.3,3
+P2184,Jessica Miller,66,F,Type 2 diabetes; Osteoarthritis; GERD; Hyperlipidemia,7.2,12
+P2185,Charles Hernandez,50,M,Hypertension,5.4,9
+P2186,Michelle Miller,58,F,,,5
+P2187,David Jackson,53,M,,,6
+P2188,William Clark,51,F,,,3
+P2189,Nancy Harris,29,M,,,10
+P2190,Linda Jones,39,F,Osteoarthritis,5.5,10
+P2191,David Williams,69,M,COPD,,5
+P2192,Mark Hernandez,33,F,COPD; Asthma,5.5,12
+P2193,Donald Lopez,51,F,Anxiety disorder,,5
+P2194,Elizabeth Perez,82,M,Anxiety disorder,,2
+P2195,Michelle Wilson,40,F,Type 2 diabetes; Osteoarthritis; Hypertension,6.2,1
+P2196,Michael Williams,46,F,,,1
+P2197,Sarah Miller,62,F,,,2
+P2198,Patricia Taylor,60,F,COPD,,3
+P2199,Joshua Jones,55,M,Asthma; COPD,,9
+P2200,Christopher Thompson,52,M,COPD; Asthma,,1
+P2201,Ashley Johnson,60,M,COPD,5.1,4
+P2202,Daniel Brown,43,M,Hypertension,5.5,9
+P2203,Sarah Johnson,59,M,,,6
+P2204,Paul Garcia,89,F,,,8
+P2205,Barbara Smith,39,M,,,11
+P2206,Karen Robinson,43,M,GERD; COPD,5.7,3
+P2207,Barbara Ramirez,42,F,Chronic kidney disease; Asthma,,11
+P2208,Karen Anderson,73,F,Type 2 diabetes; COPD,9.4,5
+P2209,Andrew Jackson,33,M,Type 2 diabetes,6.1,1
+P2210,Patricia Jackson,55,M,,6.1,11
+P2211,Joseph Martin,27,F,Type 2 diabetes; Hyperlipidemia; Osteoarthritis,8.0,10
+P2212,James Thompson,50,M,Type 2 diabetes; Chronic kidney disease; Asthma; Depression,8.5,1
+P2213,William Gonzalez,82,M,GERD; Hypertension,5.3,8
+P2214,Sarah Wilson,44,F,Type 2 diabetes; Asthma; Osteoarthritis,8.3,10
+P2215,Jennifer Wilson,55,M,Hyperlipidemia; Anxiety disorder; GERD,,5
+P2216,Sandra Garcia,36,F,Anxiety disorder,,8
+P2217,Margaret Ramirez,75,F,COPD; Hypothyroidism,6.4,5
+P2218,Donald Hernandez,76,F,,,1
+P2219,Michelle Martin,33,M,,,1
+P2220,Emily Davis,43,M,,,8
+P2221,Sarah Lopez,43,F,,6.1,10
+P2222,Andrew Harris,54,M,,,9
+P2223,Matthew Clark,69,F,COPD,5.9,3
+P2224,Sarah Williams,47,M,Hypertension; GERD; Osteoarthritis,,6
+P2225,Sarah Garcia,62,M,Type 2 diabetes; Osteoarthritis; GERD,9.1,11
+P2226,Karen Thomas,76,F,Hyperlipidemia,,8
+P2227,Sarah Miller,86,M,Anxiety disorder,6.0,11
+P2228,Thomas Lewis,66,M,Anxiety disorder,,7
+P2229,Karen Lewis,30,M,Chronic kidney disease,,10
+P2230,Elizabeth Anderson,26,F,COPD,,1
+P2231,Nancy Johnson,88,M,Chronic kidney disease,,5
+P2232,Anthony Harris,52,M,,,4
+P2233,Sarah Robinson,53,M,Osteoarthritis,5.6,8
+P2234,Betty Thomas,49,F,Hyperlipidemia; Chronic kidney disease,,3
+P2235,Anthony Lewis,45,M,Hypothyroidism; Hyperlipidemia; Hypertension,,8
+P2236,Nancy Miller,87,M,,,1
+P2237,Susan Jackson,71,M,,,12
+P2238,Betty Smith,87,M,,,6
+P2239,Andrew Jones,24,M,Type 2 diabetes,7.5,11
+P2240,Anthony Gonzalez,78,F,Hyperlipidemia; Anxiety disorder,,10
+P2241,Richard Sanchez,23,M,,,10
+P2242,Ashley Brown,32,F,GERD,,4
+P2243,Jennifer Anderson,51,M,Chronic kidney disease; Anxiety disorder; Hypothyroidism,,3
+P2244,David Smith,73,M,Chronic kidney disease,,11
+P2245,Jessica Hernandez,52,F,COPD; Hypertension; Hyperlipidemia,,10
+P2246,Mary Gonzalez,75,M,,,9
+P2247,James Lopez,78,F,Asthma,,5
+P2248,Jessica Sanchez,51,M,Type 2 diabetes,9.4,1
+P2249,Sarah Perez,71,M,,,9
+P2250,Matthew Lee,28,F,COPD; Asthma,,11
+P2251,Nancy Smith,87,F,Hypertension,4.9,10
+P2252,Karen Johnson,41,M,,5.8,1
+P2253,Sandra Garcia,88,F,COPD,,9
+P2254,Karen Clark,44,M,Hypertension; COPD,,9
+P2255,Andrew Garcia,86,M,Hypothyroidism,5.5,1
+P2256,Joshua Lewis,76,F,Asthma; Depression,,3
+P2257,Kimberly Jones,23,F,,4.9,3
+P2258,Thomas Rodriguez,75,F,,,11
+P2259,Nancy Taylor,45,M,Hypertension; Hyperlipidemia,6.0,5
+P2260,David Perez,40,M,,,10
+P2261,Joseph Anderson,33,F,,,5
+P2262,Patricia Davis,79,M,Depression,6.3,5
+P2263,Christopher Jones,53,M,Hypothyroidism; Hypertension,,4
+P2264,Steven Harris,76,M,Type 2 diabetes; Depression,9.4,9
+P2265,Daniel Ramirez,40,F,Depression,5.4,12
+P2266,Elizabeth Miller,73,M,,5.4,8
+P2267,Charles Jackson,89,M,Type 2 diabetes; Hypothyroidism,7.8,5
+P2268,Barbara Garcia,45,M,Asthma,5.5,2
+P2269,Barbara Miller,80,M,COPD,,10
+P2270,Susan Hernandez,41,F,Anxiety disorder; Chronic kidney disease,,12
+P2271,Michelle Garcia,85,M,Hypertension; Hypothyroidism,5.2,3
+P2272,Joshua Clark,28,M,,,12
+P2273,Elizabeth Jones,46,F,,,5
+P2274,Sandra Robinson,60,F,Hyperlipidemia; Hypothyroidism,,11
+P2275,Charles White,51,F,,,1
+P2276,Christopher Jones,48,M,Depression; Asthma,5.8,7
+P2277,Karen Garcia,63,M,Asthma,,1
+P2278,Patricia Taylor,64,F,,5.7,8
+P2279,Joshua Sanchez,76,M,Type 2 diabetes; Chronic kidney disease; Anxiety disorder; Asthma,10.0,6
+P2280,James Williams,73,F,Hypertension,,7
+P2281,Kimberly Wilson,74,F,Asthma; Hypothyroidism; Hypertension,,5
+P2282,Linda Thompson,84,M,Type 2 diabetes,6.2,8
+P2283,Robert Thomas,47,F,,4.9,10
+P2284,Elizabeth Thompson,44,F,COPD,,2
+P2285,Richard Miller,47,M,,,5
+P2286,Mark Martinez,61,M,,,7
+P2287,Paul Wilson,25,M,GERD; Hyperlipidemia,,1
+P2288,Christopher Williams,82,M,Depression,,12
+P2289,Donald Thompson,67,F,Chronic kidney disease,,2
+P2290,Matthew Miller,56,M,,,9
+P2291,Daniel Lopez,67,F,,,2
+P2292,Thomas Rodriguez,63,M,GERD,5.9,7
+P2293,Donald Smith,28,M,Type 2 diabetes,7.0,1
+P2294,Barbara Williams,53,F,,5.4,3
+P2295,Steven Lopez,27,F,Anxiety disorder,,5
+P2296,Paul Moore,24,M,Type 2 diabetes; Asthma,8.7,4
+P2297,Anthony Jones,52,M,COPD; Depression; Hypothyroidism,,1
+P2298,Margaret Thomas,86,F,Type 2 diabetes; COPD; Chronic kidney disease,7.7,2
+P2299,Jennifer Williams,58,F,Asthma; Anxiety disorder,,2
+P2300,Emily Hernandez,64,M,,,4
+P2301,Linda Martin,45,F,,,11
+P2302,Mary Hernandez,42,F,Hypertension; Depression; Chronic kidney disease,,6
+P2303,Donald White,57,M,Chronic kidney disease; Asthma,,4
+P2304,Robert Martinez,32,M,,,6
+P2305,Anthony Lewis,53,M,Anxiety disorder; Asthma,,3
+P2306,Andrew Gonzalez,53,M,Hypertension,5.4,12
+P2307,William Lopez,60,F,Depression,6.3,9
+P2308,Nancy Robinson,73,F,Hypertension,,4
+P2309,Lisa Johnson,77,F,Type 2 diabetes; Hyperlipidemia,8.1,1
+P2310,Patricia Sanchez,37,F,Asthma,,1
+P2311,David Thompson,55,M,GERD; Depression; COPD,5.0,11
+P2312,John Johnson,45,M,Hypertension,6.3,6
+P2313,Christopher Rodriguez,85,M,COPD; Asthma; Hypertension,,12
+P2314,Nancy Davis,58,M,,5.7,12
+P2315,Daniel Taylor,71,M,Hypothyroidism; GERD,,7
+P2316,Joshua Sanchez,42,F,,,8
+P2317,Anthony Gonzalez,28,M,Type 2 diabetes; Anxiety disorder; Hyperlipidemia; COPD,10.1,7
+P2318,William Miller,73,F,GERD; Chronic kidney disease; COPD,5.4,4
+P2319,Mark Davis,22,F,Hyperlipidemia,,2
+P2320,Patricia Lopez,62,M,GERD,5.2,2
+P2321,Donna Hernandez,48,F,Hypertension,,5
+P2322,Michael Perez,68,F,Depression,,6
+P2323,Andrew Robinson,80,F,Chronic kidney disease; COPD,,12
+P2324,Donna Miller,60,M,Hyperlipidemia,,4
+P2325,Thomas Lee,63,M,Chronic kidney disease,,6
+P2326,Barbara Davis,81,F,Depression,,2
+P2327,James Sanchez,55,F,Asthma,5.4,8
+P2328,Richard Ramirez,52,F,COPD,,4
+P2329,Andrew Ramirez,39,F,,5.7,3
+P2330,David Clark,63,F,Depression; Anxiety disorder,,10
+P2331,David Anderson,45,M,,,3
+P2332,Elizabeth Johnson,50,M,Type 2 diabetes; Hypertension,8.0,9
+P2333,William Miller,57,M,Hyperlipidemia,,9
+P2334,Donald Hernandez,41,F,GERD; Hypothyroidism,,3
+P2335,Mark Hernandez,71,F,COPD,5.7,4
+P2336,James Thompson,37,F,Osteoarthritis; COPD,,3
+P2337,William Thomas,77,F,Osteoarthritis,,7
+P2338,Betty Gonzalez,86,F,Hypertension; Depression,5.7,1
+P2339,John Hernandez,52,M,,,5
+P2340,Jennifer White,39,M,Hypothyroidism,,3
+P2341,Mary Perez,85,M,GERD,,7
+P2342,William Lopez,80,M,,,3
+P2343,Jessica Thompson,23,F,GERD; Anxiety disorder,,5
+P2344,Charles Jackson,74,F,,,10
+P2345,Kimberly Robinson,48,F,COPD,,12
+P2346,Thomas Martin,57,F,Hypertension,,10
+P2347,James Ramirez,62,M,Osteoarthritis; Asthma,,7
+P2348,William Jones,59,F,Hypothyroidism; Anxiety disorder; Hyperlipidemia,5.1,9
+P2349,Nancy Martin,31,F,Osteoarthritis; Hypothyroidism; Hypertension,4.9,11
+P2350,David Jones,79,M,Chronic kidney disease; Hypothyroidism,,5
+P2351,Nancy Gonzalez,44,F,Depression; Hyperlipidemia,,9
+P2352,William Miller,89,F,Depression,5.9,5
+P2353,Kimberly Johnson,30,M,,,12
+P2354,Betty Martinez,54,M,COPD; Chronic kidney disease; Hypothyroidism,,11
+P2355,Mark Martin,63,M,Anxiety disorder; Osteoarthritis,,9
+P2356,Michelle Ramirez,52,F,,,2
+P2357,Andrew Lewis,28,F,Type 2 diabetes,8.0,5
+P2358,Kimberly Gonzalez,64,M,GERD; Depression,,3
+P2359,Margaret Rodriguez,54,M,Type 2 diabetes,7.9,6
+P2360,Matthew Lopez,31,M,,5.2,5
+P2361,Steven Jackson,55,F,Hypertension; Asthma; Osteoarthritis,5.5,9
+P2362,Steven Harris,76,F,,,1
+P2363,Mary Davis,30,M,,,5
+P2364,Steven Lee,41,F,,,6
+P2365,Mary Martin,28,F,,5.2,10
+P2366,Robert Clark,23,M,COPD,,3
+P2367,Elizabeth Moore,56,M,,,5
+P2368,Karen Hernandez,89,F,GERD,,7
+P2369,Steven Smith,84,M,Osteoarthritis,,11
+P2370,Donna Clark,24,M,Asthma,,7
+P2371,Michelle Rodriguez,22,F,Hypertension,,2
+P2372,Nancy Taylor,67,F,Hypertension; Depression,5.3,1
+P2373,Andrew White,51,F,Hypothyroidism,,8
+P2374,Linda Perez,68,M,Anxiety disorder,,11
+P2375,Richard Smith,88,F,Asthma; GERD,,9
+P2376,Michael Jackson,72,M,,,3
+P2377,Lisa White,76,F,Hypothyroidism; Asthma,,8
+P2378,Michael Ramirez,59,F,,5.4,10
+P2379,Lisa Williams,49,F,Hyperlipidemia,,9
+P2380,Elizabeth Lewis,41,M,GERD,,7
+P2381,Elizabeth Davis,24,M,Type 2 diabetes; Osteoarthritis; Depression,6.6,10
+P2382,Margaret Hernandez,29,F,Chronic kidney disease; Depression,6.2,5
+P2383,Donna Hernandez,81,M,,,7
+P2384,Christopher Miller,85,M,,,9
+P2385,Susan Anderson,27,M,Hyperlipidemia,,10
+P2386,Lisa Taylor,29,M,Anxiety disorder; Asthma,,9
+P2387,Emily Taylor,48,M,,5.0,1
+P2388,Jennifer Jones,83,M,Hyperlipidemia,6.3,11
+P2389,Jennifer Moore,25,M,Asthma,,11
+P2390,Michael Taylor,88,M,Hypertension; Depression,5.4,12
+P2391,Patricia Anderson,26,F,,,10
+P2392,Emily Martin,40,M,,,9
+P2393,Joshua Lewis,77,M,,,1
+P2394,Christopher Anderson,75,M,Chronic kidney disease,,4
+P2395,Daniel Thompson,46,M,Depression; Osteoarthritis,,3
+P2396,Christopher Hernandez,49,F,,,6
+P2397,Daniel Jones,78,F,COPD,,12
+P2398,Sarah Rodriguez,50,M,Type 2 diabetes; Chronic kidney disease,9.0,12
+P2399,Joseph Lee,35,F,Osteoarthritis; Anxiety disorder,,8
+P2400,Betty Clark,36,M,Hyperlipidemia,,10
+P2401,Michelle Anderson,78,M,Asthma; Osteoarthritis,,5
+P2402,Margaret Taylor,56,M,Depression,,5
+P2403,Margaret White,25,F,Hypertension; Hyperlipidemia; Anxiety disorder,5.0,6
+P2404,Ashley Taylor,83,F,GERD; Depression,,12
+P2405,Mark Davis,42,F,Type 2 diabetes; Chronic kidney disease,9.7,11
+P2406,Joseph Davis,60,F,Type 2 diabetes,9.7,7
+P2407,Susan Martinez,25,M,Depression,,7
+P2408,Daniel White,44,F,Hypothyroidism,,11
+P2409,Michelle Brown,84,M,GERD,5.1,3
+P2410,Betty Jackson,31,F,Hypothyroidism,,2
+P2411,Sarah Perez,51,M,Hypertension,,5
+P2412,Mark Martinez,48,M,Type 2 diabetes; COPD; Asthma; Anxiety disorder,7.9,11
+P2413,Andrew White,66,F,Asthma,6.2,7
+P2414,Sandra Brown,70,M,Anxiety disorder,,2
+P2415,Christopher White,22,F,,6.3,1
+P2416,William Perez,39,F,,,9
+P2417,Susan White,27,F,Osteoarthritis,,8
+P2418,Michael Thomas,67,F,GERD,5.3,7
+P2419,Charles Smith,37,M,,,6
+P2420,Karen Ramirez,30,M,Hypothyroidism,6.1,1
+P2421,Jessica Thomas,36,M,Hyperlipidemia,,6
+P2422,Daniel Jackson,70,M,Depression,,7
+P2423,Karen Martin,55,F,Type 2 diabetes,9.6,2
+P2424,Charles Robinson,48,M,Anxiety disorder; Depression,5.7,9
+P2425,Karen Thomas,51,F,Hyperlipidemia; Hypothyroidism; GERD,,12
+P2426,Donald Martinez,32,M,,,2
+P2427,Kimberly Taylor,55,M,Osteoarthritis; Hyperlipidemia,5.9,5
+P2428,Charles Davis,23,M,Anxiety disorder,5.1,12
+P2429,Steven Johnson,89,M,Type 2 diabetes; Chronic kidney disease; Depression,9.7,8
+P2430,Michael Sanchez,74,F,Type 2 diabetes; Hyperlipidemia; Chronic kidney disease,8.0,8
+P2431,Emily Lee,28,M,,,10
+P2432,Robert Lopez,47,F,,,1
+P2433,Patricia Garcia,73,F,,,6
+P2434,Christopher Robinson,64,F,,,2
+P2435,Mary Gonzalez,59,F,,,5
+P2436,Mary Brown,62,F,Osteoarthritis,6.0,3
+P2437,William Rodriguez,38,F,Type 2 diabetes; Osteoarthritis; Asthma; Chronic kidney disease,9.3,1
+P2438,Susan Rodriguez,31,F,,,4
+P2439,Lisa Garcia,51,F,Hyperlipidemia; Osteoarthritis; Asthma,5.8,6
+P2440,Nancy Jones,74,M,,,5
+P2441,James Garcia,78,M,Anxiety disorder,5.1,1
+P2442,Margaret Harris,67,F,Osteoarthritis,,10
+P2443,Michelle Thomas,68,F,Hyperlipidemia,,3
+P2444,Lisa Clark,71,M,Hypothyroidism; Depression,,7
+P2445,Jessica Ramirez,42,M,,,7
+P2446,Sarah Thomas,60,F,Osteoarthritis,,10
+P2447,Charles Lewis,69,F,Hypothyroidism; Anxiety disorder; Chronic kidney disease,,11
+P2448,Susan Moore,51,M,Anxiety disorder,5.8,10
+P2449,Elizabeth Martinez,65,F,Anxiety disorder; Depression; Asthma,,6
+P2450,David Lee,82,F,Anxiety disorder,,12
+P2451,Sarah Miller,50,M,,,9
+P2452,Andrew Smith,76,F,,,3
+P2453,Donna Lee,59,M,Chronic kidney disease,,2
+P2454,Daniel Ramirez,75,F,Hyperlipidemia; COPD; Anxiety disorder,,9
+P2455,Jennifer Smith,47,M,Osteoarthritis,,7
+P2456,David Harris,29,M,,5.7,7
+P2457,Emily Lewis,83,F,Type 2 diabetes; COPD; Osteoarthritis,7.3,8
+P2458,Christopher Lee,72,F,,,11
+P2459,Charles Lopez,43,M,,,10
+P2460,William White,35,M,COPD; Hypothyroidism,5.4,10
+P2461,Linda Garcia,55,F,Anxiety disorder; Hypothyroidism,,2
+P2462,Mary Wilson,74,M,Osteoarthritis,,10
+P2463,Michael Gonzalez,36,F,Type 2 diabetes,9.0,2
+P2464,Joseph Rodriguez,46,F,,,7
+P2465,Sarah Moore,83,F,,,9
+P2466,Patricia Williams,55,F,Osteoarthritis,6.4,9
+P2467,Betty Smith,33,F,COPD,,2
+P2468,Karen Lee,25,F,,,3
+P2469,Anthony Robinson,89,M,Type 2 diabetes; Hypertension; Hyperlipidemia; COPD,7.9,5
+P2470,Patricia Miller,55,F,,5.6,11
+P2471,Donna Brown,34,M,Hypertension,6.1,2
+P2472,Linda Miller,33,M,Hyperlipidemia; Hypothyroidism,,1
+P2473,Sandra Perez,39,M,,,9
+P2474,Jennifer Brown,33,M,Type 2 diabetes; Hypothyroidism,7.0,9
+P2475,Matthew Martinez,69,M,,5.7,2
+P2476,Karen Martin,26,M,Anxiety disorder,5.7,5
+P2477,Elizabeth Brown,43,F,Hyperlipidemia; Osteoarthritis,5.3,6
+P2478,Joshua Perez,28,M,Anxiety disorder,5.7,6
+P2479,Christopher Garcia,65,F,Hypothyroidism,,1
+P2480,Charles Thomas,39,M,,,10
+P2481,Margaret Gonzalez,57,M,COPD,4.9,6
+P2482,Margaret Anderson,35,M,Anxiety disorder,5.4,9
+P2483,Barbara Anderson,59,F,,5.4,11
+P2484,Lisa Smith,68,M,Depression; Hypertension,,2
+P2485,Linda Clark,59,M,Anxiety disorder; Chronic kidney disease; COPD,,5
+P2486,Michael Lewis,27,M,Type 2 diabetes; Anxiety disorder; COPD; Hypertension,8.5,3
+P2487,Linda Lopez,46,F,Asthma,5.7,3
+P2488,Charles Smith,44,F,Asthma,,6
+P2489,James Rodriguez,60,F,Type 2 diabetes; Chronic kidney disease; Hypothyroidism,8.0,11
+P2490,Richard Hernandez,25,M,Asthma; COPD; Chronic kidney disease,,1
+P2491,Linda Lee,77,M,Depression,,1
+P2492,Mary Jones,81,F,,6.2,2
+P2493,Jessica Martinez,58,M,Type 2 diabetes,8.8,7
+P2494,William Moore,80,M,Type 2 diabetes,8.3,9
+P2495,Sandra Moore,25,F,,5.2,11
+P2496,Jessica Clark,78,M,Hypertension,,6
+P2497,Ashley Sanchez,63,M,Hypertension,,5
+P2498,Anthony Martin,45,F,Hypertension,,6
+P2499,James Gonzalez,41,M,Type 2 diabetes,8.4,6
+P2500,Anthony Williams,40,M,Chronic kidney disease,5.7,9

@@ -6,6 +6,7 @@ from app.models import call_model
 from app.routes.activity import router as activity_router
 from app.routes.approvals import router as approvals_router
 from app.routes.demo import router as demo_router
+from app.routes.tools import router as tools_router
 from app.routes.visits import router as visits_router
 from app.storage import ensure_panel_seeded
 
@@ -17,6 +18,7 @@ app.include_router(visits_router)
 app.include_router(approvals_router)
 app.include_router(activity_router)
 app.include_router(demo_router)
+app.include_router(tools_router)
 
 
 @app.on_event("startup")

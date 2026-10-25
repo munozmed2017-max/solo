@@ -108,7 +108,7 @@ function render() {
     visits: renderVisits,
     approvals: renderApprovals,
     activity: renderActivity,
-    "agent-builder": renderAgentBuilderPlaceholder,
+    "agent-builder": renderAgentBuilder,
     results: renderResultsPlaceholder,
     practice: renderPracticePlaceholder,
     booking: renderBookingPlaceholder,
@@ -385,14 +385,74 @@ async function renderActivity() {
   `;
 }
 
-// ---------- Placeholders for later build phases ----------
+// ---------- Agent builder ----------
 
-function renderAgentBuilderPlaceholder() {
-  document.getElementById("tab-content").innerHTML = `
+function toolCard(tool) {
+  const passedBadge =
+    tool.tests_passed === true
+      ? '<span class="approved-yes">tests passed</span>'
+      : tool.tests_passed === false
+      ? '<span class="approved-no">tests failed</span>'
+      : '<span class="muted">tests: unknown</span>';
+  let countLine = "";
+  if (tool.final_count !== null && tool.final_count !== undefined) {
+    if (tool.true_count !== null && tool.true_count !== undefined) {
+      countLine = tool.count_matches
+        ? `<span class="approved-yes">count ${tool.final_count} matches panel's true count (${tool.true_count})</span>`
+        : `<span class="approved-no">count ${tool.final_count} does NOT match panel's true count (${tool.true_count})</span>`;
+    } else {
+      countLine = `<span class="muted">reported count: ${tool.final_count} (no ground truth to check against for this task)</span>`;
+    }
+  }
+  return `
+    <div class="step">
+      <h3>${escapeHtml(tool.description)} <span class="status-badge">${tool.status}</span></h3>
+      <p>${passedBadge} ${countLine}</p>
+      <details>
+        <summary>Full build log</summary>
+        <div class="doc-text">${renderMarkdown(tool.output)}</div>
+      </details>
+    </div>`;
+}
+
+async function renderAgentBuilder() {
+  const container = document.getElementById("tab-content");
+  const tools = await api("/api/tools");
+  container.innerHTML = `
     <section class="panel">
       <h2>Agent builder</h2>
-      <p class="muted">Coming next: describe a tool, gemini-4-argon (Antigravity) writes and tests it against a synthetic 2,500-patient panel, and it appears under My tools.</p>
-    </section>`;
+      <p class="muted">
+        Describe a back-office tool. This spins up a real Antigravity sandbox running gemini-4-argon,
+        which writes the tool, writes tests, runs them against a synthetic 2,500-patient panel, and
+        fixes failures until they pass &mdash; not a mock. Costs real API usage and can take several minutes.
+      </p>
+      <textarea id="tool-description" rows="3" placeholder="e.g. find all my patients with diabetes and track their visits and A1c"></textarea>
+      <button id="build-tool-btn">Build &amp; test tool</button>
+      <div id="build-tool-status" class="muted"></div>
+    </section>
+    <section class="panel">
+      <h2>My tools</h2>
+      <div id="tools-list">
+        ${tools.length ? tools.map(toolCard).join("") : '<p class="muted">No tools built yet.</p>'}
+      </div>
+    </section>
+  `;
+  document.getElementById("build-tool-btn").addEventListener("click", async () => {
+    const description = document.getElementById("tool-description").value.trim();
+    if (!description) return;
+    const btn = document.getElementById("build-tool-btn");
+    const status = document.getElementById("build-tool-status");
+    btn.disabled = true;
+    status.textContent = "Antigravity is writing and testing the tool against the 2,500-patient panel... this can take several minutes.";
+    try {
+      await api("/api/tools/build", { method: "POST", body: JSON.stringify({ description }) });
+      status.textContent = "";
+      render();
+    } catch (e) {
+      status.textContent = "Build failed: " + e.message;
+      btn.disabled = false;
+    }
+  });
 }
 
 function renderResultsPlaceholder() {
