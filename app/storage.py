@@ -208,6 +208,20 @@ def reset_demo() -> dict:
     return {"margaret_restored": restored}
 
 
+def ensure_margaret_seeded() -> None:
+    """Non-destructive counterpart to reset_demo(): called on every server
+    startup. Adds Margaret's seed visit ONLY if it's missing - never
+    touches or deletes any other visit. This is the safety net so her demo
+    case is always available after a restart, without risking any other
+    visit's data the way a full reset would."""
+    if not MARGARET_SEED_FILE.exists():
+        return
+    seed = json.loads(MARGARET_SEED_FILE.read_text())
+    if not _visit_path(seed["id"]).exists():
+        VISITS_DIR.mkdir(parents=True, exist_ok=True)
+        _visit_path(seed["id"]).write_text(json.dumps(seed, indent=2))
+
+
 # ---------- Approval queue (derived from visits' documents) ----------
 
 def list_approval_items() -> list[dict]:

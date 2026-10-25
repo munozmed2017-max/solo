@@ -12,7 +12,7 @@ from app.routes.practice import router as practice_router
 from app.routes.results import router as results_router
 from app.routes.tools import router as tools_router
 from app.routes.visits import router as visits_router
-from app.storage import ensure_panel_seeded
+from app.storage import ensure_margaret_seeded, ensure_panel_seeded
 
 ROOT = Path(__file__).resolve().parent.parent
 
@@ -31,6 +31,7 @@ app.include_router(assistant_router)
 @app.on_event("startup")
 def startup():
     ensure_panel_seeded()
+    ensure_margaret_seeded()
 
 
 @app.get("/book")
