@@ -129,8 +129,8 @@ header .tagline {
 }
 
 main {
-  padding: 1.25rem;
-  max-width: 1200px;
+  padding: 1.25rem 1.75rem;
+  max-width: 1800px;
   margin: 0 auto;
 }
 
@@ -138,6 +138,18 @@ main {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 1rem;
+}
+
+.visits-layout {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  gap: 1rem;
+  align-items: start;
+}
+
+.badge-paid {
+  background: var(--ok-soft);
+  color: var(--ok);
 }
 
 .panel {
@@ -198,7 +210,19 @@ button {
 }
 
 button:hover { background: var(--accent-dark); border-color: var(--accent-dark); }
-button:disabled { opacity: 0.55; cursor: not-allowed; }
+button:disabled {
+  background: var(--border-soft);
+  border-color: var(--border);
+  color: var(--muted-soft);
+  opacity: 1;
+  cursor: not-allowed;
+}
+
+#approve-visit-btn:not(:disabled) {
+  font-size: 0.95rem;
+  padding: 0.7rem 1rem;
+  box-shadow: var(--shadow-md);
+}
 button.secondary { background: var(--panel); color: var(--text); border-color: var(--border); }
 button.secondary:hover { background: var(--bg); }
 button.ok { background: var(--ok); border-color: var(--ok); }
@@ -226,15 +250,14 @@ ul.case-list li.active { background: var(--accent-soft); }
 
 .status-badge {
   display: inline-block;
-  font-size: 0.68rem;
+  font-size: 0.72rem;
   font-weight: 700;
-  letter-spacing: 0.02em;
-  padding: 0.15rem 0.5rem;
+  letter-spacing: 0.01em;
+  padding: 0.15rem 0.55rem;
   border-radius: 999px;
   background: var(--border-soft);
   color: var(--muted);
   margin-left: 0.4rem;
-  text-transform: uppercase;
 }
 
 .step {

@@ -263,7 +263,7 @@ def mark_document_sent(visit_id: str, doc_type: str) -> dict:
 
 # ---------- Demo flags ----------
 
-DEFAULT_FLAGS = {"DEMO_PLANTED_ERROR": False}
+DEFAULT_FLAGS = {"DEMO_PLANTED_ERROR": True}
 
 
 def get_flags() -> dict:

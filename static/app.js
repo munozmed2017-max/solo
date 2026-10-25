@@ -19,6 +19,11 @@ function escapeHtml(text) {
   return div.innerHTML;
 }
 
+function formatStatus(status) {
+  if (!status) return "";
+  return status.replace(/_/g, " ").replace(/^\w/, (c) => c.toUpperCase());
+}
+
 function formatApptTime(iso) {
   try {
     const d = new Date(iso);
@@ -132,7 +137,7 @@ async function renderVisits() {
   const container = document.getElementById("tab-content");
   const visits = await api("/api/visits");
   container.innerHTML = `
-    <div class="two-col">
+    <div class="visits-layout">
       <section class="panel">
         <h2>Visits</h2>
         <ul class="case-list" id="visit-list">
@@ -143,9 +148,9 @@ async function renderVisits() {
                     (v) => `
               <li data-id="${v.id}" class="${v.id === state.activeVisitId ? "active" : ""}">
                 ${escapeHtml(v.patient_name)} &mdash; ${escapeHtml(v.reason)}
-                <span class="status-badge">${v.status}</span>
+                <span class="status-badge">${formatStatus(v.status)}</span>
                 ${v.appointment_time ? `<span class="status-badge">${formatApptTime(v.appointment_time)}</span>` : ""}
-                ${v.payment_status === "paid (simulated)" ? '<span class="approved-yes">paid</span>' : ""}
+                ${v.payment_status === "paid (simulated)" ? '<span class="status-badge badge-paid">Paid (simulated)</span>' : ""}
                 ${v.needs_manual_review ? '<span class="approved-no">needs review</span>' : ""}
               </li>`
                   )
@@ -187,9 +192,9 @@ async function openVisit(visitId) {
   detail.innerHTML = `
     <h2>Visit detail</h2>
     <p>
-      <span class="status-badge">${v.status}</span>
+      <span class="status-badge">${formatStatus(v.status)}</span>
       ${v.appointment_time ? `<span class="status-badge">${formatApptTime(v.appointment_time)}</span>` : ""}
-      ${v.payment_status === "paid (simulated)" ? '<span class="approved-yes">paid (simulated)</span>' : '<span class="muted">unpaid</span>'}
+      ${v.payment_status === "paid (simulated)" ? '<span class="status-badge badge-paid">Paid (simulated)</span>' : '<span class="muted">Unpaid</span>'}
     </p>
     ${reviewBanner}
     <div class="two-col">
@@ -627,6 +632,7 @@ async function renderPractice() {
   const container = document.getElementById("tab-content");
   const practice = await api("/api/practice");
   const earnings = await api("/api/earnings");
+  const flags = await api("/api/demo/flags");
   let ngrokUrl = null;
   try {
     const r = await api("/api/ngrok-url");
@@ -653,6 +659,10 @@ async function renderPractice() {
       <button id="p-save-btn">Save</button>
       <div id="p-save-status" class="muted"></div>
       <p class="muted">Practice earnings (simulated): ${earnings.paid_visit_count} paid visit${earnings.paid_visit_count === 1 ? "" : "s"}, $${earnings.total_amount.toFixed(2)} total.</p>
+      <label class="flag-toggle" style="margin-top:1rem;">
+        <input type="checkbox" id="demo-error-toggle" ${flags.DEMO_PLANTED_ERROR ? "checked" : ""}>
+        Verifier demo: insert an outdated lab value into Margaret's first draft
+      </label>
     </section>
     <section class="panel" id="qr-screen">
       <h2>Booking link</h2>
@@ -682,6 +692,12 @@ async function renderPractice() {
       status.textContent = "Failed: " + e.message;
     }
   });
+  document.getElementById("demo-error-toggle").addEventListener("change", async (e) => {
+    await api("/api/demo/flags/DEMO_PLANTED_ERROR", {
+      method: "POST",
+      body: JSON.stringify({ value: e.target.checked }),
+    });
+  });
 }
 
 function renderBookingPlaceholder() {
@@ -700,16 +716,6 @@ function renderBookingPlaceholder() {
 // ---------- Header controls ----------
 
 async function initHeader() {
-  const flags = await api("/api/demo/flags");
-  const toggle = document.getElementById("demo-error-toggle");
-  toggle.checked = !!flags.DEMO_PLANTED_ERROR;
-  toggle.addEventListener("change", async () => {
-    await api("/api/demo/flags/DEMO_PLANTED_ERROR", {
-      method: "POST",
-      body: JSON.stringify({ value: toggle.checked }),
-    });
-  });
-
   document.getElementById("reset-demo-btn").addEventListener("click", async () => {
     if (!confirm("Reset demo? This clears all visits and approvals except Margaret's demo case. My tools, Results, and Practice settings are kept.")) {
       return;
