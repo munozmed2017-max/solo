@@ -28,6 +28,9 @@ RUNS_DIR = ROOT / "runs"
 TOOLS_DIR = ROOT / "data" / "tools"
 TOOLS_REGISTRY_FILE = TOOLS_DIR / "registry.json"
 
+RESULTS_DIR = ROOT / "data" / "results"
+RESULTS_FILE = RESULTS_DIR / "latest.json"
+
 ACTIVITY_FILE = ROOT / "data" / "activity.jsonl"
 
 
@@ -276,6 +279,52 @@ def update_tool(tool_id: str, patch: dict) -> dict:
             TOOLS_REGISTRY_FILE.write_text(json.dumps(tools, indent=2))
             return t
     raise ValueError("tool not found")
+
+
+# ---------- Results batch run ----------
+
+def start_results_run(total_units: int) -> dict:
+    RESULTS_DIR.mkdir(parents=True, exist_ok=True)
+    record = {
+        "status": "in_progress",
+        "completed": 0,
+        "total": total_units,
+        "started_at": now_iso(),
+        "table": None,
+    }
+    RESULTS_FILE.write_text(json.dumps(record, indent=2))
+    return record
+
+
+def get_results_run() -> dict | None:
+    if not RESULTS_FILE.exists():
+        return None
+    return json.loads(RESULTS_FILE.read_text())
+
+
+def bump_results_progress() -> dict:
+    record = get_results_run() or {}
+    record["completed"] = record.get("completed", 0) + 1
+    RESULTS_FILE.write_text(json.dumps(record, indent=2))
+    return record
+
+
+def finish_results_run(table: list, elapsed_seconds: float) -> dict:
+    record = get_results_run() or {}
+    record["status"] = "completed"
+    record["table"] = table
+    record["elapsed_seconds"] = elapsed_seconds
+    record["finished_at"] = now_iso()
+    RESULTS_FILE.write_text(json.dumps(record, indent=2))
+    return record
+
+
+def fail_results_run(error: str) -> dict:
+    record = get_results_run() or {}
+    record["status"] = "failed"
+    record["error"] = error
+    RESULTS_FILE.write_text(json.dumps(record, indent=2))
+    return record
 
 
 # ---------- Activity log ----------

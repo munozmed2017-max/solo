@@ -16,17 +16,18 @@ from app.models import call_model
 MAX_ROUNDS = 3
 
 
-def _draft(module, input_text: str) -> str:
+def _draft(module, input_text: str) -> tuple[str, int]:
     interaction = call_model(
         module.ROLE,
         input_text,
         thinking_level=module.THINKING_LEVEL,
         system_instruction=load_prompt(module.ROLE),
     )
-    return interaction.output_text
+    tokens = getattr(getattr(interaction, "usage", None), "total_tokens", 0) or 0
+    return interaction.output_text, tokens
 
 
-def _revise(module, base_input: str, previous_draft: str, failures: list) -> str:
+def _revise(module, base_input: str, previous_draft: str, failures: list) -> tuple[str, int]:
     failures_text = "\n".join(f'- "{f.sentence}": {f.reason}' for f in failures) or "(none)"
     revision_input = (
         f"{base_input}\n\n"
@@ -54,7 +55,8 @@ def run_with_verification(
     It's injected once, not reapplied on revisions.
     """
     base_input = module.build_input(case)
-    draft_text = _draft(module, base_input)
+    draft_text, tokens = _draft(module, base_input)
+    total_tokens = tokens
     if inject_error_text:
         draft_text = f"{draft_text.rstrip()}\n\n{inject_error_text}"
     context = f"{patient_chart}\n\n{base_input}"
@@ -72,6 +74,12 @@ def run_with_verification(
         )
         if result.passed or round_num == MAX_ROUNDS:
             break
-        draft_text = _revise(module, base_input, draft_text, result.failures)
+        draft_text, revise_tokens = _revise(module, base_input, draft_text, result.failures)
+        total_tokens += revise_tokens
 
-    return {"output": draft_text, "resolved": rounds[-1]["passed"], "rounds": rounds}
+    return {
+        "output": draft_text,
+        "resolved": rounds[-1]["passed"],
+        "rounds": rounds,
+        "tokens": total_tokens,
+    }

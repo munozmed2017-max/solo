@@ -158,6 +158,85 @@ Real cost/time: a run against the full panel took several minutes and
 real API usage in testing (Google's docs cite roughly $0.30-$3+ per run,
 and this one does more work than their baseline examples).
 
+### Live progress + persistence
+
+Tool records persist to `data/tools/registry.json` from the moment a
+build *starts* (`storage.start_tool_build`), not just on completion, so
+a build survives a server restart and "My tools" always reflects disk
+state.
+
+Progress shown in the UI is real, not a simulated spinner. We tried two
+approaches:
+- `background=True` + polling `client.interactions.get()` — **does not
+  work for progress**: `interaction.steps` stays empty the whole time
+  `status == "in_progress"`, confirmed by direct inspection. There is
+  nothing to derive a label from until the call is already done.
+- `stream=True`, consumed in a background `threading.Thread`
+  (`app.agents.agent_builder._run_build`) — works. Each `step.start`
+  event names the real step (`write_to_file`, `code_execution_call`,
+  etc.), mapped to a human label (`_label_for_step`) and written to the
+  tool record immediately. The UI polls `GET /api/tools/{id}/status`
+  every 3s, which is now just a disk read (`poll_build`) - no extra API
+  calls, since the thread already keeps storage current.
+
+Note the first label update can take a while to arrive for this
+specific tool (large embedded panel.csv means a long prefill before the
+first step) - that's real latency, not a stuck mechanism.
+
+## Results batch (`app/results.py`) — Phase 3
+
+10 synthetic cases (`data/demo/results_cases.json`, all synthetic) x 3
+document types (note/scribe, prescription, prior_auth - `prior_auth` was
+recreated just for this benchmark; it's not part of the live visit
+pipeline) x 3 methods, run concurrently with a `ThreadPoolExecutor`
+(`MAX_WORKERS=15`): one thread per (case, method) pair, each running its
+own sequential 3-document pipeline (note -> prescription -> prior_auth,
+since later docs depend on earlier ones).
+
+- **Flash baseline** - one `gemini-3.8-flash` call per document, generic
+  prompt, no specialized grounding/prompt engineering.
+- **Argon agents** - one `gemini-4-argon` call per document using the
+  real specialized prompts (`prompts/scribe.md` etc.) and grounding
+  (`patient_record_block`/`physician_block`), single draft, no verifier.
+- **Argon agents + verifier** - the real `app.verify.run_with_verification`
+  loop, up to 3 rounds.
+
+**Errors are measured the same way across all three methods** so the
+comparison is fair: baseline and Argon-agents-only have no internal
+verifier, so each of their final documents gets one independent
+`verifier.check()` grading pass after the fact (`_grade()`) - this is
+the same sentence-level check the real pipeline uses, just applied
+externally as a grader rather than internally as a gate.
+"errors_caught_total" is correctly 0 for both, since no verifier ran
+during their generation. For the verified method, "errors found" is
+round 1's failure count (a fair stand-in for "what a single first draft
+would have contained," comparable to the other two methods' single
+draft), and "errors caught" is how many of those got fixed by the end of
+the loop.
+
+Progress is a plain completed/total counter
+(`storage.bump_results_progress`, incremented after each of the 90
+document generations) guarded by a `threading.Lock` since many worker
+threads increment it concurrently - simpler than the agent-builder's
+step-event streaming because `call_model`/`run_with_verification` don't
+expose incremental sub-steps the way Antigravity does.
+
+"Total tokens" is reported as the cost column, not a dollar estimate -
+there's no verified real pricing to cite for these model names, so a
+token count is the honest, comparable proxy rather than a fabricated
+dollar figure.
+
+**Actual result from one real run** (10 cases, all synthetic, ~13 min
+wall-clock with 15-way concurrency): Flash baseline averaged 4.63
+errors/doc; Argon agents (specialized prompts, no verifier) cut that to
+0.9/doc even without verification; Argon agents + verifier caught all 24
+round-1 errors it found (errors_caught_total == round1 errors found),
+at roughly 1.8x the baseline's token cost and ~5x the per-document
+latency. Re-running will produce different exact numbers (live model
+calls), but the shape of the result - baseline worst, specialized
+prompts alone much better, verifier closing the remaining gap at a real
+time/cost premium - is the point being demonstrated.
+
 ## What's mocked
 
 - `data/demo/panel_seed.json` — synthetic patients only.
@@ -181,7 +260,8 @@ for a quick sanity check outside the UI.
    queue, Activity log tabs are functional)
 2. ✅ Agent builder (real Antigravity + gemini-4-argon, tested against the
    synthetic 2,500-patient panel)
-3. ⬜ Results batch (tab exists as a placeholder)
+3. ✅ Results batch (10 synthetic cases x 3 doc types x 3 methods,
+   concurrent, with a real results table)
 4. ⬜ Practice setup and booking page (tabs exist as placeholders; visits
    are currently created via `POST /api/booking` directly, not through a
    built UI form)

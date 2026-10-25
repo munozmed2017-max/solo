@@ -17,11 +17,12 @@ load_dotenv()
 LEAD = "gemini-4-argon"
 FAST = "gemini-3.8-flash"
 
-# orchestrator/scribe/verifier/agent_builder -> LEAD
+# orchestrator/scribe/prior_auth/verifier/agent_builder -> LEAD
 # intake/prescription/emails/baseline -> FAST
 ROLE_MODELS = {
     "orchestrator": LEAD,
     "scribe": LEAD,
+    "prior_auth": LEAD,
     "verifier": LEAD,
     "agent_builder": LEAD,
     "intake": FAST,

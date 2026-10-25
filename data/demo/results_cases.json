@@ -1,0 +1,117 @@
+[
+  {
+    "id": "rc01",
+    "patient": {
+      "name": "Elena Brooks", "dob": "1968-05-03",
+      "conditions": ["Type 2 diabetes"], "meds": ["Metformin 1000 mg twice daily"],
+      "labs": [{"date": "2026-10-01", "test": "A1c", "result": "8.9%"}],
+      "vitals": {"weight_kg": "92"}, "pharmacy": "Walgreens, 45 Oak Ave", "insurer": "BlueHarbor Health Plan"
+    },
+    "reason": "A1c still high on metformin alone, wants to discuss next steps.",
+    "transcript": "Physician: Your A1c came back at 8.9, still above goal on metformin alone.\nPatient: Yeah, I've been trying but it's not moving much.\nPhysician: I'd like to add semaglutide (Ozempic) weekly injection - it should help with both blood sugar and weight.\nPatient: Okay, let's try it.",
+    "physician_plan": "Start semaglutide (Ozempic) 0.25 mg subcutaneous weekly, titrate per standard schedule. Continue metformin 1000 mg BID. Prior auth needed: step therapy failed on metformin alone, A1c 8.9% above goal. Recheck A1c in 3 months."
+  },
+  {
+    "id": "rc02",
+    "patient": {
+      "name": "Marcus Webb", "dob": "1958-07-21",
+      "conditions": ["Hypertension"], "meds": ["Lisinopril 20 mg daily", "Amlodipine 10 mg daily"],
+      "labs": [{"date": "2026-09-20", "test": "Home BP log", "result": "avg 158/96"}],
+      "vitals": {}, "pharmacy": "CVS Pharmacy, 10 Elm St", "insurer": "Lakeview Mutual"
+    },
+    "reason": "Blood pressure still elevated on two agents.",
+    "transcript": "Physician: Your home readings are averaging 158 over 96, still high on lisinopril and amlodipine.\nPatient: I've been taking them every day.\nPhysician: Let's add a combination pill, Tribenzor, since you're already on two of its three components separately and it'll simplify your regimen.\nPatient: Sounds good.",
+    "physician_plan": "Switch to Tribenzor (olmesartan/amlodipine/HCTZ) 40/10/25 mg daily in place of lisinopril and amlodipine. Prior auth needed: patient already failed adequate control on two-drug combination (lisinopril, amlodipine) at max tolerated doses. Recheck BP in 4 weeks."
+  },
+  {
+    "id": "rc03",
+    "patient": {
+      "name": "Priya Nair", "dob": "1994-11-02",
+      "conditions": ["Chronic migraine"], "meds": ["Sumatriptan 50 mg PRN"],
+      "labs": [], "vitals": {}, "pharmacy": "Rite Aid, 88 Birch Rd", "insurer": "BlueHarbor Health Plan"
+    },
+    "reason": "Migraines now 12+ days a month despite PRN sumatriptan.",
+    "transcript": "Physician: You said you're getting migraines 12 or more days a month now.\nPatient: Yes, and the sumatriptan isn't cutting it anymore.\nPhysician: Given how frequent these are, I'd like to start a preventive injection, erenumab (Aimovig), monthly.\nPatient: I'm willing to try it.",
+    "physician_plan": "Start erenumab (Aimovig) 70 mg subcutaneous monthly for migraine prevention. Continue sumatriptan 50 mg PRN for breakthrough. Prior auth needed: chronic migraine with 12+ headache days/month, failed adequate control with abortive therapy alone. Follow up in 3 months to assess response."
+  },
+  {
+    "id": "rc04",
+    "patient": {
+      "name": "David Chen", "dob": "1979-02-14",
+      "conditions": ["Moderate persistent asthma"], "meds": ["Fluticasone/salmeterol inhaler BID", "Albuterol PRN"],
+      "labs": [{"date": "2026-08-15", "test": "IgE", "result": "410 IU/mL (elevated)"}],
+      "vitals": {}, "pharmacy": "Walgreens, 45 Oak Ave", "insurer": "Demo Health Plan"
+    },
+    "reason": "Frequent asthma flares despite inhaler use, allergic component suspected.",
+    "transcript": "Physician: You're still having flares a couple times a week even with your inhaler.\nPatient: Yeah, it's been rough, especially with pollen season.\nPhysician: Your IgE is elevated, consistent with allergic asthma. I'd like to start omalizumab (Xolair) injections.\nPatient: Let's do it.",
+    "physician_plan": "Start omalizumab (Xolair) per weight/IgE-based dosing, administered in-office every 2-4 weeks. Continue fluticasone/salmeterol and albuterol PRN. Prior auth needed: moderate persistent allergic asthma (IgE 410 IU/mL) with inadequate control on inhaled combination therapy. Reassess in 12-16 weeks."
+  },
+  {
+    "id": "rc05",
+    "patient": {
+      "name": "Susan Ortiz", "dob": "1962-09-30",
+      "conditions": ["Hyperlipidemia", "Coronary artery disease"], "meds": ["Atorvastatin 80 mg daily"],
+      "labs": [{"date": "2026-10-05", "test": "LDL", "result": "148 mg/dL"}],
+      "vitals": {}, "pharmacy": "CVS Pharmacy, 10 Elm St", "insurer": "Lakeview Mutual"
+    },
+    "reason": "LDL remains high despite maximum statin dose, has known heart disease.",
+    "transcript": "Physician: Your LDL is still 148 even on the highest dose of atorvastatin, and given your heart disease history we need it much lower.\nPatient: I haven't missed a dose.\nPhysician: I'd like to add evolocumab (Repatha) injections every two weeks.\nPatient: Whatever gets it down, let's try it.",
+    "physician_plan": "Start evolocumab (Repatha) 140 mg subcutaneous every 2 weeks. Continue atorvastatin 80 mg daily. Prior auth needed: established coronary artery disease with LDL 148 mg/dL despite maximally tolerated statin therapy. Recheck lipid panel in 8 weeks."
+  },
+  {
+    "id": "rc06",
+    "patient": {
+      "name": "Jonathan Pierce", "dob": "1985-04-18",
+      "conditions": ["Major depressive disorder"], "meds": ["Sertraline 150 mg daily"],
+      "labs": [], "vitals": {}, "pharmacy": "Rite Aid, 88 Birch Rd", "insurer": "Demo Health Plan"
+    },
+    "reason": "Depression symptoms persist despite sertraline, also reports low energy and poor concentration.",
+    "transcript": "Physician: Even at the higher dose of sertraline you're still feeling down most days, and you mentioned trouble concentrating at work.\nPatient: Yeah, it hasn't really lifted.\nPhysician: I'd like to switch you to vortioxetine (Trintellix), which can help with both mood and concentration.\nPatient: Okay, I'm willing to switch.",
+    "physician_plan": "Taper off sertraline and start vortioxetine (Trintellix) 10 mg daily. Prior auth needed: inadequate response to adequate trial of sertraline 150 mg daily for major depressive disorder. Follow up in 4 weeks to assess tolerability and response."
+  },
+  {
+    "id": "rc07",
+    "patient": {
+      "name": "Rachel Kim", "dob": "1990-12-09",
+      "conditions": ["Chronic insomnia"], "meds": ["Trazodone 50 mg at bedtime PRN"],
+      "labs": [], "vitals": {}, "pharmacy": "Walgreens, 45 Oak Ave", "insurer": "BlueHarbor Health Plan"
+    },
+    "reason": "Ongoing trouble falling and staying asleep despite trazodone.",
+    "transcript": "Physician: You mentioned trazodone isn't really helping you fall or stay asleep anymore.\nPatient: Right, I'm averaging maybe 4 hours a night.\nPhysician: I'd like to start suvorexant (Belsomra) instead.\nPatient: I'll try anything at this point.",
+    "physician_plan": "Discontinue trazodone, start suvorexant (Belsomra) 10 mg at bedtime. Prior auth needed: chronic insomnia with inadequate response to trazodone trial. Follow up in 6 weeks to reassess sleep quality."
+  },
+  {
+    "id": "rc08",
+    "patient": {
+      "name": "Henry Walsh", "dob": "1972-06-25",
+      "conditions": ["Chronic low back pain"], "meds": ["Ibuprofen 600 mg TID PRN", "Cyclobenzaprine 10 mg PRN"],
+      "labs": [], "vitals": {}, "pharmacy": "CVS Pharmacy, 10 Elm St", "insurer": "Lakeview Mutual"
+    },
+    "reason": "Persistent low back pain limiting work, NSAIDs and muscle relaxant not enough.",
+    "transcript": "Physician: The ibuprofen and cyclobenzaprine aren't really controlling your back pain enough to get through a workday.\nPatient: No, I'm still really stiff and sore by the afternoon.\nPhysician: I'd like to prescribe diclofenac gel (Voltaren) for topical use plus continue the oral ibuprofen as needed.\nPatient: Okay, let's try that.",
+    "physician_plan": "Add diclofenac 1% gel (Voltaren), apply to lower back QID PRN. Continue ibuprofen 600 mg TID PRN. Prior auth needed: chronic low back pain with inadequate relief from oral NSAID and muscle relaxant. Follow up in 6 weeks."
+  },
+  {
+    "id": "rc09",
+    "patient": {
+      "name": "Grace Thompson", "dob": "1981-03-11",
+      "conditions": ["GERD"], "meds": ["Omeprazole 20 mg daily"],
+      "labs": [], "vitals": {}, "pharmacy": "Rite Aid, 88 Birch Rd", "insurer": "Demo Health Plan"
+    },
+    "reason": "Ongoing reflux symptoms despite daily omeprazole.",
+    "transcript": "Physician: You're still getting heartburn most nights even on the omeprazole.\nPatient: Yeah, especially after dinner.\nPhysician: I'd like to switch you to dexlansoprazole (Dexilant), which has a longer duration of action.\nPatient: Okay, let's switch.",
+    "physician_plan": "Discontinue omeprazole, start dexlansoprazole (Dexilant) 60 mg daily. Prior auth needed: inadequate symptom control on standard-dose omeprazole for GERD. Follow up in 8 weeks."
+  },
+  {
+    "id": "rc10",
+    "patient": {
+      "name": "Dorothy Lane", "dob": "1945-01-27",
+      "conditions": ["Osteoporosis"], "meds": ["Alendronate 70 mg weekly"],
+      "labs": [{"date": "2026-09-01", "test": "DEXA T-score", "result": "-3.1 (worsened from -2.6)"}],
+      "vitals": {}, "pharmacy": "Walgreens, 45 Oak Ave", "insurer": "BlueHarbor Health Plan"
+    },
+    "reason": "Bone density worsening despite a year on alendronate.",
+    "transcript": "Physician: Your DEXA scan actually got worse, T-score dropped to -3.1 from -2.6 last year even on the alendronate.\nPatient: That's concerning, I've taken it every week like you said.\nPhysician: I'd like to switch you to denosumab (Prolia) injections every six months, it works differently.\nPatient: Okay, let's switch.",
+    "physician_plan": "Discontinue alendronate, start denosumab (Prolia) 60 mg subcutaneous every 6 months. Prior auth needed: osteoporosis with documented bone density decline (T-score -2.6 to -3.1) despite a full year of oral bisphosphonate therapy. Repeat DEXA in 12 months."
+  }
+]

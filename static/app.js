@@ -110,7 +110,7 @@ function render() {
     approvals: renderApprovals,
     activity: renderActivity,
     "agent-builder": renderAgentBuilder,
-    results: renderResultsPlaceholder,
+    results: renderResults,
     practice: renderPracticePlaceholder,
     booking: renderBookingPlaceholder,
   };
@@ -492,12 +492,83 @@ function pollToolBuild(toolId) {
   }, 3000);
 }
 
-function renderResultsPlaceholder() {
-  document.getElementById("tab-content").innerHTML = `
+let resultsPollTimer = null;
+
+function resultsTableHtml(run) {
+  if (!run || run.status === "never_run") return '<p class="muted">No batch run yet.</p>';
+  if (run.status === "failed") return `<p class="approved-no">Batch failed: ${escapeHtml(run.error || "unknown error")}</p>`;
+  if (run.status === "in_progress" || !run.table) return '<p class="muted">Results will appear here once the run completes.</p>';
+  const rows = run.table
+    .map(
+      (r) => `
+    <tr>
+      <td>${escapeHtml(r.method)}</td>
+      <td>${r.coverage_pct}%</td>
+      <td>${r.avg_errors_per_doc}</td>
+      <td>${r.errors_caught_total}</td>
+      <td>${r.avg_time_per_doc_sec}s</td>
+      <td>${r.total_tokens.toLocaleString()}</td>
+    </tr>`
+    )
+    .join("");
+  return `
+    <p class="muted">Completed in ${run.elapsed_seconds ? Math.round(run.elapsed_seconds) + "s" : "?"} (${run.completed}/${run.total} documents, run finished ${run.finished_at || ""}).</p>
+    <div style="overflow-x:auto;">
+    <table class="results-table">
+      <thead>
+        <tr><th>Method</th><th>Coverage</th><th>Avg errors/doc</th><th>Errors caught (total)</th><th>Avg time/doc</th><th>Total tokens (cost proxy)</th></tr>
+      </thead>
+      <tbody>${rows}</tbody>
+    </table>
+    </div>
+  `;
+}
+
+async function renderResults() {
+  const container = document.getElementById("tab-content");
+  const run = await api("/api/results");
+  container.innerHTML = `
     <section class="panel">
       <h2>Results</h2>
-      <p class="muted">Coming next: 20 synthetic cases run three ways (Flash baseline, Argon agents, Argon agents + verifier) with coverage, errors, and errors caught.</p>
-    </section>`;
+      <p class="muted">
+        10 synthetic cases &times; 3 document types (note, prescription, prior auth) run three ways:
+        Flash baseline (single gemini-3.8-flash call, no specialized prompts), Argon agents (gemini-4-argon with
+        the real specialized prompts, single draft), and Argon agents + verifier (the real blocking verify-and-revise
+        loop). Baseline and Argon-agents-only are graded after the fact by one independent verifier pass each, so
+        errors are measured the same way across all three. Runs concurrently across cases and methods.
+      </p>
+      <button id="run-results-btn" ${run.status === "in_progress" ? "disabled" : ""}>Run batch</button>
+      <div id="results-status" class="muted">${run.status === "in_progress" ? `Running... (${run.completed}/${run.total})` : ""}</div>
+    </section>
+    <section class="panel">
+      ${resultsTableHtml(run)}
+    </section>
+  `;
+  document.getElementById("run-results-btn").addEventListener("click", async () => {
+    document.getElementById("run-results-btn").disabled = true;
+    await api("/api/results/run", { method: "POST" });
+    pollResults();
+  });
+  if (run.status === "in_progress") pollResults();
+}
+
+function pollResults() {
+  if (resultsPollTimer) clearInterval(resultsPollTimer);
+  resultsPollTimer = setInterval(async () => {
+    try {
+      const run = await api("/api/results");
+      const status = document.getElementById("results-status");
+      if (status) status.textContent = run.status === "in_progress" ? `Running... (${run.completed}/${run.total})` : "";
+      if (run.status !== "in_progress") {
+        clearInterval(resultsPollTimer);
+        resultsPollTimer = null;
+        if (state.currentTab === "results") render();
+      }
+    } catch (e) {
+      clearInterval(resultsPollTimer);
+      resultsPollTimer = null;
+    }
+  }, 3000);
 }
 
 function renderPracticePlaceholder() {

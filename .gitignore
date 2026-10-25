@@ -12,6 +12,7 @@ data/tools/*
 !data/tools/.gitkeep
 data/activity.jsonl
 data/demo/flags.json
+data/results/latest.json
 runs/*
 !runs/.gitkeep
 .DS_Store
