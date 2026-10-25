@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Book a visit</title>
+  <link rel="stylesheet" href="/style.css">
+  <style>
+    body { max-width: 560px; margin: 0 auto; padding: 1.5rem 1rem 3rem; }
+    .banner { background: #fef2f2; border: 1px solid var(--bad); color: var(--bad); padding: 0.7rem 1rem; border-radius: 6px; font-weight: 600; text-align: center; margin-bottom: 1.2rem; }
+    .practice-header { text-align: center; margin-bottom: 1.2rem; }
+    .practice-header h1 { margin: 0 0 0.2rem; font-size: 1.4rem; }
+    footer.powered-by { text-align: center; margin-top: 2rem; color: var(--muted); font-size: 0.8rem; }
+    .confirm { text-align: center; padding: 2rem 1rem; }
+  </style>
+</head>
+<body>
+  <div class="practice-header">
+    <h1 id="practice-name">Loading...</h1>
+    <p class="muted" id="practice-sub"></p>
+  </div>
+  <div class="banner">Use made-up information only.</div>
+
+  <section class="panel" id="booking-form-section">
+    <label>Full name</label>
+    <input type="text" id="b-name" required>
+    <label>Date of birth</label>
+    <input type="date" id="b-dob" required>
+    <label>Reason for visit</label>
+    <textarea id="b-reason" rows="2" required></textarea>
+
+    <label>Shortness of breath?</label>
+    <select id="b-sob"><option>No</option><option>Yes</option></select>
+    <label>Cough?</label>
+    <select id="b-cough"><option>No</option><option>Yes</option></select>
+    <label>Weight gain?</label>
+    <select id="b-weight"><option>No</option><option>Yes</option></select>
+    <label>Trouble breathing lying flat (orthopnea)?</label>
+    <select id="b-orthopnea"><option>No</option><option>Yes</option></select>
+
+    <label>Attach a file (optional)</label>
+    <input type="file" id="b-file">
+
+    <button id="b-submit">Request visit</button>
+    <p id="b-error" class="approved-no"></p>
+  </section>
+
+  <section class="panel confirm" id="confirm-section" style="display:none;">
+    <h2>Thanks!</h2>
+    <p class="muted">Your visit request has been sent to the practice. You'll hear back soon.</p>
+  </section>
+
+  <footer class="powered-by">Powered by Solo</footer>
+
+  <script>
+    async function api(path, opts) {
+      const res = await fetch(path, { headers: { "Content-Type": "application/json" }, ...opts });
+      if (!res.ok) throw new Error(await res.text());
+      return res.json();
+    }
+
+    (async () => {
+      try {
+        const practice = await api("/api/practice");
+        document.getElementById("practice-name").textContent = practice.name;
+        document.getElementById("practice-sub").textContent = "Request a telemedicine visit";
+      } catch (e) {
+        document.getElementById("practice-name").textContent = "Book a visit";
+      }
+    })();
+
+    document.getElementById("b-submit").addEventListener("click", async () => {
+      const name = document.getElementById("b-name").value.trim();
+      const dob = document.getElementById("b-dob").value;
+      const reason = document.getElementById("b-reason").value.trim();
+      const errorEl = document.getElementById("b-error");
+      errorEl.textContent = "";
+      if (!name || !dob || !reason) {
+        errorEl.textContent = "Please fill in your name, date of birth, and reason for visit.";
+        return;
+      }
+      const fileInput = document.getElementById("b-file");
+      const uploaded_files = fileInput.files.length ? [fileInput.files[0].name] : [];
+      try {
+        await api("/api/booking", {
+          method: "POST",
+          body: JSON.stringify({
+            name,
+            dob,
+            reason,
+            symptoms: {
+              shortness_of_breath: document.getElementById("b-sob").value,
+              cough: document.getElementById("b-cough").value,
+              weight_gain: document.getElementById("b-weight").value,
+              orthopnea: document.getElementById("b-orthopnea").value,
+            },
+            uploaded_files,
+          }),
+        });
+        document.getElementById("booking-form-section").style.display = "none";
+        document.getElementById("confirm-section").style.display = "block";
+      } catch (e) {
+        errorEl.textContent = "Something went wrong submitting your request. Please try again.";
+      }
+    });
+  </script>
+</body>
+</html>

@@ -45,12 +45,11 @@ def now_iso() -> str:
 # ---------- Practice ----------
 
 DEFAULT_PRACTICE = {
-    "name": "Solo",
-    "tagline": "Practice solo. Never alone.",
+    "name": "Dr. Munoz Clinic",
+    "physician_name": "Dr. Jhonatan Munoz",
     "hours": "Mon-Fri 9am-5pm",
     "visit_fee": "$75",
     "booking_path": "/book",
-    "physician_name": "Dr. Jhonatan Munoz",
 }
 
 

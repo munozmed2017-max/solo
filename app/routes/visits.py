@@ -12,6 +12,7 @@ class BookingIn(BaseModel):
     dob: str = ""
     reason: str = ""
     symptoms: dict = {}
+    uploaded_files: list[str] = []
     transcript_prefill: str = ""
     plan_prefill: str = ""
 

@@ -111,7 +111,7 @@ function render() {
     activity: renderActivity,
     "agent-builder": renderAgentBuilder,
     results: renderResults,
-    practice: renderPracticePlaceholder,
+    practice: renderPractice,
     booking: renderBookingPlaceholder,
   };
   (map[state.currentTab] || renderVisits)();
@@ -494,6 +494,40 @@ function pollToolBuild(toolId) {
 
 let resultsPollTimer = null;
 
+function errorsBarChart(table) {
+  const maxVal = Math.max(...table.map((r) => r.avg_errors_per_doc), 0.01);
+  const barWidth = 90, gap = 50, chartHeight = 140, leftPad = 20, topPad = 24;
+  const bars = table
+    .map((r, i) => {
+      const h = Math.max(2, Math.round((r.avg_errors_per_doc / maxVal) * chartHeight));
+      const x = leftPad + i * (barWidth + gap);
+      const y = topPad + (chartHeight - h);
+      return `
+      <rect x="${x}" y="${y}" width="${barWidth}" height="${h}" fill="#2563eb" rx="3"></rect>
+      <text x="${x + barWidth / 2}" y="${y - 8}" text-anchor="middle" font-size="13" fill="#1f2937" font-weight="600">${r.avg_errors_per_doc}</text>
+      <text x="${x + barWidth / 2}" y="${topPad + chartHeight + 20}" text-anchor="middle" font-size="11" fill="#6b7280">${escapeHtml(r.method)}</text>
+    `;
+    })
+    .join("");
+  const width = leftPad * 2 + table.length * barWidth + (table.length - 1) * gap;
+  return `
+    <div style="overflow-x:auto;">
+      <svg width="${width}" height="${topPad + chartHeight + 36}" viewBox="0 0 ${width} ${topPad + chartHeight + 36}">
+        <line x1="${leftPad - 10}" y1="${topPad + chartHeight}" x2="${width - leftPad + 10}" y2="${topPad + chartHeight}" stroke="#dfe3e8"></line>
+        ${bars}
+      </svg>
+    </div>`;
+}
+
+function resultsSummarySentence(table) {
+  const baseline = table.find((r) => r.method === "Flash baseline");
+  const argon = table.find((r) => r.method === "Argon agents");
+  const verified = table.find((r) => r.method === "Argon agents + verifier");
+  if (!baseline || !argon || !verified || !argon.avg_errors_per_doc) return "";
+  const ratio = baseline.avg_errors_per_doc / argon.avg_errors_per_doc;
+  return `Argon agents made about ${ratio.toFixed(1)}x fewer errors than the Flash baseline; the verifier caught ${verified.errors_caught_total} errors before physician review.`;
+}
+
 function resultsTableHtml(run) {
   if (!run || run.status === "never_run") return '<p class="muted">No batch run yet.</p>';
   if (run.status === "failed") return `<p class="approved-no">Batch failed: ${escapeHtml(run.error || "unknown error")}</p>`;
@@ -513,6 +547,9 @@ function resultsTableHtml(run) {
     .join("");
   return `
     <p class="muted">Completed in ${run.elapsed_seconds ? Math.round(run.elapsed_seconds) + "s" : "?"} (${run.completed}/${run.total} documents, run finished ${run.finished_at || ""}).</p>
+    <p><strong>${resultsSummarySentence(run.table)}</strong></p>
+    <h3>Errors per document, by method</h3>
+    ${errorsBarChart(run.table)}
     <div style="overflow-x:auto;">
     <table class="results-table">
       <thead>
@@ -571,19 +608,64 @@ function pollResults() {
   }, 3000);
 }
 
-function renderPracticePlaceholder() {
-  document.getElementById("tab-content").innerHTML = `
+async function renderPractice() {
+  const container = document.getElementById("tab-content");
+  const practice = await api("/api/practice");
+  const bookingUrl = `${window.location.origin}/book`;
+  container.innerHTML = `
     <section class="panel">
       <h2>Practice setup</h2>
-      <p class="muted">Coming next: practice name, hours, visit fee, booking link, and QR code.</p>
-    </section>`;
+      <label>Practice name (patient-facing)</label>
+      <input id="p-name" type="text" value="${escapeHtml(practice.name)}">
+      <label>Physician name</label>
+      <input id="p-physician" type="text" value="${escapeHtml(practice.physician_name)}">
+      <label>Hours</label>
+      <input id="p-hours" type="text" value="${escapeHtml(practice.hours)}">
+      <label>Visit fee</label>
+      <input id="p-fee" type="text" value="${escapeHtml(practice.visit_fee)}">
+      <button id="p-save-btn">Save</button>
+      <div id="p-save-status" class="muted"></div>
+    </section>
+    <section class="panel" id="qr-screen">
+      <h2>Booking link</h2>
+      <p class="muted">Patients scan this to open the booking page on their phone.</p>
+      <p><code>${escapeHtml(bookingUrl)}</code></p>
+      <div style="text-align:center; padding: 1rem;">
+        <img src="/api/qr?url=${encodeURIComponent(bookingUrl)}" alt="QR code to booking page" style="width:260px;height:260px;">
+      </div>
+      <p class="muted">Note: this QR encodes whatever URL you're viewing this dashboard from. If you're on <code>localhost</code>, a phone can't reach it - view this page via your ngrok URL for a phone-scannable code.</p>
+    </section>
+  `;
+  document.getElementById("p-save-btn").addEventListener("click", async () => {
+    const status = document.getElementById("p-save-status");
+    status.textContent = "Saving...";
+    try {
+      await api("/api/practice", {
+        method: "POST",
+        body: JSON.stringify({
+          name: document.getElementById("p-name").value,
+          physician_name: document.getElementById("p-physician").value,
+          hours: document.getElementById("p-hours").value,
+          visit_fee: document.getElementById("p-fee").value,
+        }),
+      });
+      status.textContent = "Saved.";
+    } catch (e) {
+      status.textContent = "Failed: " + e.message;
+    }
+  });
 }
 
 function renderBookingPlaceholder() {
   document.getElementById("tab-content").innerHTML = `
     <section class="panel">
       <h2>Booking page (public)</h2>
-      <p class="muted">Coming next: public booking form - name, DOB, reason, symptom questions, file upload. Banner: "Use made-up information only."</p>
+      <p class="muted">
+        This is the live public page, open to anyone with the link - it's served at
+        <a href="/book" target="_blank" rel="noopener">/book</a>, not behind this dashboard's nav.
+        Scan the QR code on the Practice setup tab, or open the link directly.
+      </p>
+      <iframe src="/book" style="width:100%;height:700px;border:1px solid var(--border);border-radius:8px;"></iframe>
     </section>`;
 }
 
