@@ -104,6 +104,7 @@ const DOC_LABELS = {
   scribe: "Scribe note",
   prescription: "Prescription (SIMULATED FAX)",
   emails: "Patient summary email",
+  assistant_email: "Patient email (drafted by Ask Solo)",
 };
 
 // ---------- Tab switching ----------
@@ -736,6 +737,104 @@ document.getElementById("test-argon-btn").addEventListener("click", async () => 
     span.textContent = "failed: " + e.message;
   }
 });
+
+// ---------- Ask Solo assistant ----------
+
+function printVisitSummary(visitId) {
+  api(`/api/visits/${visitId}`).then((v) => {
+    const win = window.open("", "_blank");
+    const docs = Object.entries(v.documents || {})
+      .map(([k, d]) => `<h3>${escapeHtml(k)}</h3><div>${renderMarkdown(d.output)}</div>`)
+      .join("");
+    win.document.write(`
+      <html><head><title>Visit summary - ${escapeHtml(v.patient.name)}</title>
+      <style>body{font-family:sans-serif;max-width:700px;margin:2rem auto;line-height:1.5;} h2{margin-bottom:0;} h3{color:#555;}</style>
+      </head><body>
+      <h2>${escapeHtml(v.patient.name)}</h2>
+      <p>DOB ${escapeHtml(v.patient.dob || "")} &mdash; ${escapeHtml(v.booking.reason || "")}</p>
+      <h3>Intake summary</h3><div>${renderMarkdown(v.intake_summary)}</div>
+      ${docs}
+      </body></html>
+    `);
+    win.document.close();
+    win.focus();
+    win.print();
+  });
+}
+
+function renderAskSoloResponse(res) {
+  const box = document.getElementById("ask-solo-response");
+  box.style.display = "block";
+  let extra = "";
+  if (res.tool === "show_schedule" && res.data.appointments) {
+    extra = res.data.appointments.length
+      ? `<ul>${res.data.appointments.map((a) => `<li>${escapeHtml(a.time)} &mdash; ${escapeHtml(a.patient)} (${escapeHtml(a.reason)}) ${a.paid ? '<span class="approved-yes">paid</span>' : ""}</li>`).join("")}</ul>`
+      : "";
+  } else if (res.tool === "find_patients") {
+    const items = [
+      ...(res.data.panel_matches || []).map((n) => escapeHtml(n)),
+      ...(res.data.visit_matches || []).map((m) => `${escapeHtml(m.patient)} &mdash; ${escapeHtml(m.reason)}`),
+    ];
+    extra = items.length ? `<ul>${items.map((i) => `<li>${i}</li>`).join("")}</ul>` : "";
+  } else if (res.tool === "run_tool" && res.data.found) {
+    extra = `<p class="asr-data">tests_passed: ${res.data.tests_passed}, final_count: ${res.data.final_count}${res.data.true_count != null ? ` (true: ${res.data.true_count}, match: ${res.data.count_matches})` : ""}</p>`;
+  }
+  let actionBtn = "";
+  if (res.tool === "open_visit" && res.data.found) {
+    actionBtn = `<button onclick="switchTab('visits'); openVisit('${res.data.visit_id}');">Open visit</button>`;
+  } else if (res.tool === "draft_patient_email" && res.data.found) {
+    actionBtn = `<button onclick="switchTab('approvals');">Go to Approval queue</button>`;
+  } else if (res.tool === "print_visit_summary" && res.data.found) {
+    actionBtn = `<button onclick="printVisitSummary('${res.data.visit_id}');">Open printable page</button>`;
+    printVisitSummary(res.data.visit_id);
+  }
+  box.innerHTML = `<p class="asr-message">${escapeHtml(res.message)}</p>${extra}${actionBtn}`;
+}
+
+async function askSolo(query) {
+  if (!query.trim()) return;
+  const box = document.getElementById("ask-solo-response");
+  box.style.display = "block";
+  box.innerHTML = '<p class="muted">Thinking...</p>';
+  try {
+    const res = await api("/api/assistant/ask", { method: "POST", body: JSON.stringify({ query }) });
+    renderAskSoloResponse(res);
+    if (res.tool === "draft_patient_email" && state.currentTab === "approvals") render();
+  } catch (e) {
+    box.innerHTML = `<p class="approved-no">Failed: ${escapeHtml(e.message)}</p>`;
+  }
+}
+
+document.getElementById("ask-solo-submit").addEventListener("click", () => {
+  const input = document.getElementById("ask-solo-input");
+  askSolo(input.value);
+});
+document.getElementById("ask-solo-input").addEventListener("keydown", (e) => {
+  if (e.key === "Enter") askSolo(e.target.value);
+});
+
+(() => {
+  const SpeechRecognitionCtor = window.SpeechRecognition || window.webkitSpeechRecognition;
+  const micBtn = document.getElementById("ask-solo-mic");
+  if (!SpeechRecognitionCtor) {
+    micBtn.disabled = true;
+    micBtn.title = "Speech recognition not supported in this browser";
+    return;
+  }
+  const recognition = new SpeechRecognitionCtor();
+  recognition.lang = "en-US";
+  recognition.interimResults = false;
+  recognition.onresult = (e) => {
+    const text = e.results[0][0].transcript;
+    document.getElementById("ask-solo-input").value = text;
+    askSolo(text);
+  };
+  recognition.onend = () => micBtn.classList.remove("listening");
+  micBtn.addEventListener("click", () => {
+    micBtn.classList.add("listening");
+    recognition.start();
+  });
+})();
 
 initHeader();
 render();

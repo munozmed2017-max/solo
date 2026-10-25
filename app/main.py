@@ -6,6 +6,7 @@ from pathlib import Path
 from app.models import call_model
 from app.routes.activity import router as activity_router
 from app.routes.approvals import router as approvals_router
+from app.routes.assistant import router as assistant_router
 from app.routes.demo import router as demo_router
 from app.routes.practice import router as practice_router
 from app.routes.results import router as results_router
@@ -24,6 +25,7 @@ app.include_router(demo_router)
 app.include_router(tools_router)
 app.include_router(results_router)
 app.include_router(practice_router)
+app.include_router(assistant_router)
 
 
 @app.on_event("startup")
