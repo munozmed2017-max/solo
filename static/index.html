@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>own-practice</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <header>
+    <h1>own-practice &mdash; solo telemedicine back office</h1>
+    <div>
+      <button id="test-argon-btn" style="width:auto; display:inline-block; margin:0; padding:0.4rem 0.8rem;">Test Argon</button>
+      <span id="test-argon-result"></span>
+    </div>
+  </header>
+
+  <main>
+    <div>
+      <section class="panel">
+        <h2>New case</h2>
+        <label for="patient-select">Patient</label>
+        <select id="patient-select"></select>
+        <label for="reason-input">Reason for visit</label>
+        <input id="reason-input" type="text" placeholder="e.g. follow-up on blood pressure">
+        <label for="notes-input">Raw visit notes</label>
+        <textarea id="notes-input" placeholder="Physician's raw notes / patient message..."></textarea>
+        <button id="create-case-btn">Create case</button>
+      </section>
+
+      <section class="panel">
+        <h2>Cases</h2>
+        <ul class="case-list" id="case-list"></ul>
+      </section>
+
+      <section class="panel">
+        <h2>Agent builder</h2>
+        <p class="muted">Describe a new back-office task; gemini-4-argon drafts a prompt + model recommendation for it.</p>
+        <textarea id="agent-builder-input" placeholder="e.g. draft referral letters to specialists"></textarea>
+        <button id="agent-builder-btn" class="secondary">Draft agent</button>
+        <pre id="agent-builder-output" style="display:none;"></pre>
+      </section>
+    </div>
+
+    <div>
+      <section class="panel" id="case-detail">
+        <h2>Case detail</h2>
+        <p class="muted">Select a case on the left, or create one.</p>
+      </section>
+    </div>
+  </main>
+
+  <script src="/app.js"></script>
+</body>
+</html>
