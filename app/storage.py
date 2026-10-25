@@ -47,6 +47,7 @@ DEFAULT_PRACTICE = {
     "hours": "Mon-Fri 9am-5pm",
     "visit_fee": "$75",
     "booking_path": "/book",
+    "physician_name": "Dr. Jhonatan Munoz",
 }
 
 

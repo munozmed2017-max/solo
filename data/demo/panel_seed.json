@@ -19,7 +19,8 @@
       "spo2": "98%",
       "activity": "walks about 3 miles a day"
     },
-    "insurer": "Demo Health Plan"
+    "insurer": "Demo Health Plan",
+    "pharmacy": "CVS Pharmacy, 123 Main St"
   },
   {
     "name": "Jhonatan",

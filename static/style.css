@@ -197,6 +197,45 @@ ul.case-list li.active { background: #e4ecfb; }
   padding: 0.6rem;
 }
 
+.doc-text {
+  font-size: 0.88rem;
+  background: #fafbfc;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 0.6rem 0.8rem;
+}
+
+.doc-text h4, .doc-text h5, .doc-text h6 {
+  margin: 0.7rem 0 0.2rem;
+  font-size: 0.95rem;
+}
+
+.doc-text h4:first-child { margin-top: 0; }
+
+.doc-text p { margin: 0.4rem 0; }
+
+.doc-text ul, .doc-text ol {
+  margin: 0.3rem 0;
+  padding-left: 1.3rem;
+}
+
+.doc-text hr {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 0.6rem 0;
+}
+
+.verifier-catch {
+  background: #fef2f2;
+  border: 1px solid var(--bad);
+  border-radius: 4px;
+  padding: 0.5rem 0.7rem;
+  margin: 0.4rem 0;
+  font-size: 0.85rem;
+}
+
+.verifier-catch ul { margin: 0.3rem 0; padding-left: 1.2rem; }
+
 .step .review-row {
   display: flex;
   gap: 0.5rem;

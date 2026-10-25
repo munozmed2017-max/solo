@@ -18,6 +18,73 @@ function escapeHtml(text) {
   return div.innerHTML;
 }
 
+function inlineMd(s) {
+  let escaped = escapeHtml(s);
+  escaped = escaped.replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>");
+  escaped = escaped.replace(/(?<!\*)\*([^*]+)\*(?!\*)/g, "<em>$1</em>");
+  return escaped;
+}
+
+// Small hand-rolled renderer for the subset of markdown the agents produce
+// (headers as **bold** or #, bullet/numbered lists, --- rules). Not a full
+// markdown parser - just enough to stop showing raw ** to the physician.
+function renderMarkdown(text) {
+  if (!text) return "";
+  const lines = text.split("\n");
+  let html = "";
+  let listType = null;
+
+  function closeList() {
+    if (listType) {
+      html += `</${listType}>`;
+      listType = null;
+    }
+  }
+
+  for (const rawLine of lines) {
+    const line = rawLine.trimEnd();
+    if (/^\s*(---+|\*\*\*+)\s*$/.test(line)) {
+      closeList();
+      html += "<hr>";
+      continue;
+    }
+    const headingMatch = line.match(/^(#{1,6})\s+(.*)$/);
+    const boldHeadingMatch = !headingMatch && line.match(/^\*\*(.+?)\*\*:?\s*$/);
+    const bulletMatch = line.match(/^\s*[*-]\s+(.*)$/);
+    const numberedMatch = line.match(/^\s*\d+\.\s+(.*)$/);
+
+    if (headingMatch) {
+      closeList();
+      const level = Math.min(headingMatch[1].length + 2, 6);
+      html += `<h${level}>${inlineMd(headingMatch[2])}</h${level}>`;
+    } else if (boldHeadingMatch) {
+      closeList();
+      html += `<h4>${inlineMd(boldHeadingMatch[1])}</h4>`;
+    } else if (bulletMatch) {
+      if (listType !== "ul") {
+        closeList();
+        html += "<ul>";
+        listType = "ul";
+      }
+      html += `<li>${inlineMd(bulletMatch[1])}</li>`;
+    } else if (numberedMatch) {
+      if (listType !== "ol") {
+        closeList();
+        html += "<ol>";
+        listType = "ol";
+      }
+      html += `<li>${inlineMd(numberedMatch[1])}</li>`;
+    } else if (line.trim() === "") {
+      closeList();
+    } else {
+      closeList();
+      html += `<p>${inlineMd(line)}</p>`;
+    }
+  }
+  closeList();
+  return html;
+}
+
 const DOC_LABELS = {
   scribe: "Scribe note",
   prescription: "Prescription (SIMULATED FAX)",
@@ -112,7 +179,7 @@ async function openVisit(visitId) {
     <div class="two-col">
       <div>
         <h3>Intake summary</h3>
-        <pre>${escapeHtml(v.intake_summary || "(not generated yet)")}</pre>
+        <div class="doc-text">${renderMarkdown(v.intake_summary) || '<p class="muted">(not generated yet)</p>'}</div>
         ${recordsHtml}
       </div>
       <div>
@@ -169,9 +236,29 @@ function roundsBlock(rounds) {
                 .join("")}</ul>`
             : ""
         }
-        <pre>${escapeHtml(r.draft)}</pre>
+        <div class="doc-text">${renderMarkdown(r.draft)}</div>
       </details>`;
     })
+    .join("");
+}
+
+// Not collapsed - a rejected round needs to be visible without clicking
+// anything, so the verifier catching an error is obvious in the demo.
+function rejectedCallouts(rounds) {
+  const rejected = (rounds || []).filter((r) => !r.passed);
+  if (!rejected.length) return "";
+  return rejected
+    .map(
+      (r) => `
+    <div class="verifier-catch">
+      <strong>Verifier rejected round ${r.round}:</strong>
+      <ul>
+        ${(r.failures || [])
+          .map((f) => `<li><strong>"${escapeHtml(f.sentence)}"</strong> &mdash; ${escapeHtml(f.reason)}</li>`)
+          .join("")}
+      </ul>
+    </div>`
+    )
     .join("");
 }
 
@@ -186,9 +273,10 @@ function documentBlock(visitId, docType, doc) {
     <div class="step">
       <h3>${DOC_LABELS[docType] || docType} <span class="status-badge">${approval.status}</span></h3>
       <p>${resolvedBadge}</p>
-      <pre>${escapeHtml(doc.output)}</pre>
+      ${rejectedCallouts(rounds)}
+      <div class="doc-text">${renderMarkdown(doc.output)}</div>
       <details>
-        <summary>Verifier rounds (${rounds.length})</summary>
+        <summary>Full verifier log (${rounds.length} round${rounds.length === 1 ? "" : "s"})</summary>
         ${roundsBlock(rounds)}
       </details>
       <div class="review-row">
@@ -248,7 +336,7 @@ async function renderApprovals() {
                 (it) => `
         <div class="step">
           <h3>${escapeHtml(it.patient_name)} &mdash; ${DOC_LABELS[it.doc_type] || it.doc_type} <span class="status-badge">${it.status}</span></h3>
-          <pre>${escapeHtml(it.output)}</pre>
+          <div class="doc-text">${renderMarkdown(it.output)}</div>
           <div class="review-row">
             <button class="ok" onclick="decideDocument('${it.visit_id}','${it.doc_type}','approved')">Approve</button>
             <button onclick="editDocument('${it.visit_id}','${it.doc_type}')">Edit</button>

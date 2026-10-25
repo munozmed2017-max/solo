@@ -9,7 +9,7 @@ record - see storage.mark_document_sent.
 """
 
 from app.agents import emails, intake as intake_agent, prescription, scribe
-from app.agents.base import load_prompt
+from app.agents.base import load_prompt, patient_record_block, physician_block
 from app.models import call_model, model_for_role
 from app.storage import get_flags, log_activity, save_run_log, save_visit
 from app.verify import run_with_verification
@@ -23,16 +23,19 @@ PLANTED_ERROR_PATIENT = "margaret smith"
 
 
 def _patient_chart(visit: dict) -> str:
-    patient = visit["patient"]
+    """Ground truth handed to the verifier for every document type. Includes
+    the physician's plan and transcript verbatim, not just the chart, so the
+    strict no-invented-instructions rule has something concrete to check
+    against regardless of which document is being reviewed."""
     booking = visit["booking"]
     return (
-        "Patient chart on file (ground truth):\n"
-        f"Conditions: {', '.join(patient.get('conditions', [])) or 'none on file'}\n"
-        f"Current meds: {', '.join(patient.get('meds', [])) or 'none on file'}\n"
-        f"Labs on file: {patient.get('labs', [])}\n"
-        f"Vitals on file: {patient.get('vitals', {})}\n"
+        f"{patient_record_block(visit)}\n"
+        f"{physician_block()}\n"
         f"Reason given at booking: {booking.get('reason', '')}\n"
         f"Symptom screening at booking: {booking.get('symptoms', {})}\n"
+        f"Visit transcript (physician-provided, verbatim):\n{visit.get('transcript', '')}\n\n"
+        "Physician's plan (verbatim - the ONLY source for new instructions "
+        f"to the patient):\n{visit.get('physician_plan', '')}\n"
     )
 
 
