@@ -149,8 +149,9 @@ def _tool_draft_patient_email(args: dict) -> dict:
         ),
     )
     doc_key = "assistant_email"
+    output = interaction.output_text + f"\n\nJoin video visit: https://meet.jit.si/solo-{visit['id']} (demo video link)"
     visit["documents"][doc_key] = {
-        "output": interaction.output_text,
+        "output": output,
         "model": FAST,
         "thinking_level": "low",
         "resolved": True,

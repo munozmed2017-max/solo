@@ -77,6 +77,7 @@
     <h2>You're booked!</h2>
     <p id="confirm-text"></p>
     <p class="approved-yes" id="confirm-paid"></p>
+    <p><a id="confirm-video-link" href="#" target="_blank" rel="noopener">Join video visit</a> <span class="muted">(demo video link)</span></p>
   </section>
 
   <footer class="powered-by"><span class="brand-mark">S</span> Powered by Solo</footer>
@@ -222,6 +223,7 @@
         document.getElementById("confirm-text").textContent =
           `You're booked with ${physicianName} on ${currentVisit._label} (video visit). Visit fee: ${fee}.`;
         document.getElementById("confirm-paid").textContent = "Payment received (simulated).";
+        document.getElementById("confirm-video-link").href = `https://meet.jit.si/solo-${currentVisit.id}`;
         showStep("confirm-section");
       } catch (e) {
         errorEl.textContent = "Payment failed. Please try again.";

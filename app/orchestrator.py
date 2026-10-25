@@ -80,8 +80,11 @@ def approve_visit(visit: dict) -> dict:
                 msg = f"round {r['round']} on {module.ROLE}: rejected {len(r['failures'])} sentence(s)"
             log_activity("verifier agent", msg, visit_id=visit["id"])
 
+        output = result["output"]
+        if module.ROLE == "emails":
+            output += f"\n\nJoin video visit: https://meet.jit.si/solo-{visit['id']} (demo video link)"
         visit["documents"][module.ROLE] = {
-            "output": result["output"],
+            "output": output,
             "model": model_for_role(module.ROLE),
             "thinking_level": module.THINKING_LEVEL,
             "resolved": result["resolved"],

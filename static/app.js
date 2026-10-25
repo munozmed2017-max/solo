@@ -231,6 +231,7 @@ async function openVisit(visitId) {
         <label>Physician plan</label>
         <textarea id="plan-box" rows="4">${escapeHtml(v.physician_plan)}</textarea>
         <button id="save-transcript-btn">Save</button>
+        <button class="secondary" onclick="window.open('https://meet.jit.si/solo-${v.id}', '_blank')">Start video visit <span class="muted">(demo video link)</span></button>
         <button id="approve-visit-btn" ${canApprove ? "" : "disabled"}>Approve &amp; run pipeline</button>
       </div>
     </div>
