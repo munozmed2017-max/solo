@@ -245,6 +245,53 @@ time/cost premium - is the point being demonstrated.
 - Sending (fax/email) — simulated, flips a flag, nothing leaves the app.
 - No real e-prescribing or payer submission anywhere in this codebase.
 
+## Scheduling (`app/scheduling.py`)
+
+`available_slots()` parses the practice's free-text `hours` field (e.g.
+"Mon-Fri 9am-5pm") with a couple of regexes - it's not a real calendar
+system, just enough to generate 20-minute slots for the next 3 days,
+skip past times on today, and hide slots any existing visit already has
+as `appointment_time`. If the hours string doesn't parse, it silently
+falls back to Mon-Fri 9-5. `list_visits()` sorts scheduled visits by
+`appointment_time` ascending; unscheduled visits (anything not booked
+through the scheduling step, e.g. Margaret's demo case) sort after,
+newest first.
+
+## Simulated payment
+
+`POST /api/visits/{id}/pay` sets `payment_status` to `"paid
+(simulated)"` and logs the activity entry as **"billing agent"** - no
+real payment processor anywhere. `GET /api/earnings` sums `paid_amount`
+across visits with that status for the Practice setup page's earnings
+line. The booking page's checkout step has no card fields by design.
+
+## ngrok + start_demo.sh
+
+`GET /api/ngrok-url` reads ngrok's own local status API
+(`127.0.0.1:4040/api/tunnels`), not a guess - it only returns a URL when
+ngrok is actually running, so the Practice setup QR code is correct
+regardless of what URL the dashboard itself is being viewed from.
+`start_demo.sh` starts the server, ngrok, and `caffeinate -dims`
+together, waits for both the server and the tunnel to be ready, and
+prints the public link; Ctrl+C tears all three down via a trap. ngrok
+itself needs your own free account's authtoken
+(`./.bin/ngrok config add-authtoken <token>`, one-time) - there's no way
+around that, it's tied to your ngrok account, not something this repo
+can bundle.
+
+## Reset demo (`storage.reset_demo`)
+
+Clears every visit file except Margaret's demo case, which is restored
+from a fixed seed (`data/demo/margaret_visit_seed.json`) rather than
+regenerated live - regenerating would cost real API calls and a couple
+of minutes every time, and wouldn't be deterministic. Deliberately
+leaves the tools registry, results run, and practice settings alone;
+those aren't part of what "reset" means here. If you change Margaret's
+demo flow (prompts, pipeline, etc.) in a way that should be reflected in
+the reset state, regenerate the seed by booking + approving her visit
+again through the real pipeline and copying the resulting
+`data/visits/<id>.json` over `data/demo/margaret_visit_seed.json`.
+
 ## Running it
 
 ```
@@ -252,16 +299,20 @@ time/cost premium - is the point being demonstrated.
 ```
 
 Then open http://localhost:8000. `/test-argon` is a plain GET endpoint
-for a quick sanity check outside the UI.
+for a quick sanity check outside the UI. For a phone-reachable public
+link, use `./start_demo.sh` instead (see above).
 
 ## Build status (see PLAN.md for the order)
 
-1. ✅ Margaret's full visit flow with the verifier loop (Visits, Approval
-   queue, Activity log tabs are functional)
+1. ✅ Margaret's full visit flow with the verifier loop
 2. ✅ Agent builder (real Antigravity + gemini-4-argon, tested against the
-   synthetic 2,500-patient panel)
+   synthetic 2,500-patient panel, persists across restarts, live progress
+   from real step events)
 3. ✅ Results batch (10 synthetic cases x 3 doc types x 3 methods,
-   concurrent, with a real results table)
-4. ⬜ Practice setup and booking page (tabs exist as placeholders; visits
-   are currently created via `POST /api/booking` directly, not through a
-   built UI form)
+   concurrent, with a real results table + bar chart)
+4. ✅ Practice setup and booking page, including adaptive intake
+   questions, scheduling, simulated payment, ngrok-aware QR code, and a
+   Reset demo button
+
+All phases complete. Pushed to GitHub at
+https://github.com/munozmed2017-max/solo (public).
