@@ -34,6 +34,9 @@ ROLE_MODELS = {
 # 20 minutes, in milliseconds (google-genai HttpOptions.timeout is ms).
 HTTP_TIMEOUT_MS = 20 * 60 * 1000
 
+# Real managed agent used by agent_builder - not mocked. See AGENTS.md.
+ANTIGRAVITY_AGENT = "antigravity-preview-09-2026"
+
 
 @lru_cache(maxsize=1)
 def get_client() -> genai.Client:
@@ -58,6 +61,7 @@ def call_model(
     thinking_level: str = "medium",
     system_instruction: str | None = None,
     previous_interaction_id: str | None = None,
+    response_format: dict | None = None,
 ) -> genai.types.Interaction:
     """Run one Gemini interaction for the given back-office role.
 
@@ -73,6 +77,33 @@ def call_model(
     }
     if system_instruction:
         kwargs["system_instruction"] = system_instruction
+    if previous_interaction_id:
+        kwargs["previous_interaction_id"] = previous_interaction_id
+    if response_format:
+        kwargs["response_format"] = response_format
+    return client.interactions.create(**kwargs)
+
+
+def call_antigravity(
+    input_text: str,
+    model: str = LEAD,
+    max_total_tokens: int = 50_000,
+    environment_id: str | None = None,
+    previous_interaction_id: str | None = None,
+) -> genai.types.Interaction:
+    """Run a real Antigravity managed agent turn in a sandboxed Linux env.
+
+    Used by agent_builder - it actually writes and executes code, it does
+    not just draft text. `environment_id` reuses an existing sandbox
+    (continuing a build); omit it to provision a fresh one.
+    """
+    client = get_client()
+    kwargs = {
+        "agent": ANTIGRAVITY_AGENT,
+        "input": input_text,
+        "environment": environment_id or "remote",
+        "agent_config": {"type": "antigravity", "model": model, "max_total_tokens": max_total_tokens},
+    }
     if previous_interaction_id:
         kwargs["previous_interaction_id"] = previous_interaction_id
     return client.interactions.create(**kwargs)

@@ -45,20 +45,80 @@ agents), so flipping that switch is low-risk here.
 - `prior_auth` and `prescription` agents only **draft text for the
   physician to review and sign** — nothing is submitted to a pharmacy or
   payer. There is no e-prescribing or payer integration in this codebase.
-- `verifier` **flags risks, it does not block** the pipeline. It always
-  runs last among the drafting steps so it can review the prescription and
-  prior-auth drafts too.
-- `agent_builder` does **not** call `client.agents.create()` in v1. It
-  drafts a new prompt + model/thinking_level recommendation as text; a
-  human copies it into a new `prompts/*.md` file and a new
-  `app.models.ROLE_MODELS` entry by hand.
+
+## Verification loop (`app/verify.py`) — blocking, not advisory
+
+The verifier **blocks and loops**, it does not just flag risks. For every
+drafting step (intake, scribe, prescription, prior_auth, emails):
+
+1. The agent drafts the document.
+2. `verifier.check()` (gemini-4-argon, `thinking_level=high`, forced JSON
+   via `response_format`) checks it sentence-by-sentence against ground
+   truth (patient chart + raw notes + whatever upstream context that
+   agent was given) and returns `{passed, failures: [{sentence, reason}]}`.
+3. If `passed` is false, the *same* document, plus the exact failing
+   sentences and reasons, goes back to the *same* agent to rewrite
+   (`app.verify._revise`).
+4. Repeat from step 2. **Up to 3 rounds total.** If round 3 still fails,
+   the loop stops and the step is marked `resolved: false` — the case
+   gets `needs_manual_review: true` and the UI flags it so the physician
+   reviews it by hand instead of the loop running forever.
+
+Every round (draft text + verifier verdict) is kept on
+`step["verification_rounds"]` in the case JSON and shown in the UI under
+each step's "Verification log" — nothing from the loop is discarded, even
+on a run that never resolves.
+
+This roughly tripled real API calls and wall-clock time per case run
+compared to a single flag-only verifier pass (worst case: 5 documents ×
+up to 3 drafts + 3 verifies each). That's the deliberate tradeoff for
+having the verifier actually gate output instead of just annotating it.
+
+## Agent builder (`app/agents/agent_builder.py`) — real, not mocked
+
+`agent_builder` calls the **real Antigravity managed agent**
+(`antigravity-preview-09-2026`) with `agent_config={"type": "antigravity",
+"model": "gemini-4-argon"}` and `environment="remote"` — a real sandboxed
+Linux VM that writes code, executes it, and iterates until its own test
+passes, via `app.models.call_antigravity`. This is a real paid API call
+(Google's docs cite roughly $0.30–$3+ per run depending on task size) and
+can take one to a few minutes. It is **not** wired into the automated
+case pipeline — it's a standalone tool invoked from the UI/`/api/agent-
+builder`, for building new tools, not for running cases.
+
+Not yet wired up (explicit scope cut, not a mock): pulling the actual
+files (`tool.py`, `test_*.py`) back out of the sandbox via the Files API
+download endpoint. Right now you get the agent's narrated final report
+(which includes the code inline), not a downloaded file. The
+`environment_id`/`interaction_id` returned from the call are enough to
+continue that same sandbox in a follow-up call if you want to add that
+later.
+
+## What's still mocked in this project
+
+- **`tools/clinical.py`** — `check_drug_interactions`,
+  `check_insurance_formulary`, `schedule_followup` are stubs with
+  fake/deterministic-hash data, not real integrations (no real pharmacy,
+  formulary, or payer API, no real calendar). Agents call them as plain
+  Python functions, not as Gemini function-calling tools.
+- **`data/demo/panel_seed.json`** — synthetic patients, not real ones.
+- **Prescription/prior-auth submission** — drafts only, nothing is ever
+  actually sent to a pharmacy or payer (this is a deliberate safety
+  boundary, not a cut corner — see above).
+- **Antigravity file retrieval** — see above; the sandbox really runs,
+  but its files aren't auto-downloaded yet.
+
+`agent_builder` is the only thing that was mocked and has now been made
+real per explicit instruction. Everything else above is an intentional
+v1 scope boundary, not something pretending to be real.
 
 ## Pipeline order (`app/orchestrator.py`)
 
-`intake -> scribe -> prescription -> prior_auth -> verifier -> emails`.
-Prescription comes before prior_auth deliberately: prior-auth needs a
-specific medication to check against the formulary, which doesn't exist
-until the prescription step has drafted one.
+`intake -> scribe -> prescription -> prior_auth -> emails`, each wrapped
+in the verify-and-revise loop above. Prescription comes before prior_auth
+deliberately: prior-auth needs a specific medication to check against the
+formulary, which doesn't exist until the prescription step has drafted
+one.
 
 ## Storage (`app/storage.py`)
 

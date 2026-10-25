@@ -34,7 +34,7 @@
 
       <section class="panel">
         <h2>Agent builder</h2>
-        <p class="muted">Describe a new back-office task; gemini-4-argon drafts a prompt + model recommendation for it.</p>
+        <p class="muted">Describe a new back-office task. This spins up a real Antigravity sandbox running gemini-4-argon, which writes a tool and actually executes it to test it &mdash; not a mock. Costs real API usage and can take a minute or two.</p>
         <textarea id="agent-builder-input" placeholder="e.g. draft referral letters to specialists"></textarea>
         <button id="agent-builder-btn" class="secondary">Draft agent</button>
         <pre id="agent-builder-output" style="display:none;"></pre>

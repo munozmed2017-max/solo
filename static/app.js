@@ -41,6 +41,26 @@ async function loadCases() {
   });
 }
 
+function roundsBlock(rounds) {
+  return (rounds || [])
+    .map((r) => {
+      const failures = r.failures || [];
+      return `
+      <details ${r.passed ? "" : "open"}>
+        <summary>Round ${r.round}: ${r.passed ? "passed" : "failed"} (${failures.length} issue${failures.length === 1 ? "" : "s"})</summary>
+        ${
+          failures.length
+            ? `<ul>${failures
+                .map((f) => `<li><strong>${escapeHtml(f.sentence)}</strong> &mdash; ${escapeHtml(f.reason)}</li>`)
+                .join("")}</ul>`
+            : ""
+        }
+        <pre>${escapeHtml(r.draft)}</pre>
+      </details>`;
+    })
+    .join("");
+}
+
 function stepBlock(caseId, step, index) {
   const approved =
     step.approved === true
@@ -48,10 +68,19 @@ function stepBlock(caseId, step, index) {
       : step.approved === false
       ? '<span class="approved-no">rejected</span>'
       : '<span class="muted">not reviewed</span>';
+  const rounds = step.verification_rounds || [];
+  const resolvedBadge = step.resolved
+    ? `<span class="approved-yes">verifier passed (round ${rounds.length})</span>`
+    : '<span class="approved-no">verifier did NOT pass after 3 rounds &mdash; needs manual review</span>';
   return `
     <div class="step">
       <h3>${step.agent} <small>${step.model} / thinking: ${step.thinking_level}</small></h3>
+      <p>${resolvedBadge}</p>
       <pre>${escapeHtml(step.output)}</pre>
+      <details>
+        <summary>Verification log (${rounds.length} round${rounds.length === 1 ? "" : "s"})</summary>
+        ${roundsBlock(rounds)}
+      </details>
       <div class="review-row">
         ${approved}
         <button class="ok" style="width:auto" onclick="reviewStep('${caseId}', ${index}, true)">Approve</button>
@@ -71,10 +100,14 @@ async function openCase(caseId) {
   await loadCases();
   const c = await api(`/api/cases/${caseId}`);
   const detail = document.getElementById("case-detail");
+  const reviewBanner = c.needs_manual_review
+    ? '<p class="approved-no">One or more steps never passed verification after 3 rounds &mdash; review those steps before acting on this case.</p>'
+    : "";
   detail.innerHTML = `
     <h2>Case detail</h2>
     <p><strong>${c.patient.name}</strong> &mdash; ${c.reason} <span class="status-badge">${c.status}</span></p>
     <p class="muted">Raw notes: ${escapeHtml(c.notes)}</p>
+    ${reviewBanner}
     <button id="run-pipeline-btn">Run back-office pipeline</button>
     <div id="steps">${c.steps.map((s, i) => stepBlock(c.id, s, i)).join("") || '<p class="muted">No steps run yet.</p>'}</div>
   `;
@@ -126,13 +159,14 @@ document.getElementById("agent-builder-btn").addEventListener("click", async () 
   if (!description) return;
   const out = document.getElementById("agent-builder-output");
   out.style.display = "block";
-  out.textContent = "Drafting...";
+  out.textContent =
+    "Spinning up a real Antigravity sandbox with gemini-4-argon to write and test this... can take a minute or two, uses real API usage.";
   try {
     const res = await api("/api/agent-builder", {
       method: "POST",
       body: JSON.stringify({ description }),
     });
-    out.textContent = res.draft;
+    out.textContent = `[status: ${res.status}] environment: ${res.environment_id}\n\n${res.output}`;
   } catch (e) {
     out.textContent = "Failed: " + e.message;
   }

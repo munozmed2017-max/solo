@@ -103,4 +103,4 @@ def api_review_step(case_id: str, step_index: int, review: StepReview):
 
 @router.post("/agent-builder")
 def api_agent_builder(req: AgentBuilderRequest):
-    return {"draft": agent_builder_run(req.description)}
+    return agent_builder_run(req.description)
