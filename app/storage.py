@@ -236,13 +236,46 @@ def list_tools() -> list[dict]:
     return json.loads(TOOLS_REGISTRY_FILE.read_text())
 
 
-def add_tool(tool: dict) -> dict:
+def start_tool_build(description: str) -> dict:
+    """Create a tool record immediately, before the (possibly minutes-long)
+    build finishes, so the UI can poll it for live progress and it's
+    already on disk if the server restarts mid-build."""
     TOOLS_DIR.mkdir(parents=True, exist_ok=True)
     tools = list_tools()
-    tool = {"id": _new_id("tool"), "created_at": now_iso(), **tool}
+    tool = {
+        "id": _new_id("tool"),
+        "created_at": now_iso(),
+        "description": description,
+        "status": "in_progress",
+        "progress_label": "Starting sandbox...",
+        "tests_passed": None,
+        "final_count": None,
+        "true_count": None,
+        "count_matches": None,
+        "output": None,
+        "environment_id": None,
+        "interaction_id": None,
+    }
     tools.insert(0, tool)
     TOOLS_REGISTRY_FILE.write_text(json.dumps(tools, indent=2))
     return tool
+
+
+def get_tool(tool_id: str) -> dict | None:
+    for t in list_tools():
+        if t["id"] == tool_id:
+            return t
+    return None
+
+
+def update_tool(tool_id: str, patch: dict) -> dict:
+    tools = list_tools()
+    for t in tools:
+        if t["id"] == tool_id:
+            t.update(patch)
+            TOOLS_REGISTRY_FILE.write_text(json.dumps(tools, indent=2))
+            return t
+    raise ValueError("tool not found")
 
 
 # ---------- Activity log ----------

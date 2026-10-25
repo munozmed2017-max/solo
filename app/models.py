@@ -106,3 +106,53 @@ def call_antigravity(
     if previous_interaction_id:
         kwargs["previous_interaction_id"] = previous_interaction_id
     return client.interactions.create(**kwargs)
+
+
+def call_antigravity_background(
+    input_text: str,
+    model: str = LEAD,
+    max_total_tokens: int = 50_000,
+    environment_id: str | None = None,
+    previous_interaction_id: str | None = None,
+) -> genai.types.Interaction:
+    """Same as call_antigravity but returns immediately (background=True) so
+    the caller can poll get_interaction() for live status/progress instead
+    of blocking the request thread for minutes."""
+    client = get_client()
+    kwargs = {
+        "agent": ANTIGRAVITY_AGENT,
+        "input": input_text,
+        "environment": environment_id or "remote",
+        "agent_config": {"type": "antigravity", "model": model, "max_total_tokens": max_total_tokens},
+        "background": True,
+    }
+    if previous_interaction_id:
+        kwargs["previous_interaction_id"] = previous_interaction_id
+    return client.interactions.create(**kwargs)
+
+
+def get_interaction(interaction_id: str) -> genai.types.Interaction:
+    return get_client().interactions.get(interaction_id)
+
+
+def call_antigravity_stream(
+    input_text: str,
+    model: str = LEAD,
+    max_total_tokens: int = 50_000,
+    environment_id: str | None = None,
+    previous_interaction_id: str | None = None,
+):
+    """Streaming variant - yields step.start/step.delta/... events in real
+    time so a caller can report genuine progress instead of a fake
+    spinner. See app.agents.agent_builder for the consumer."""
+    client = get_client()
+    kwargs = {
+        "agent": ANTIGRAVITY_AGENT,
+        "input": input_text,
+        "environment": environment_id or "remote",
+        "agent_config": {"type": "antigravity", "model": model, "max_total_tokens": max_total_tokens},
+        "stream": True,
+    }
+    if previous_interaction_id:
+        kwargs["previous_interaction_id"] = previous_interaction_id
+    return client.interactions.create(**kwargs)

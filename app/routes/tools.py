@@ -1,7 +1,7 @@
-from fastapi import APIRouter
+from fastapi import APIRouter, HTTPException
 from pydantic import BaseModel
 
-from app.agents.agent_builder import run as agent_builder_run
+from app.agents.agent_builder import poll_build, start_build
 from app.storage import list_tools, log_activity
 
 router = APIRouter(prefix="/api")
@@ -16,13 +16,15 @@ def api_list_tools():
     return list_tools()
 
 
-@router.post("/tools/build")
-def api_build_tool(req: ToolRequest):
+@router.post("/tools/build/start")
+def api_start_build(req: ToolRequest):
     log_activity("agent builder", "building and testing a new tool via Antigravity", detail=req.description)
-    tool = agent_builder_run(req.description)
-    log_activity(
-        "agent builder",
-        "tool build finished",
-        detail=f"tests_passed={tool['tests_passed']} final_count={tool['final_count']}",
-    )
-    return tool
+    return start_build(req.description)
+
+
+@router.get("/tools/{tool_id}/status")
+def api_poll_build(tool_id: str):
+    try:
+        return poll_build(tool_id)
+    except ValueError as e:
+        raise HTTPException(status_code=404, detail=str(e))

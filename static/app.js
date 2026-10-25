@@ -1,4 +1,5 @@
-const state = { currentTab: "visits", activeVisitId: null };
+const state = { currentTab: "visits", activeVisitId: null, activeBuildToolId: null };
+let buildPollTimer = null;
 
 async function api(path, opts) {
   const res = await fetch(path, {
@@ -388,6 +389,13 @@ async function renderActivity() {
 // ---------- Agent builder ----------
 
 function toolCard(tool) {
+  if (tool.status === "in_progress") {
+    return `
+      <div class="step">
+        <h3>${escapeHtml(tool.description)} <span class="status-badge">in progress</span></h3>
+        <p class="muted">${escapeHtml(tool.progress_label || "Working...")}</p>
+      </div>`;
+  }
   const passedBadge =
     tool.tests_passed === true
       ? '<span class="approved-yes">tests passed</span>'
@@ -443,16 +451,45 @@ async function renderAgentBuilder() {
     const btn = document.getElementById("build-tool-btn");
     const status = document.getElementById("build-tool-status");
     btn.disabled = true;
-    status.textContent = "Antigravity is writing and testing the tool against the 2,500-patient panel... this can take several minutes.";
+    status.textContent = "Starting sandbox...";
     try {
-      await api("/api/tools/build", { method: "POST", body: JSON.stringify({ description }) });
-      status.textContent = "";
-      render();
+      const tool = await api("/api/tools/build/start", {
+        method: "POST",
+        body: JSON.stringify({ description }),
+      });
+      state.activeBuildToolId = tool.id;
+      pollToolBuild(tool.id);
     } catch (e) {
       status.textContent = "Build failed: " + e.message;
       btn.disabled = false;
     }
   });
+  if (state.activeBuildToolId) {
+    pollToolBuild(state.activeBuildToolId);
+  }
+}
+
+function pollToolBuild(toolId) {
+  if (buildPollTimer) clearInterval(buildPollTimer);
+  buildPollTimer = setInterval(async () => {
+    try {
+      const tool = await api(`/api/tools/${toolId}/status`);
+      const status = document.getElementById("build-tool-status");
+      if (status) status.textContent = tool.progress_label || tool.status;
+      if (tool.status !== "in_progress") {
+        clearInterval(buildPollTimer);
+        buildPollTimer = null;
+        state.activeBuildToolId = null;
+        if (state.currentTab === "agent-builder") render();
+      }
+    } catch (e) {
+      clearInterval(buildPollTimer);
+      buildPollTimer = null;
+      state.activeBuildToolId = null;
+      const status = document.getElementById("build-tool-status");
+      if (status) status.textContent = "Build failed: " + e.message;
+    }
+  }, 3000);
 }
 
 function renderResultsPlaceholder() {
